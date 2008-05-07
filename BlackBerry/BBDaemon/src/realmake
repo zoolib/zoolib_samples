@@ -1,0 +1,77 @@
+TARGET_NAME := BBDaemon
+
+PATHS := \
+	$(PROJECT_DIR) \
+	$(ZOOLIB_CXX_DIR)/zoolib \
+	$(ZOOLIB_CXX_DIR)/zoolib/_default_config \
+\
+
+
+SOURCES := \
+	BBDaemon_Main.cpp \
+\
+	ZBlackBerry.cpp \
+	ZBlackBerry_BBDevMgr.cpp \
+	ZBlackBerry_OSXUSB.cpp \
+	ZBlackBerry_Streamer.cpp \
+	ZBlackBerryCOM.cpp \
+	ZBlackBerryServer.cpp \
+	ZUSB_OSX.cpp \
+	ZCommer.cpp \
+	ZStreamCopier.cpp \
+	ZStreamReader.cpp \
+	ZStreamWriter.cpp \
+	ZStream_SHA1.cpp \
+	ZStream_Limited.cpp \
+	ZUtil_Strim_Data.cpp \
+	ZUtil_Debug.cpp \
+\
+	ZAtomic.cpp \
+	ZByteSwap.cpp \
+	ZCompare.cpp \
+	ZDebug.cpp \
+	ZDebug_Win.cpp \
+	ZLog.cpp \
+	ZMain.cpp \
+	ZMemory.cpp \
+	ZMemoryBlock.cpp \
+	ZNet.cpp \
+	ZNet_Internet.cpp \
+	ZNet_Internet_Socket.cpp \
+	ZNet_Internet_WinSock.cpp \
+	ZRefCount.cpp \
+	ZServer.cpp \
+	ZStdIO.cpp \
+	ZStream.cpp \
+	ZStream_HexStrim.cpp \
+	ZStream_Memory.cpp \
+	ZStream_POSIX.cpp \
+	ZStreamer.cpp \
+	ZStrim.cpp \
+	ZStrimR_Boundary.cpp \
+	ZStrimW_Escapify.cpp \
+	ZStrim_CRLF.cpp \
+	ZStrim_Stream.cpp \
+	ZString.cpp \
+	ZTextCoder.cpp \
+	ZTextCoder_Unicode.cpp \
+	ZTextCollator.cpp \
+	ZTextCollator_ASCII.cpp \
+	ZThread.cpp \
+	ZTicks.cpp \
+	ZTime.cpp \
+	ZTName.cpp \
+	ZTuple.cpp \
+	ZTypes.cpp \
+	ZUnicode.cpp \
+	ZUtil_Strim.cpp \
+	ZUtil_Strim_Tuple.cpp \
+	ZUtil_Time.cpp \
+	ZUtil_Win.cpp \
+
+LIBS :=
+LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
+LIBS += $(call ifplatform, Linux, stdc++ pthread c)
+LIBS += $(call ifplatform, Win, wsock32 ole32 uuid)
+
+FRAMEWORKS := IOKit CoreFoundation
