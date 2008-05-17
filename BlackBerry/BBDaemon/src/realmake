@@ -58,7 +58,6 @@ SOURCES := \
 	ZTextCollator.cpp \
 	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
-	ZTicks.cpp \
 	ZTime.cpp \
 	ZTName.cpp \
 	ZTuple.cpp \
@@ -75,3 +74,5 @@ LIBS += $(call ifplatform, Linux, stdc++ pthread c)
 LIBS += $(call ifplatform, Win, wsock32 ole32 uuid)
 
 FRAMEWORKS := IOKit CoreFoundation
+
+ZMAKE_CFLAGS += -DZCONFIG_SPI_Desired__Carbon=0

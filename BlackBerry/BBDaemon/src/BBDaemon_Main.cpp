@@ -32,7 +32,7 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "ZBlackBerry_OSXUSB.h"
 #include "ZBlackBerryServer.h"
 
-#if ZCONFIG(OS, MacOSX)
+#if ZCONFIG_SPI_Enabled(MacOSX)
 #	include <CoreFoundation/CFRunLoop.h>
 #endif
 
@@ -51,10 +51,9 @@ static void sHandler(void* iRefcon, ZRef<ZStreamerRWCon> iSRWCon)
 
 int ZMain(int argc, char **argv)
 	{
-	#if ZCONFIG(OS, Win32)
+	#if ZCONFIG_SPI_Enabled(Win)
 		// Get COM initialized ASAP.
 		::CoInitializeEx(NULL, COINIT_MULTITHREADED);
-//		::CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
 	#endif
 
 	// Install the standard debugging gear.
@@ -67,7 +66,7 @@ int ZMain(int argc, char **argv)
 		(new ZStreamerW_T<ZStreamW_FILE>(stdout));
 	ZUtil_Debug::sSetStrimmer(theStrimmerW);
 
-	ZUtil_Debug::sSetLogPriority(ZLog::ePriority_Debug);
+	ZUtil_Debug::sSetLogPriority(ZLog::ePriority_Debug + 2);
 
 
 	if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
@@ -75,12 +74,11 @@ int ZMain(int argc, char **argv)
 
 	ZRef<ZBlackBerry::Manager> theManager;
 
-	#if ZCONFIG(OS, MacOSX)
+	#if ZCONFIG_SPI_Enabled(MacOSX)
 
 		// On Mac we instantiate a Manager that talks directly to USB.
 		theManager = new ZBlackBerry::Manager_OSXUSB;
-
-	#elif ZCONFIG(OS, Win32)
+	#elif ZCONFIG_SPI_Enabled(Win)
 
 		// On Windows the Manager talks to the BBDevMgr COM server.
 		theManager = new ZBlackBerry::Manager_BBDevMgr;
@@ -96,13 +94,13 @@ int ZMain(int argc, char **argv)
 		ZServer_Callback theNLServer(sHandler, &theBlackBerryServer);
 		theNLServer.StartWaitingForConnections(theListener);
 
-		#if ZCONFIG(OS, MacOSX)
+		#if ZCONFIG_SPI_Enabled(MacOSX)
 
 			// The USB notification mechanism is handled by
 			// callbacks made from a RunLoop.
 			::CFRunLoopRun();
 
-		#elif ZCONFIG(OS, Win32)
+		#elif ZCONFIG_SPI_Enabled(Win)
 
 			// Because we're running in an MTA we don't *need* to run a message
 			// loop, but that may not always be the case.

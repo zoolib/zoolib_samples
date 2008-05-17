@@ -5,10 +5,6 @@
 
 #include "zconfigd.h"
 
-#if __MACH__
-#	define ZCONFIG_OS ZCONFIG_OS_MacOSX
-#endif
-
 #include "zconfigl.h"
 
 #endif // __zconfig__

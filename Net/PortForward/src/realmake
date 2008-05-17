@@ -40,7 +40,6 @@ SOURCES := \
 	ZTextCollator.cpp \
 	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
-	ZTicks.cpp \
 	ZTime.cpp \
 	ZTName.cpp \
 	ZTuple.cpp \
@@ -55,3 +54,5 @@ LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
 LIBS += $(call ifplatform, Linux, stdc++ pthread c)
 LIBS += $(call ifplatform, Win, wsock32)
+
+ZMAKE_CFLAGS = -DZCONFIG_SPI_Desired__Carbon=0
