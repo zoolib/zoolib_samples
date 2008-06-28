@@ -18,19 +18,19 @@ OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------------------------- */
 
-#include "ZLog.h"
-#include "ZMain.h"
-#include "ZNet_Internet.h"
-#include "ZServer.h"
-#include "ZStdIO.h"
-#include "ZStream_POSIX.h"
-#include "ZStrim_Stream.h"
-#include "ZStrimmer_Streamer.h"
-#include "ZUtil_Debug.h"
+#include "zoolib/ZLog.h"
+#include "zoolib/ZMain.h"
+#include "zoolib/ZNet_Internet.h"
+#include "zoolib/ZServer.h"
+#include "zoolib/ZStdIO.h"
+#include "zoolib/ZStream_POSIX.h"
+#include "zoolib/ZStrim_Stream.h"
+#include "zoolib/ZStrimmer_Streamer.h"
+#include "zoolib/ZUtil_Debug.h"
 
-#include "ZBlackBerry_BBDevMgr.h"
-#include "ZBlackBerry_OSXUSB.h"
-#include "ZBlackBerryServer.h"
+#include "zoolib/ZBlackBerry_BBDevMgr.h"
+#include "zoolib/ZBlackBerry_OSXUSB.h"
+#include "zoolib/ZBlackBerryServer.h"
 
 #if ZCONFIG_SPI_Enabled(MacOSX)
 #	include <CoreFoundation/CFRunLoop.h>

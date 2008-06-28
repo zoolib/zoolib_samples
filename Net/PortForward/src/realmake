@@ -1,10 +1,12 @@
 TARGET_NAME := PortForward
 
-PATHS := \
+SOURCE_PATHS := \
 	$(PROJECT_DIR) \
-	$(ZOOLIB_CXX_DIR)/zoolib \
-	$(ZOOLIB_CXX_DIR)/zoolib/_default_config \
-\
+	$(ZOOLIB_STANDARD_SOURCE_PATHS)
+
+HEADER_PATHS := \
+	$(PROJECT_DIR) \
+	$(ZOOLIB_STANDARD_HEADER_PATHS)
 
 SOURCES := \
 	PortForward.cpp \

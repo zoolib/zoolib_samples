@@ -3,9 +3,9 @@
 #ifndef __zconfig__
 #define __zconfig__ 1
 
-#include "zconfigd.h"
+#include "zoolib/zconfigd.h"
 
-#include "zconfigl.h"
+#include "zoolib/zconfigl.h"
 
 #ifndef MAC_OS_X_VERSION_MIN_REQUIRED
 #	define MAC_OS_X_VERSION_MIN_REQUIRED MAC_OS_X_VERSION_10_2

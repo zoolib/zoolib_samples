@@ -18,12 +18,12 @@ OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------------------------- */
 
-#include "ZNet_Internet.h"
-#include "ZServer.h"
-#include "ZStdIO.h"
-#include "ZThreadSimple.h"
-#include "ZTuple.h"
-#include "ZUtil_Strim_Tuple.h"
+#include "zoolib/ZNet_Internet.h"
+#include "zoolib/ZServer.h"
+#include "zoolib/ZStdIO.h"
+#include "zoolib/ZThreadSimple.h"
+#include "zoolib/ZTuple.h"
+#include "zoolib/ZUtil_Strim_Tuple.h"
 
 const ZStrimW& serr = ZStdIO::strim_err;
 const ZStrimW& sout = ZStdIO::strim_out;
