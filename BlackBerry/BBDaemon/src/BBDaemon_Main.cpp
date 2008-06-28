@@ -74,11 +74,12 @@ int ZMain(int argc, char **argv)
 
 	ZRef<ZBlackBerry::Manager> theManager;
 
-	#if ZCONFIG_SPI_Enabled(MacOSX)
+	#if ZCONFIG_API_Enabled(BlackBerry_OSXUSB)
 
 		// On Mac we instantiate a Manager that talks directly to USB.
-		theManager = new ZBlackBerry::Manager_OSXUSB;
-	#elif ZCONFIG_SPI_Enabled(Win)
+		theManager = new ZBlackBerry::Manager_OSXUSB(true);
+
+	#elif ZCONFIG_API_Enabled(BlackBerry_BBDevMgr)
 
 		// On Windows the Manager talks to the BBDevMgr COM server.
 		theManager = new ZBlackBerry::Manager_BBDevMgr;
@@ -120,7 +121,6 @@ int ZMain(int argc, char **argv)
 			// we won't get here.
 			for (;;)
 				ZThread::sSleep(1000);
-
 
 		#endif
 		}
