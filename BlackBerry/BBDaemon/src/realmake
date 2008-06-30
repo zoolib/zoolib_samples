@@ -18,13 +18,13 @@ SOURCES := \
 	ZBlackBerry_Streamer.cpp \
 	ZBlackBerryCOM.cpp \
 	ZBlackBerryServer.cpp \
-	ZUSB_OSX.cpp \
 	ZCommer.cpp \
 	ZStreamCopier.cpp \
 	ZStreamReader.cpp \
 	ZStreamWriter.cpp \
 	ZStream_SHA1.cpp \
 	ZStream_Limited.cpp \
+	ZUSB_OSX.cpp \
 	ZUtil_Strim_Data.cpp \
 	ZUtil_Debug.cpp \
 \
