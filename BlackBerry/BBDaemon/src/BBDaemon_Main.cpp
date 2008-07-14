@@ -69,7 +69,7 @@ int ZMain(int argc, char **argv)
 	ZUtil_Debug::sSetLogPriority(ZLog::ePriority_Debug + 2);
 
 
-	if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
+	if (ZLOG(s, eInfo, "ZMain"))
 		s.Writef("Starting");
 
 	ZRef<ZBlackBerry::Manager> theManager;
