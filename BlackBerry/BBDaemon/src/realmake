@@ -73,7 +73,7 @@ SOURCES := \
 LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
 LIBS += $(call ifplatform, Linux, stdc++ pthread c)
-LIBS += $(call ifplatform, Win, wsock32 ole32 uuid)
+LIBS += $(call ifplatform, Win, wsock32 ole32 oleaut32 uuid)
 
 FRAMEWORKS := IOKit CoreFoundation
 
