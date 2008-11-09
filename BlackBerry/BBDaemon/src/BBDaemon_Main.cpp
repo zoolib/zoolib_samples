@@ -21,6 +21,7 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "zoolib/ZLog.h"
 #include "zoolib/ZMain.h"
 #include "zoolib/ZNet_Internet.h"
+#include "zoolib/ZNet_Local.h"
 #include "zoolib/ZServer.h"
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZStream_POSIX.h"
@@ -66,7 +67,7 @@ int ZMain(int argc, char **argv)
 		(new ZStreamerW_T<ZStreamW_FILE>(stdout));
 	ZUtil_Debug::sSetStrimmer(theStrimmerW);
 
-	ZUtil_Debug::sSetLogPriority(ZLog::ePriority_Debug + 2);
+	ZUtil_Debug::sSetLogPriority(ZLog::ePriority_Debug + 3);
 
 
 	if (ZLOG(s, eInfo, "ZMain"))
@@ -87,48 +88,49 @@ int ZMain(int argc, char **argv)
 	#endif
 
 
+	ZBlackBerryServer theBlackBerryServer(theManager);
+
 	// Start listening on TCP port 17983
-	if (ZRef<ZNetListener> theListener = ZNetListener_TCP::sCreateListener(17983, 5))
-		{
-		ZBlackBerryServer theBlackBerryServer(theManager);
-		
-		ZServer_Callback theNLServer(sHandler, &theBlackBerryServer);
-		theNLServer.StartWaitingForConnections(theListener);
+	ZRef<ZNetListener> theListener_TCP = ZNetListener_TCP::sCreate(17983, 5);
+	ZRef<ZNetListener> theListener_Local = ZNetListener_Local::sCreate("/tmp/org.zoolib.BlackBerryDaemon", 5);
 
-		#if ZCONFIG_SPI_Enabled(MacOSX)
+	ZServer_Callback theServer_TCP(sHandler, &theBlackBerryServer);
+	if (theListener_TCP)
+		theServer_TCP.StartWaitingForConnections(theListener_TCP);
 
-			// The USB notification mechanism is handled by
-			// callbacks made from a RunLoop.
-			::CFRunLoopRun();
+	ZServer_Callback theServer_Local(sHandler, &theBlackBerryServer);
+	if (theListener_Local)
+		theServer_Local.StartWaitingForConnections(theListener_Local);
 
-		#elif ZCONFIG_SPI_Enabled(Win)
 
-			// Because we're running in an MTA we don't *need* to run a message
-			// loop, but that may not always be the case.
-			while (true)
-				{
-				MSG theMSG;
-				if (::GetMessageW(&theMSG, nil, 0, 0) == 0)
-					break;
+	#if ZCONFIG_SPI_Enabled(MacOSX)
 
-				::DispatchMessageW(&theMSG);
-				}
+		// The USB notification mechanism is handled by
+		// callbacks made from a RunLoop.
+		::CFRunLoopRun();
 
-		#else
+	#elif ZCONFIG_SPI_Enabled(Win)
 
-			// On other platforms just quietly wait -- actually we don't have a
-			// Manager for anything other than OSX or Windows right now, so
-			// we won't get here.
-			for (;;)
-				ZThread::sSleep(1000);
+		// Because we're running in an MTA we don't *need* to run a message
+		// loop, but that may not always be the case.
+		while (true)
+			{
+			MSG theMSG;
+			if (::GetMessageW(&theMSG, nil, 0, 0) == 0)
+				break;
 
-		#endif
-		}
-	else
-		{
-		serr << "Couldn't open port 17983";
-		return 1;
-		}
+			::DispatchMessageW(&theMSG);
+			}
+
+	#else
+
+		// On other platforms just quietly wait -- actually we don't have a
+		// Manager for anything other than OSX or Windows right now, so
+		// we won't get here.
+		for (;;)
+			ZThread::sSleep(1000);
+
+	#endif
 	
 	return 0;
 	}

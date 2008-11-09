@@ -38,9 +38,12 @@ SOURCES := \
 	ZMemory.cpp \
 	ZMemoryBlock.cpp \
 	ZNet.cpp \
+	ZNet_Local.cpp \
+	ZNet_Local_Socket.cpp \
 	ZNet_Internet.cpp \
 	ZNet_Internet_Socket.cpp \
 	ZNet_Internet_WinSock.cpp \
+	ZNet_Socket.cpp \
 	ZRefCount.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
@@ -69,6 +72,8 @@ SOURCES := \
 	ZUtil_Strim_Tuple.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
+	ZYAD.cpp \
+	ZYAD_ZooLib.cpp \
 
 LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
