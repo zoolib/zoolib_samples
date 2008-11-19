@@ -72,8 +72,8 @@ SOURCES := \
 	ZUtil_Strim_Tuple.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
-	ZYAD.cpp \
-	ZYAD_ZooLib.cpp \
+	ZYad.cpp \
+	ZYad_ZooLibStrim.cpp \
 
 LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
