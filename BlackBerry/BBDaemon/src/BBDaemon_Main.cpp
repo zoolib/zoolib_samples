@@ -18,6 +18,8 @@ OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------------------------- */
 
+#include "zoolib/ZCommandLine.h"
+#include "zoolib/ZFile.h"
 #include "zoolib/ZLog.h"
 #include "zoolib/ZMain.h"
 #include "zoolib/ZNet_Internet.h"
@@ -37,8 +39,49 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #	include <CoreFoundation/CFRunLoop.h>
 #endif
 
-const ZStrimW& serr = ZStdIO::strim_err;
-const ZStrimW& sout = ZStdIO::strim_out;
+using std::string;
+
+// =================================================================================================
+#pragma mark -
+#pragma mark * CommandLine
+
+namespace ZANONYMOUS {
+class CommandLine : public ZCommandLine
+	{
+public:
+	Boolean fHelp;
+	Int64 fLogPriority;
+	String fLogFile;
+
+	CommandLine()
+	:	fHelp("--help", "Print this message and exit", false),
+		fLogPriority("-p", "Priority below which log messages should be discarded", 5),
+		fLogFile("--logfile", "Log: name of file to write log messages to", "-")
+		{}
+	};
+} // anonymous namespace
+
+// =================================================================================================
+#pragma mark -
+#pragma mark * Helper functions
+
+static ZRef<ZStreamerW> sOpenStreamer(const string& iPath)
+	{
+	if (iPath == "-")
+		{
+		return new ZStreamerW_T<ZStreamW_FILE>(stdout);
+		}
+	else
+		{
+		if (ZRef<ZStreamerWPos> theStreamerWPos = ZFileSpec(iPath).CreateWPos(true, false))
+			{
+			const ZStreamWPos& theStreamWPos = theStreamerWPos->GetStreamWPos();
+			theStreamWPos.SetPosition(theStreamWPos.GetSize());
+			return theStreamerWPos;
+			}
+		}
+	return ZRef<ZStreamerW>();
+	}
 
 // =================================================================================================
 #pragma mark -
@@ -52,6 +95,8 @@ static void sHandler(void* iRefcon, ZRef<ZStreamerRWCon> iSRWCon)
 
 int ZMain(int argc, char **argv)
 	{
+	const ZStrimW& serr = ZStdIO::strim_err;
+
 	#if ZCONFIG_SPI_Enabled(Win)
 		// Get COM initialized ASAP.
 		::CoInitializeEx(NULL, COINIT_MULTITHREADED);
@@ -60,15 +105,33 @@ int ZMain(int argc, char **argv)
 	// Install the standard debugging gear.
 	ZUtil_Debug::sInstall();
 
-	// And set up the strimmer to which log messages will be written, in this
-	// case we're just dumping to stdout.
-	ZRef<ZStrimmerW> theStrimmerW
-	 	= new ZStrimmerW_Streamer_T<ZStrimW_StreamUTF8>
-		(new ZStreamerW_T<ZStreamW_FILE>(stdout));
-	ZUtil_Debug::sSetStrimmer(theStrimmerW);
+	CommandLine cmd;
+	if (!cmd.Parse(serr, argc, argv) && !cmd.fHelp())
+		{
+		serr << "Usage: " << argv[0] << " " << cmd << "\n";
+		for (size_t x = 0; x < argc; ++x)
+			{
+			serr.Writef("%d: ", x);
+			serr << argv[x];
+			serr << "\n";
+			}
+		return 1;
+		}
 
-	ZUtil_Debug::sSetLogPriority(ZLog::ePriority_Debug + 3);
+	if (cmd.fHelp())
+		{
+		cmd.WriteUsageExtended(serr);
+		return 0;
+		}
 
+
+	ZUtil_Debug::sSetLogPriority(cmd.fLogPriority());
+
+	if (ZRef<ZStreamerW> theStreamerW = sOpenStreamer(cmd.fLogFile()))
+		{
+		ZRef<ZStrimmerW> theStrimmerW = new ZStrimmerW_Streamer_T<ZStrimW_StreamUTF8>(theStreamerW);
+		ZUtil_Debug::sSetStrimmer(theStrimmerW);
+		}
 
 	if (ZLOG(s, eInfo, "ZMain"))
 		s.Writef("Starting");

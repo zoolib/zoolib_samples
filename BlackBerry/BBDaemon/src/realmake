@@ -30,9 +30,13 @@ SOURCES := \
 \
 	ZAtomic.cpp \
 	ZByteSwap.cpp \
+	ZCommandLine.cpp \
 	ZCompare.cpp \
 	ZDebug.cpp \
 	ZDebug_Win.cpp \
+	ZFile.cpp \
+	ZFile_POSIX.cpp \
+	ZFile_Win.cpp \
 	ZLog.cpp \
 	ZMain.cpp \
 	ZMemory.cpp \
@@ -48,6 +52,7 @@ SOURCES := \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
+	ZStream_Filter.cpp \
 	ZStream_HexStrim.cpp \
 	ZStream_Memory.cpp \
 	ZStream_POSIX.cpp \
@@ -63,8 +68,12 @@ SOURCES := \
 	ZTextCollator.cpp \
 	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
+	ZThreadImp.cpp \
+	ZThreadImp_pthread.cpp \
+	ZThreadImp_Win.cpp \
 	ZTime.cpp \
 	ZTName.cpp \
+	ZTrail.cpp \
 	ZTuple.cpp \
 	ZTypes.cpp \
 	ZUnicode.cpp \
@@ -73,6 +82,7 @@ SOURCES := \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
 	ZYad.cpp \
+	ZYad_ZooLib.cpp \
 	ZYad_ZooLibStrim.cpp \
 
 LIBS :=
