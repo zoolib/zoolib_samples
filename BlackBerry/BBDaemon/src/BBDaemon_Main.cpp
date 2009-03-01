@@ -122,6 +122,7 @@ int ZMain(int argc, char **argv)
 
 	if (cmd.fHelp())
 		{
+		serr << "org.zoolib.BBDaemon, (c) 2009 Andrew Green\n";
 		cmd.WriteUsageExtended(serr);
 		return 0;
 		}
@@ -143,7 +144,7 @@ int ZMain(int argc, char **argv)
 	#if ZCONFIG_API_Enabled(BlackBerry_OSXUSB)
 
 		// On Mac we instantiate a Manager that talks directly to USB.
-		theManager = new ZBlackBerry::Manager_OSXUSB(true);
+		theManager = new ZBlackBerry::Manager_OSXUSB(::CFRunLoopGetCurrent(), true);
 
 	#elif ZCONFIG_API_Enabled(BlackBerry_BBDevMgr)
 
@@ -155,9 +156,15 @@ int ZMain(int argc, char **argv)
 
 	ZBlackBerryServer theBlackBerryServer(theManager);
 
-	// Start listening on TCP port 17983
-	ZRef<ZNetListener> theListener_TCP = ZNetListener_TCP::sCreate(17983, 5);
-	ZRef<ZNetListener> theListener_Local = ZNetListener_Local::sCreate("/tmp/org.zoolib.BlackBerryDaemon", 5);
+	ZRef<ZNetListener> theListener_Local, theListener_TCP;
+
+	#if ZCONFIG_SPI_Enabled(MacOSX)
+		// Listen on domain socket
+		theListener_Local = ZNetListener_Local::sCreate("/tmp/org.zoolib.BlackBerryDaemon", 5);
+	#else
+		// Start listening on TCP port 17983
+		theListener_TCP = ZNetListener_TCP::sCreate(17983, 5);
+	#endif
 
 	ZServer_Callback theServer_TCP(sHandler, &theBlackBerryServer);
 	if (theListener_TCP)

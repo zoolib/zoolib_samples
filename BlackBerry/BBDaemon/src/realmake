@@ -12,25 +12,16 @@ HEADER_PATHS := \
 SOURCES := \
 	BBDaemon_Main.cpp \
 \
+	ZAtomic.cpp \
 	ZBlackBerry.cpp \
 	ZBlackBerry_BBDevMgr.cpp \
 	ZBlackBerry_OSXUSB.cpp \
 	ZBlackBerry_Streamer.cpp \
 	ZBlackBerryCOM.cpp \
 	ZBlackBerryServer.cpp \
-	ZCommer.cpp \
-	ZStreamCopier.cpp \
-	ZStreamReader.cpp \
-	ZStreamWriter.cpp \
-	ZStream_SHA1.cpp \
-	ZStream_Limited.cpp \
-	ZUSB_OSX.cpp \
-	ZUtil_Strim_Data.cpp \
-	ZUtil_Debug.cpp \
-\
-	ZAtomic.cpp \
 	ZByteSwap.cpp \
 	ZCommandLine.cpp \
+	ZCommer.cpp \
 	ZCompare.cpp \
 	ZDebug.cpp \
 	ZDebug_Win.cpp \
@@ -48,25 +39,27 @@ SOURCES := \
 	ZNet_Internet_Socket.cpp \
 	ZNet_Internet_WinSock.cpp \
 	ZNet_Socket.cpp \
+	ZRefCFType.cpp \
 	ZRefCount.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
 	ZStream_Filter.cpp \
 	ZStream_HexStrim.cpp \
+	ZStream_Limited.cpp \
 	ZStream_Memory.cpp \
 	ZStream_POSIX.cpp \
+	ZStream_SHA1.cpp \
 	ZStreamer.cpp \
+	ZStreamCopier.cpp \
+	ZStreamReader.cpp \
+	ZStreamWriter.cpp \
 	ZStrim.cpp \
 	ZStrimR_Boundary.cpp \
 	ZStrimW_Escapify.cpp \
 	ZStrim_CRLF.cpp \
 	ZStrim_Stream.cpp \
 	ZString.cpp \
-	ZTextCoder.cpp \
-	ZTextCoder_Unicode.cpp \
-	ZTextCollator.cpp \
-	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
 	ZThreadImp.cpp \
 	ZThreadImp_pthread.cpp \
@@ -77,10 +70,14 @@ SOURCES := \
 	ZTuple.cpp \
 	ZTypes.cpp \
 	ZUnicode.cpp \
+	ZUSB_OSX.cpp \
+	ZUtil_Debug.cpp \
 	ZUtil_Strim.cpp \
+	ZUtil_Strim_Data.cpp \
 	ZUtil_Strim_Tuple.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
+	ZWinCOM.cpp \
 	ZYad.cpp \
 	ZYad_ZooLib.cpp \
 	ZYad_ZooLibStrim.cpp \
@@ -91,5 +88,3 @@ LIBS += $(call ifplatform, Linux, stdc++ pthread c)
 LIBS += $(call ifplatform, Win, wsock32 ole32 oleaut32 uuid)
 
 FRAMEWORKS := IOKit CoreFoundation
-
-ZMAKE_CFLAGS += -DZCONFIG_SPI_Desired__Carbon=0
