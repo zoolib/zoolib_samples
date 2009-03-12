@@ -1,1 +1,17 @@
-<pkmkdoc spec="1.12"><properties><title>ZooLib BBDaemon</title><build>/share/deskag/zoolibsvn/trunk/zoolib_samples/BlackBerry/BBDaemon-OSXPackage/ZooLib BBDaemon.mpkg</build><organization>org.zoolib</organization><userSees ui="easy"/><min-target os="2"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><description>A daemon that allows multiple applications simultaneously to access USB-connected BlackBerry® devices</description><contents><choice title="ZooLib BBDaemon" id="choice16" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="org.zoolib.BBDaemonlaunch.pkg"/><pkgref id="org.zoolib.BBDaemon.pkg"/></choice></contents><resources bg-scale="none" bg-align="topleft"><locale lang="en"/></resources><flags/><item type="file">01org.xml</item><item type="file">02org.xml</item><mod>properties.title</mod><mod>description</mod><mod>properties.anywhereDomain</mod><mod>properties.systemDomain</mod></pkmkdoc>
+<pkmkdoc spec="1.12"><properties><title>ZooLib BBDaemon</title><build>/share/deskag/zoolibsvn/trunk/zoolib_samples/BlackBerry/BBDaemon/osxpackage/ZooLib BBDaemon.mpkg</build><organization>org.zoolib</organization><userSees ui="easy"/><min-target os="2"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><description>A daemon that allows multiple applications simultaneously to access USB-connected BlackBerry® devices</description><contents><choice title="ZooLib BBDaemon" id="choice16" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="org.zoolib.BBDaemonlaunch.pkg"/><pkgref id="org.zoolib.BBDaemon.pkg"/></choice></contents><resources bg-scale="none" bg-align="topleft"><locale lang="en"><resource mime-type="text/rtf" kind="embedded" type="welcome"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf330
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red19\green0\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs26 \cf0 The ZooLib BBDaemon lets one or more USB-connected BlackBerrys talk to multiple Mac applications simultaneously.\
+\
+If you'd like to use both \'91Missing Sync for BlackBerry\'92 and \'91iMobimac Modem\'92, this is what you need.\
+\
+If you're already using \'91PocketMac for BlackBerry\'92, or \'91BlackBerry Media Sync\'92 then you\'92ll need to uninstall them for BBDaemon to function.\
+\
+BBDaemon is Open Sourced under the MIT license.\
+\
+You can build this installer and BBDaemon by fetching revision 501 from the ZooLib Subversion repository at\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf2 \ul \ulc2 http://zoolib.svn.sourceforge.net/svnroot/zoolib\cf0 \ulnone \
+}]]></resource></locale></resources><flags/><item type="file">01org.xml</item><item type="file">02org.xml</item><mod>properties.title</mod><mod>description</mod><mod>properties.anywhereDomain</mod><mod>properties.systemDomain</mod></pkmkdoc>
