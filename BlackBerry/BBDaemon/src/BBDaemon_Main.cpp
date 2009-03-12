@@ -57,8 +57,8 @@ public:
 
 	CommandLine()
 	:	fHelp("--help", "Print this message and exit", false),
-		fLogPriority("-p", "Priority below which log messages should be discarded", 5),
-		fLogFile("--logfile", "Log: name of file to write log messages to", "-")
+		fLogPriority("-p", "Priority below which log messages are discarded", 5),
+		fLogFile("--logfile", "File to which log messages are written", "-")
 		{}
 	};
 } // anonymous namespace
@@ -122,7 +122,7 @@ int ZMain(int argc, char **argv)
 
 	if (cmd.fHelp())
 		{
-		serr << "org.zoolib.BBDaemon, (c) 2009 Andrew Green\n";
+		serr << "org.zoolib.BBDaemon, 2009-03-12\n(c) 2009 Andrew Green\n";
 		cmd.WriteUsageExtended(serr);
 		return 0;
 		}
