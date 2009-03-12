@@ -33,11 +33,11 @@ SOURCES := \
 	ZMemory.cpp \
 	ZMemoryBlock.cpp \
 	ZNet.cpp \
-	ZNet_Local.cpp \
-	ZNet_Local_Socket.cpp \
 	ZNet_Internet.cpp \
 	ZNet_Internet_Socket.cpp \
 	ZNet_Internet_WinSock.cpp \
+	ZNet_Local.cpp \
+	ZNet_Local_Socket.cpp \
 	ZNet_Socket.cpp \
 	ZRefCFType.cpp \
 	ZRefCount.cpp \
@@ -45,19 +45,16 @@ SOURCES := \
 	ZStdIO.cpp \
 	ZStream.cpp \
 	ZStream_Filter.cpp \
-	ZStream_HexStrim.cpp \
 	ZStream_Limited.cpp \
 	ZStream_Memory.cpp \
 	ZStream_POSIX.cpp \
 	ZStream_SHA1.cpp \
-	ZStreamer.cpp \
+	ZStreamW_HexStrim.cpp \
 	ZStreamCopier.cpp \
+	ZStreamer.cpp \
 	ZStreamReader.cpp \
 	ZStreamWriter.cpp \
 	ZStrim.cpp \
-	ZStrimR_Boundary.cpp \
-	ZStrimW_Escapify.cpp \
-	ZStrim_CRLF.cpp \
 	ZStrim_Stream.cpp \
 	ZString.cpp \
 	ZThread.cpp \
@@ -65,22 +62,15 @@ SOURCES := \
 	ZThreadImp_pthread.cpp \
 	ZThreadImp_Win.cpp \
 	ZTime.cpp \
-	ZTName.cpp \
 	ZTrail.cpp \
-	ZTuple.cpp \
 	ZTypes.cpp \
 	ZUnicode.cpp \
 	ZUSB_OSX.cpp \
 	ZUtil_Debug.cpp \
-	ZUtil_Strim.cpp \
 	ZUtil_Strim_Data.cpp \
-	ZUtil_Strim_Tuple.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
 	ZWinCOM.cpp \
-	ZYad.cpp \
-	ZYad_ZooLib.cpp \
-	ZYad_ZooLibStrim.cpp \
 
 LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)

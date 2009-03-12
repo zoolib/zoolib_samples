@@ -56,7 +56,7 @@ public:
 	String fLogFile;
 
 	CommandLine()
-	:	fHelp("--help", "Print this message and exit", false),
+	:	fHelp("--help", "Print this message and exit"),
 		fLogPriority("-p", "Priority below which log messages are discarded", 5),
 		fLogFile("--logfile", "File to which log messages are written", "-")
 		{}
@@ -153,6 +153,8 @@ int ZMain(int argc, char **argv)
 
 	#endif
 
+	if (!theManager)
+		return 1;
 
 	ZBlackBerryServer theBlackBerryServer(theManager);
 
