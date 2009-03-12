@@ -23,7 +23,14 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZThreadSimple.h"
 #include "zoolib/ZTuple.h"
-#include "zoolib/ZUtil_Strim_Tuple.h"
+#include "zoolib/ZYad_ZooLib.h"
+#include "zoolib/ZYad_ZooLibStrim.h"
+
+NAMESPACE_ZOOLIB_USING
+
+using std::pair;
+using std::string;
+using std::vector;
 
 const ZStrimW& serr = ZStdIO::strim_err;
 const ZStrimW& sout = ZStdIO::strim_out;
@@ -128,10 +135,11 @@ int ZMain(int argc, char **argv)
 	ZTValue theTValue;
 	try
 		{
-		if (!ZUtil_Strim_Tuple::sFromStrim(ZStrimU_String8(argv[1]), theTValue))
-			{
+		ZStrimU_String8 theStrimU(argv[1]);
+		if (ZRef<ZYadR> theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimU))
+			theTValue = ZYad_ZooLib::sFromYadR(theYadR);
+		else
 			serr << "No param\n";
-			}
 		}
 	catch (...)
 		{

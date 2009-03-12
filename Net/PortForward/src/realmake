@@ -16,6 +16,7 @@ SOURCES := \
 	ZCompare.cpp \
 	ZDebug.cpp \
 	ZDebug_Win.cpp \
+	ZLog.cpp \
 	ZMain.cpp \
 	ZMemory.cpp \
 	ZMemoryBlock.cpp \
@@ -23,13 +24,14 @@ SOURCES := \
 	ZNet_Internet.cpp \
 	ZNet_Internet_Socket.cpp \
 	ZNet_Internet_WinSock.cpp \
+	ZNet_Socket.cpp \
 	ZRefCount.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
-	ZStream_HexStrim.cpp \
 	ZStream_Memory.cpp \
 	ZStream_POSIX.cpp \
+	ZStreamR_HexStrim.cpp \
 	ZStreamer.cpp \
 	ZStrim.cpp \
 	ZStrimR_Boundary.cpp \
@@ -42,15 +44,21 @@ SOURCES := \
 	ZTextCollator.cpp \
 	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
+	ZThreadImp.cpp \
+	ZThreadImp_pthread.cpp \
+	ZThreadImp_Win.cpp \
 	ZTime.cpp \
 	ZTName.cpp \
 	ZTuple.cpp \
 	ZTypes.cpp \
 	ZUnicode.cpp \
 	ZUtil_Strim.cpp \
-	ZUtil_Strim_Tuple.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
+	ZYad.cpp \
+	ZYad_Std.cpp \
+	ZYad_ZooLib.cpp \
+	ZYad_ZooLibStrim.cpp \
 
 LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
