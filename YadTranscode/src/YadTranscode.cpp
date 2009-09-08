@@ -20,10 +20,13 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "zoolib/ZCommandLine.h"
 #include "zoolib/ZFile.h"
+#include "zoolib/ZLog.h"
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZStream_Buffered.h"
 #include "zoolib/ZStream_POSIX.h"
 #include "zoolib/ZStrim_Stream.h"
+#include "zoolib/ZStrimmer_Streamer.h"
+#include "zoolib/ZStrimU_Unreader.h"
 #include "zoolib/ZStrimW_ML.h"
 #include "zoolib/ZYad_Bencode.h"
 #include "zoolib/ZYad_JSON.h"
@@ -57,9 +60,9 @@ public:
 	CommandLine()
 	:	fHelp("--help", "Print this message and exit"),
 		fIF("--if", "Input file", "-"),
-		fIT("--it", "Input type (bencode|json|ml|xmlplist|zstream|zstrim|zstreamtuple)", "xmlplist"),
+		fIT("--it", "Input type (bencode|json|ml|xmlplist|zstream|zstreamtuple|zstrim)", "xmlplist"),
 		fOF("--of", "Output file", "-"),
-		fOT("--ot", "Output type (json|xmlplist|zstrim|zstream)", "xmlplist")
+		fOT("--ot", "Output type (json|xmlplist|zstream|zstrim)", "xmlplist")
 		{}
 	};
 } // anonymous namespace
@@ -96,44 +99,6 @@ static ZRef<ZStreamerR> sOpenStreamerR(const string& iPath)
 			return theStreamerR;
 		}
 	return ZRef<ZStreamerR>();
-	}
-
-typedef void (*Writer_t)(const ZStreamW& iStreamW, ZRef<ZYadR> iYadR, const ZYadOptions& iOptions);
-
-static void sWriteZooLibStrim(const ZStreamW& iStreamW, ZRef<ZYadR> iYadR, const ZYadOptions& iOptions)
-	{
-	ZYad_ZooLibStrim::sToStrim(ZStrimW_StreamUTF8(iStreamW), iYadR, 0, iOptions);
-	}
-
-static void sWriteZooLibStream(const ZStreamW& iStreamW, ZRef<ZYadR> iYadR, const ZYadOptions& iOptions)
-	{
-	ZYad_ZooLibStream::sToStream(iStreamW, iYadR);
-	}
-
-static void sWriteJSON(const ZStreamW& iStreamW, ZRef<ZYadR> iYadR, const ZYadOptions& iOptions)
-	{
-	ZYad_JSON::sToStrim(ZStrimW_StreamUTF8(iStreamW), iYadR, 0, iOptions);
-	}
-
-static void sWriteXMLPList(const ZStreamW& iStreamW, ZRef<ZYadR> iYadR, const ZYadOptions& iOptions)
-	{
-	ZStrimW_StreamUTF8 theStrimW(iStreamW);
-	ZStrimW_ML theStrimW_ML(theStrimW);
-
-	theStrimW_ML.PI("xml");
-		theStrimW_ML.Attr("version", "1.0");
-		theStrimW_ML.Attr("encoding", "UTF-8");
-
-	theStrimW_ML.Tag("!DOCTYPE");
-		theStrimW_ML.Attr("plist");
-		theStrimW_ML.Attr("PUBLIC");
-		theStrimW_ML.Attr("\"-//Apple Computer//DTD PLIST 1.0//EN\"");
-		theStrimW_ML.Attr("\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"");
-
-	theStrimW_ML.Tag("plist");
-		theStrimW_ML.Attr("version", "1.0");
-
-	ZYad_XMLPList::sToStrimW_ML(theStrimW_ML, iYadR);
 	}
 
 // =================================================================================================
@@ -176,73 +141,52 @@ int ZMain(int argc, char **argv)
 		return 1;
 		}
 
-	Writer_t theWriter;
-
-	ZYadOptions theOptions(true);
-	if (false)
-		{}
-	else if (cmd.fOT() == "zstrim")
-		{
-		theWriter = sWriteZooLibStrim;
-		}
-	else if (cmd.fOT() == "zstream")
-		{
-		theWriter = sWriteZooLibStream;
-		}
-	else if (cmd.fOT() == "json")
-		{
-		theWriter = sWriteJSON;
-		}
-	else if (cmd.fOT() == "xmlplist")
-		{
-		theWriter = sWriteXMLPList;
-		}
-	else
-		{
-		serr << "Couldn't handle output format\n";
-		return 1;
-		}
+	ZRef<ZYadR> theYadR;
 
 	try
 		{
-		const ZStreamR& theStreamR = theStreamerR->GetStreamR();
-		ZStreamR_Buffered theStreamR_Buffered(1*1024, theStreamR);
-		ZStreamU_Unreader theStreamU(theStreamR_Buffered);
-		ZStrimR_StreamUTF8 theStrimR(theStreamR_Buffered);
-		ZStrimU_Unreader theStrimU(theStrimR);
-		ZStreamW_Buffered theStreamW(1*1024, theStreamerW->GetStreamW());
-		ZYadOptions theYadOptions(true);
+		ZRef<ZStreamerR> theStreamerR_Buffered = new ZStreamerR_Buffered(4096, theStreamerR);
+
+		ZRef<ZStreamerU> theStreamerU_Unreader =
+			new ZStreamerU_FT<ZStreamU_Unreader>(theStreamerR_Buffered);
+		
+		ZRef<ZStrimmerR> theStrimmerR_StreamUTF8 =
+			new ZStrimmerR_Streamer_T<ZStrimR_StreamUTF8>(theStreamerR_Buffered);
+
+		ZRef<ZStrimmerU> theStrimmerU_Unreader =
+			new ZStrimmerU_FT<ZStrimU_Unreader>(theStrimmerR_StreamUTF8);
+
+		ZRef<ZML::StrimmerU> theStrimmerU_ML = new ZML::StrimmerU(theStrimmerU_Unreader);
+
 		if (false)
 			{}
 		else if (cmd.fIT() == "zstrim")
 			{
-			theWriter(theStreamW, ZYad_ZooLibStrim::sMakeYadR(theStrimU), theYadOptions);
+			theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimmerU_Unreader);
 			}
 		else if (cmd.fIT() == "zstream")
 			{
-			theWriter(theStreamW, ZYad_ZooLibStream::sMakeYadR(theStreamR_Buffered), theYadOptions);
+			theYadR = ZYad_ZooLibStream::sMakeYadR(theStreamerR_Buffered);
 			}
 		else if (cmd.fIT() == "zstreamtuple")
 			{
-			theWriter(theStreamW, new ZYadMapR_ZooLibStreamOld(theStreamR_Buffered), theYadOptions);
+			theYadR = new ZYadMapR_ZooLibStreamOld(theStreamerR_Buffered);
 			}
 		else if (cmd.fIT() == "bencode")
 			{
-			theWriter(theStreamW, ZYad_Bencode::sMakeYadR(theStreamU), theYadOptions);
+			theYadR = ZYad_Bencode::sMakeYadR(theStreamerU_Unreader);
 			}
 		else if (cmd.fIT() == "json")
 			{
-			theWriter(theStreamW, ZYad_JSON::sMakeYadR(theStrimU), theYadOptions);
+			theYadR = ZYad_JSON::sMakeYadR(theStrimmerU_Unreader);
 			}
 		else if (cmd.fIT() == "xmlplist")
 			{
-			ZML::Reader theReader(theStrimU);
-			theWriter(theStreamW, ZYad_XMLPList::sMakeYadR(theReader), theYadOptions);
+			theYadR = ZYad_XMLPList::sMakeYadR(theStrimmerU_ML);
 			}
 		else if (cmd.fIT() == "ml")
 			{
-			ZML::Reader theReader(theStrimU);
-			theWriter(theStreamW, new ZYadMapR_ML(theReader), theYadOptions);
+			theYadR = new ZYadMapR_ML(theStrimmerU_ML);
 			}
 		else
 			{
@@ -255,6 +199,54 @@ int ZMain(int argc, char **argv)
 		serr << "\nCaught exception: " << ex.what() << "\n";
 		return 1;
 		}
+
+	ZYadOptions theYadOptions(true);
+
+	ZStreamW_Buffered theStreamW(1*1024, theStreamerW->GetStreamW());
+//	const ZStreamW& theStreamW(theStreamerW->GetStreamW());
+
+	if (false)
+		{}
+	else if (cmd.fOT() == "zstrim")
+		{
+		ZYad_ZooLibStrim::sToStrim(0, theYadOptions,
+			theYadR, ZStrimW_StreamUTF8(theStreamW));
+		}
+	else if (cmd.fOT() == "zstream")
+		{
+		ZYad_ZooLibStream::sToStream(theStreamW, theYadR);
+		}
+	else if (cmd.fOT() == "json")
+		{
+		ZYad_JSON::sToStrim(0, theYadOptions,
+			theYadR, ZStrimW_StreamUTF8(theStreamW));
+		}
+	else if (cmd.fOT() == "xmlplist")
+		{
+		ZStrimW_StreamUTF8 theStrimW(theStreamW);
+		ZStrimW_ML theStrimW_ML(theStrimW);
+
+		theStrimW_ML.PI("xml");
+			theStrimW_ML.Attr("version", "1.0");
+			theStrimW_ML.Attr("encoding", "UTF-8");
+
+		theStrimW_ML.Tag("!DOCTYPE");
+			theStrimW_ML.Attr("plist");
+			theStrimW_ML.Attr("PUBLIC");
+			theStrimW_ML.Attr("\"-//Apple Computer//DTD PLIST 1.0//EN\"");
+			theStrimW_ML.Attr("\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"");
+
+		theStrimW_ML.Tag("plist");
+			theStrimW_ML.Attr("version", "1.0");
+
+		ZYad_XMLPList::sToStrim(theYadR, theStrimW_ML);
+		}
+	else
+		{
+		serr << "Couldn't handle output format\n";
+		return 1;
+		}
+
 	sout << "\n";
 	return 0;
 	}

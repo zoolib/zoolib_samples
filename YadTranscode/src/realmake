@@ -11,20 +11,20 @@ HEADER_PATHS := \
 SOURCES := \
 	YadTranscode.cpp \
 \
+	ZAny.cpp \
 	ZAtomic.cpp \
 	ZByteSwap.cpp \
 	ZCommandLine.cpp \
 	ZCompare.cpp \
+	ZData_Any.cpp \
 	ZDebug.cpp \
-	ZDebug_Win.cpp \
 	ZFile.cpp \
 	ZFile_POSIX.cpp \
 	ZFile_Win.cpp \
 	ZMain.cpp \
 	ZMemory.cpp \
-	ZMemoryBlock.cpp \
 	ZML.cpp \
-	ZRefCount.cpp \
+	ZRef_Counted.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
@@ -42,16 +42,11 @@ SOURCES := \
 	ZStrimR_Boundary.cpp \
 	ZStrim_CRLF.cpp \
 	ZStrim_Stream.cpp \
-	ZStrimW_ML.cpp \
+	ZStrimU_Unreader.cpp \
 	ZStrimmer.cpp \
 	ZString.cpp \
-	ZTextCoder.cpp \
-	ZTextCoder_Unicode.cpp \
-	ZTextCollator.cpp \
-	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
-	ZThreadImp.cpp \
-	ZThreadImp_pthread.cpp \
+	ZThread_pthread.cpp \
 	ZTime.cpp \
 	ZTName.cpp \
 	ZTrail.cpp \
@@ -61,14 +56,16 @@ SOURCES := \
 	ZUtil_Strim.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
+	ZVal_Any.cpp \
+	ZVal_ZooLib.cpp \
 	ZYad.cpp \
 	ZYad_Bencode.cpp \
 	ZYad_FS.cpp \
 	ZYad_JSON.cpp \
 	ZYad_ML.cpp \
 	ZYad_Std.cpp \
-	ZYad_StdMore.cpp \
 	ZYad_XMLPList.cpp \
+	ZYad_Any.cpp \
 	ZYad_ZooLib.cpp \
 	ZYad_ZooLibStream.cpp \
 	ZYad_ZooLibStrim.cpp \
