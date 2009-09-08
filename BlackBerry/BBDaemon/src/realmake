@@ -2,16 +2,18 @@ TARGET_NAME := BBDaemon
 
 SOURCE_PATHS := \
 	$(PROJECT_DIR) \
-	$(ZOOLIB_STANDARD_SOURCE_PATHS)
+	$(ZOOLIB_STANDARD_SOURCE_PATHS) \
+	$(ZOOLIB_CXX_DIR)/more/zoolib/blackberry
 
 HEADER_PATHS := \
 	$(PROJECT_DIR) \
-	$(ZOOLIB_STANDARD_HEADER_PATHS)
-
+	$(ZOOLIB_STANDARD_HEADER_PATHS) \
+	$(ZOOLIB_CXX_DIR)/more
 
 SOURCES := \
 	BBDaemon_Main.cpp \
 \
+	ZAny.cpp \
 	ZAtomic.cpp \
 	ZBlackBerry.cpp \
 	ZBlackBerry_BBDevMgr.cpp \
@@ -23,15 +25,14 @@ SOURCES := \
 	ZCommandLine.cpp \
 	ZCommer.cpp \
 	ZCompare.cpp \
+	ZData_Any.cpp \
 	ZDebug.cpp \
-	ZDebug_Win.cpp \
 	ZFile.cpp \
 	ZFile_POSIX.cpp \
 	ZFile_Win.cpp \
 	ZLog.cpp \
 	ZMain.cpp \
 	ZMemory.cpp \
-	ZMemoryBlock.cpp \
 	ZNet.cpp \
 	ZNet_Internet.cpp \
 	ZNet_Internet_Socket.cpp \
@@ -39,8 +40,9 @@ SOURCES := \
 	ZNet_Local.cpp \
 	ZNet_Local_Socket.cpp \
 	ZNet_Socket.cpp \
-	ZRefCFType.cpp \
-	ZRefCount.cpp \
+	ZRef_Counted.cpp \
+	ZRef_CFType.cpp \
+	ZRefWeak.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
@@ -50,27 +52,32 @@ SOURCES := \
 	ZStream_POSIX.cpp \
 	ZStream_SHA1.cpp \
 	ZStreamW_HexStrim.cpp \
-	ZStreamCopier.cpp \
 	ZStreamer.cpp \
-	ZStreamReader.cpp \
-	ZStreamWriter.cpp \
+	ZStreamerCopier.cpp \
+	ZStreamerListener.cpp \
+	ZStreamerReader.cpp \
+	ZStreamerWriter.cpp \
 	ZStrim.cpp \
 	ZStrim_Stream.cpp \
 	ZString.cpp \
+	ZTask.cpp \
 	ZThread.cpp \
-	ZThreadImp.cpp \
-	ZThreadImp_pthread.cpp \
-	ZThreadImp_Win.cpp \
+	ZThread_pthread.cpp \
+	ZThread_Win.cpp \
+	ZThreadOld.cpp \
 	ZTime.cpp \
 	ZTrail.cpp \
 	ZTypes.cpp \
 	ZUnicode.cpp \
 	ZUSB_OSX.cpp \
+	ZUtil_CFType.cpp \
 	ZUtil_Debug.cpp \
 	ZUtil_Strim_Data.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
+	ZVal_CFType.cpp \
 	ZWinCOM.cpp \
+	ZWorker.cpp \
 
 LIBS :=
 LIBS += $(call ifplatform, Darwin, stdc++ pthread c)

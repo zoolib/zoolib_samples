@@ -31,9 +31,9 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "zoolib/ZStrimmer_Streamer.h"
 #include "zoolib/ZUtil_Debug.h"
 
-#include "zoolib/ZBlackBerry_BBDevMgr.h"
-#include "zoolib/ZBlackBerry_OSXUSB.h"
-#include "zoolib/ZBlackBerryServer.h"
+#include "zoolib/blackberry/ZBlackBerry_BBDevMgr.h"
+#include "zoolib/blackberry/ZBlackBerry_OSXUSB.h"
+#include "zoolib/blackberry/ZBlackBerryServer.h"
 
 #if ZCONFIG_SPI_Enabled(MacOSX)
 #	include <CoreFoundation/CFRunLoop.h>
@@ -87,14 +87,41 @@ static ZRef<ZStreamerW> sOpenStreamer(const string& iPath)
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * ZMain
+#pragma mark * Responder_BB
 
-static void sHandler(void* iRefcon, ZRef<ZStreamerRWCon> iSRWCon)
+class Responder_BB
+:	public ZServer::Responder
 	{
-	ZBlackBerryServer* theBlackBerryServer = static_cast<ZBlackBerryServer*>(iRefcon);
-	theBlackBerryServer->HandleRequest(iSRWCon);
+public:
+	Responder_BB(ZRef<ZServer> iServer, ZBlackBerryServer* iBBServer);
+
+// From ZServer::Responder
+	virtual void Handle(ZRef<ZStreamerRW> iStreamerRW);
+
+private:
+	ZBlackBerryServer* fBBServer;
+	};
+
+Responder_BB::Responder_BB(ZRef<ZServer> iServer, ZBlackBerryServer* iBBServer)
+:	Responder(iServer)
+,	fBBServer(iBBServer)
+	{}
+
+void Responder_BB::Handle(ZRef<ZStreamerRW> iStreamerRW)
+	{
+	if (ZRef<ZStreamerRWCon> theSRWCon
+		= ZRefDynamicCast<ZStreamerRWCon>(iStreamerRW))
+		{
+		fBBServer->HandleRequest(theSRWCon);
+		}
+	ZTask::pFinished();	
 	}
 
+// =================================================================================================
+#pragma mark -
+#pragma mark * ZMain
+
+int _CRT_MT = 1;
 int ZMain(int argc, char **argv)
 	{
 	const ZStrimW& serr = ZStdIO::strim_err;
@@ -168,14 +195,20 @@ int ZMain(int argc, char **argv)
 		theListener_TCP = ZNetListener_TCP::sCreate(17983, 5);
 	#endif
 
-	ZServer_Callback theServer_TCP(sHandler, &theBlackBerryServer);
+	ZRef<ZServer> server_TCP;
 	if (theListener_TCP)
-		theServer_TCP.StartWaitingForConnections(theListener_TCP);
+		{
+		server_TCP = new ZServer_T<Responder_BB, ZBlackBerryServer*>(&theBlackBerryServer);
+		server_TCP->StartListener(theListener_TCP);
+		}
 
-	ZServer_Callback theServer_Local(sHandler, &theBlackBerryServer);
+	ZRef<ZServer> server_Local;
 	if (theListener_Local)
-		theServer_Local.StartWaitingForConnections(theListener_Local);
-
+		{
+		server_Local = new ZServer_T<Responder_BB, ZBlackBerryServer*>(&theBlackBerryServer);
+		server_Local->StartListener(theListener_Local);
+		}
+		
 
 	#if ZCONFIG_SPI_Enabled(MacOSX)
 
@@ -190,7 +223,7 @@ int ZMain(int argc, char **argv)
 		while (true)
 			{
 			MSG theMSG;
-			if (::GetMessageW(&theMSG, nil, 0, 0) == 0)
+			if (::GetMessageW(&theMSG, nullptr, 0, 0) == 0)
 				break;
 
 			::DispatchMessageW(&theMSG);
@@ -202,7 +235,7 @@ int ZMain(int argc, char **argv)
 		// Manager for anything other than OSX or Windows right now, so
 		// we won't get here.
 		for (;;)
-			ZThread::sSleep(1000);
+			ZThreadImp::sSleep(1);
 
 	#endif
 	
