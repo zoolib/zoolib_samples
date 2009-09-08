@@ -11,21 +11,22 @@ HEADER_PATHS := \
 SOURCES := \
 	PortForward.cpp \
 \
+	ZAny.cpp \
 	ZAtomic.cpp \
 	ZByteSwap.cpp \
 	ZCompare.cpp \
+	ZData_Any.cpp \
 	ZDebug.cpp \
-	ZDebug_Win.cpp \
 	ZLog.cpp \
 	ZMain.cpp \
 	ZMemory.cpp \
-	ZMemoryBlock.cpp \
 	ZNet.cpp \
 	ZNet_Internet.cpp \
 	ZNet_Internet_Socket.cpp \
 	ZNet_Internet_WinSock.cpp \
 	ZNet_Socket.cpp \
-	ZRefCount.cpp \
+	ZRef_Counted.cpp \
+	ZRefWeak.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
@@ -33,20 +34,23 @@ SOURCES := \
 	ZStream_POSIX.cpp \
 	ZStreamR_HexStrim.cpp \
 	ZStreamer.cpp \
+	ZStreamerCopier.cpp \
+	ZStreamerListener.cpp \
+	ZStreamerOpener.cpp \
 	ZStrim.cpp \
 	ZStrimR_Boundary.cpp \
 	ZStrim_Escaped.cpp \
 	ZStrim_CRLF.cpp \
 	ZStrim_Stream.cpp \
+	ZStrimmer.cpp \
 	ZString.cpp \
+	ZTask.cpp \
 	ZTextCoder.cpp \
 	ZTextCoder_Unicode.cpp \
 	ZTextCollator.cpp \
 	ZTextCollator_ASCII.cpp \
 	ZThread.cpp \
-	ZThreadImp.cpp \
-	ZThreadImp_pthread.cpp \
-	ZThreadImp_Win.cpp \
+	ZThread_pthread.cpp \
 	ZTime.cpp \
 	ZTName.cpp \
 	ZTuple.cpp \
@@ -55,9 +59,11 @@ SOURCES := \
 	ZUtil_Strim.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
+	ZVal_Any.cpp \
+	ZVal_ZooLib.cpp \
+	ZWorker.cpp \
 	ZYad.cpp \
 	ZYad_Std.cpp \
-	ZYad_StdMore.cpp \
 	ZYad_ZooLib.cpp \
 	ZYad_ZooLibStrim.cpp \
 
@@ -66,4 +72,4 @@ LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
 LIBS += $(call ifplatform, Linux, stdc++ pthread c)
 LIBS += $(call ifplatform, Win, wsock32)
 
-ZMAKE_CFLAGS = -DZCONFIG_SPI_Desired__Carbon=0
+#ZMAKE_CFLAGS = -DZCONFIG_SPI_Desired__Carbon=0

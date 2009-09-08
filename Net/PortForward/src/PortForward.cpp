@@ -19,12 +19,17 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------------------------- */
 
 #include "zoolib/ZNet_Internet.h"
-#include "zoolib/ZServer.h"
+#include "zoolib/ZRefSafe.h"
 #include "zoolib/ZStdIO.h"
-#include "zoolib/ZThreadSimple.h"
-#include "zoolib/ZTuple.h"
+#include "zoolib/ZStreamerCopier.h"
+#include "zoolib/ZStreamerOpener.h"
+#include "zoolib/ZStrimmer.h"
+#include "zoolib/ZServer.h"
+#include "zoolib/ZVal.h"
 #include "zoolib/ZYad_ZooLib.h"
 #include "zoolib/ZYad_ZooLibStrim.h"
+
+#include "zoolib/ZCompat_NSObject.h"
 
 NAMESPACE_ZOOLIB_USING
 
@@ -32,93 +37,132 @@ using std::pair;
 using std::string;
 using std::vector;
 
+typedef ZVal_Z ZVal;
+typedef ZList_Z ZList;
+typedef ZMap_Z ZMap;
+
 const ZStrimW& serr = ZStdIO::strim_err;
 const ZStrimW& sout = ZStdIO::strim_out;
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * ZMain
+#pragma mark * Responder_PF
 
-static void sCopyFromTo(const ZStreamR& r, const ZStreamWCon& w)
+class Responder_PF
+:	public ZServer::Responder
+,	public ZTaskOwner
 	{
-	r.CopyAllTo(w);
-	w.SendDisconnect();
-	}
+public:
+	Responder_PF(ZRef<ZServer> iServer, ZRef<ZNetName> iNN);
 
-typedef pair<const ZStreamR*, const ZStreamWCon*> StreamPair_t;
+// From ZTask via ZServer::Responder
+	virtual void Kill();
 
-static void sCopyFromTo(StreamPair_t iParam)
-	{ sCopyFromTo(*iParam.first, *iParam.second); }
+// From ZServer::Responder
+	virtual void Handle(ZRef<ZStreamerRW> iStreamerRW);
 
-struct RemoteInfo
-	{
-	string fHost;
-	int16 fPort;
+// From ZTaskOwner
+	virtual void Task_Finished(ZRef<ZTask> iTask);
+
+private:
+	ZRef<ZStreamerRWCon> fLocalCon;
+	ZRef<ZNetName> fNN;
+	ZRefSafe<ZStreamerOpener> fOpener;
+	ZRefSafe<ZStreamerCopier> fLocalToRemote;
+	ZRefSafe<ZStreamerCopier> fRemoteToLocal;
 	};
 
-static void sHandler(void* iRefcon, ZRef<ZStreamerRWCon> iConnection)
+Responder_PF::Responder_PF(ZRef<ZServer> iServer, ZRef<ZNetName> iNN)
+:	Responder(iServer)
+,	fNN(iNN)
+	{}
+
+void Responder_PF::Kill()
 	{
-	RemoteInfo* theRI = static_cast<RemoteInfo*>(iRefcon);
+	if (ZRef<ZStreamerOpener> theOpener = fOpener)
+		theOpener->Kill();
 
-	if (ZRef<ZNetEndpoint> theEP
-		= ZRefDynamicCast<ZNetEndpoint>(iConnection))
+	if (ZRef<ZStreamerCopier> theLocalToRemote = fLocalToRemote)
+		theLocalToRemote->Kill();
+
+	if (ZRef<ZStreamerCopier> theRemoteToLocal = fRemoteToLocal)
+		theRemoteToLocal->Kill();
+	}
+
+void Responder_PF::Handle(ZRef<ZStreamerRW> iStreamerRW)
+	{
+	fLocalCon = ZRefDynamicCast<ZStreamerRWCon>(iStreamerRW);
+
+	if (fLocalCon)
 		{
-		if (ZRef<ZNetAddress_Internet> theNA
-			= ZRefDynamicCast<ZNetAddress_Internet>(theEP->GetRemoteAddress()))
-			{
-			const ip_addr clientIP = theNA->GetHost();
-			serr.Writef("Connection from %d.%d.%d.%d:%d, ",
-				0xFF & (clientIP >> 24),
-				0xFF & (clientIP >> 16),
-				0xFF & (clientIP >> 8),
-				0xFF & clientIP,
-				theNA->GetPort());
+		fOpener = new ZStreamerOpener(this, fNN);
+		sStartWorkerRunner(fOpener);
+		return;
+		}
 
-			serr.Writef("forwarding to %s:%d\n",
-				theRI->fHost.c_str(), theRI->fPort);
+	ZTask::pFinished();	
+	}
+
+void Responder_PF::Task_Finished(ZRef<ZTask> iTask)
+	{
+	if (ZRef<ZStreamerOpener> theOpener = fOpener)
+		{
+		if (iTask == theOpener)
+			{
+			if (ZRef<ZStreamerRWCon> remoteCon
+				= ZRefDynamicCast<ZStreamerRWCon>(theOpener->GetStreamerRW()))
+				{
+				fLocalToRemote = new ZStreamerCopier(this, fLocalCon, remoteCon);
+				sStartWorkerRunner(fLocalToRemote);
+				fRemoteToLocal = new ZStreamerCopier(this, remoteCon, fLocalCon);
+				sStartWorkerRunner(fRemoteToLocal);
+				}		
+			fOpener.Clear();
 			}
 		}
 
-	if (ZRef<ZStreamerRWCon> remoteCon = ZNetName_Internet(theRI->fHost, theRI->fPort).Connect())
-		{
-		StreamPair_t localToRemote(&iConnection->GetStreamR(), &remoteCon->GetStreamWCon());
+	if (iTask == fLocalToRemote)
+		fLocalToRemote.Clear();
 
-		(new ZThreadSimple<StreamPair_t>(sCopyFromTo, localToRemote))->Start();
+	if (iTask == fRemoteToLocal)
+		fRemoteToLocal.Clear();
 
-		sCopyFromTo(remoteCon->GetStreamR(), iConnection->GetStreamWCon());
-		}
+	if (!fOpener && !fRemoteToLocal && !fLocalToRemote)
+		ZTask::pFinished();
 	}
 
-static bool sStartListener(const ZTuple& iSpec)
+static ZRef<ZServer> sStartListener(const ZMap& iSpec)
 	{
 	int16 localPort;
-	if (!iSpec.GetInt16("l", localPort))
-		return false;
+	if (!iSpec.Get("l").QGetInt16(localPort))
+		return ZRef<ZServer>();
 
 	int16 remotePort;
-	if (!iSpec.GetInt16("rp", remotePort))
-		return false;
+	if (!iSpec.Get("rp").QGetInt16(remotePort))
+		return ZRef<ZServer>();
 
 	string remoteHost;
-	if (!iSpec.GetString("rh", remoteHost))
-		return false;
+	if (!iSpec.Get("rh").QGetString(remoteHost))
+		return ZRef<ZServer>();
 
 	ZRef<ZNetListener> theListener = ZNetListener_TCP::sCreateListener(localPort, 5);
 	if (!theListener)
-		return false;
-
-	RemoteInfo* theRI = new RemoteInfo;
-	theRI->fHost = remoteHost;
-	theRI->fPort = remotePort;
+		return ZRef<ZServer>();
 	
-	ZServer* theServer = new ZServer_Callback(sHandler, theRI);
-	theServer->StartWaitingForConnections(theListener);
+	ZRef<ZNetName> remoteName = new ZNetName_Internet(remoteHost, remotePort);
+	
+	ZRef<ZServer> theServer = new ZServer_T<Responder_PF, ZRef<ZNetName> >(remoteName);
+	theServer->StartListener(theListener);
 
 	serr.Writef("Listening on port %d, forwarding to %s:%d\n",
 		localPort, remoteHost.c_str(), remotePort);
 
-	return true;
+	return theServer;
 	}
+
+// =================================================================================================
+#pragma mark -
+#pragma mark * ZMain
 
 int ZMain(int argc, char **argv)
 	{
@@ -132,12 +176,12 @@ int ZMain(int argc, char **argv)
 		}
 		
 
-	ZTValue theTValue;
+	ZVal theVal;
 	try
 		{
-		ZStrimU_String8 theStrimU(argv[1]);
-		if (ZRef<ZYadR> theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimU))
-			theTValue = ZYad_ZooLib::sFromYadR(theYadR);
+		ZRef<ZStrimmerU> theStrimmerU = new ZStrimmerU_T<ZStrimU_String8>(argv[1]);
+		if (ZRef<ZYadR> theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimmerU))
+			theVal = sFromYadR(ZVal_ZooLib(), theYadR);
 		else
 			serr << "No param\n";
 		}
@@ -147,34 +191,32 @@ int ZMain(int argc, char **argv)
 		return 1;
 		}
 
-	bool anyStarted = false;
-	if (theTValue.TypeOf() == eZType_Vector)
+	vector<ZRef<ZServer> > theServers;
+	if (const ZList theList = theVal.GetList())
 		{
-		const vector<ZTValue>& theVector = theTValue.GetVector();
-		for (vector<ZTValue>::const_iterator i = theVector.begin();
-			i != theVector.end(); ++i)
+		for (size_t x = 0; x < theList.Count(); ++x)
 			{
-			if (const ZTuple theTuple = i->GetTuple())
+			if (const ZMap theMap = theList.Get(x).GetMap())
 				{
-				if (sStartListener(theTuple))
-					anyStarted = true;
+				if (ZRef<ZServer> theServer = sStartListener(theMap))
+					theServers.push_back(theServer);
 				}
 			}
 		}
-	else if (const ZTuple theTuple = theTValue.GetTuple())
+	else if (const ZMap theMap = theVal.GetMap())
 		{
-		if (sStartListener(theTuple))
-			anyStarted = true;
+		if (ZRef<ZServer> theServer = sStartListener(theMap))
+			theServers.push_back(theServer);
 		}
 
-	if (!anyStarted)
+	if (theServers.empty())
 		{
 		serr << "No valid forwarding specification found";
 		return 1;
 		}
 
 	for (;;)
-		ZThread::sSleep(10000);
+		ZThread::sSleep(10);
 	
 	return 0;
 	}
