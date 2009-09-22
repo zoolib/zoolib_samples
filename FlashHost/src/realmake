@@ -1,0 +1,90 @@
+TARGET_NAME := FlashHost
+
+SOURCE_PATHS := \
+	$(PROJECT_DIR) \
+	$(ZOOLIB_STANDARD_SOURCE_PATHS) \
+	$(ZOOLIB_CXX_DIR)/more/zoolib/netscape
+
+HEADER_PATHS := \
+	$(PROJECT_DIR) \
+	$(ZOOLIB_STANDARD_HEADER_PATHS) \
+	$(ZOOLIB_CXX_DIR)/more
+
+
+SOURCES := \
+\
+	FlashHost_Main.cpp \
+	FlashHost.cpp \
+\
+	ZAny.cpp \
+	ZAtomic.cpp \
+	ZCommandLine.cpp \
+	ZCompare.cpp \
+	ZData_Any.cpp \
+	ZDebug.cpp \
+	ZFile.cpp \
+	ZFile_POSIX.cpp \
+	ZFile_Win.cpp \
+	ZHTTP.cpp \
+	ZHTTP_Requests.cpp \
+	ZLog.cpp \
+	ZMain.cpp \
+	ZMIME.cpp \
+	ZNet.cpp \
+	ZNet_Internet.cpp \
+	ZNet_Internet_WinSock.cpp \
+	ZNet_Internet_Socket.cpp \
+	ZNet_Socket.cpp \
+	ZNetscape.cpp \
+	ZNetscape_GuestFactory.cpp \
+	ZNetscape_Host.cpp \
+	ZNetscape_Host_Mac.cpp \
+	ZNetscape_Host_Std.cpp \
+	ZNetscape_Host_Win.cpp \
+	ZNetscape_Variant.cpp \
+	ZRef_Counted.cpp \
+	ZRef_CFType.cpp \
+	ZRefWeak.cpp \
+	ZStdIO.cpp \
+	ZStream.cpp \
+	ZStreamR_Boundary.cpp \
+	ZStreamR_SkipAllOnDestroy.cpp \
+	ZStream_Filter.cpp \
+	ZStream_Limited.cpp \
+	ZStream_POSIX.cpp \
+	ZStream_String.cpp \
+	ZStream_Tee.cpp \
+	ZStreamer.cpp \
+	ZStrim.cpp \
+	ZStrim_Stream.cpp \
+	ZStrimmer.cpp \
+	ZString.cpp \
+	ZTextCoder.cpp \
+	ZTextCoder_Mac.cpp \
+	ZTextCoder_Win.cpp \
+	ZThread.cpp \
+	ZThread_pthread.cpp \
+	ZThread_Win.cpp \
+	ZTime.cpp \
+	ZTName.cpp \
+	ZTrail.cpp \
+	ZTuple.cpp \
+	ZTypes.cpp \
+	ZUnicode.cpp \
+	ZUtil_CarbonEvents.cpp \
+	ZUtil_CFType.cpp \
+	ZUtil_Debug.cpp \
+	ZUtil_MacOSX.cpp \
+	ZUtil_Time.cpp \
+	ZUtil_Win.cpp \
+	ZVal_Any.cpp \
+	ZVal_ZooLib.cpp \
+	ZWND.cpp \
+	ZWorker.cpp \
+
+
+LIBS :=
+LIBS += $(call ifplatform, Linux, stdc++ pthread c)
+LIBS += $(call ifplatform, Win, gdi32 user32 wsock32 ole32 oleaut32 uuid)
+
+FRAMEWORKS := Carbon
