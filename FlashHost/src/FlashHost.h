@@ -10,7 +10,7 @@ namespace net_em {
 
 NAMESPACE_ZOOLIB_USING
 
-ZRef<ZNetscape::GuestFactory> sLoadGF();
+ZRef<ZNetscape::GuestFactory> sLoadGF(const std::string& iFlashLib);
 
 using ZNetscape::NPObjectH;
 

@@ -1,12 +1,18 @@
 #include "FlashHost.h"
 
+#include "zoolib/ZLog.h"
 #include "zoolib/ZStream_String.h"
+#include "zoolib/ZTrail.h"
+#include "zoolib/ZUnicode.h"
+#include "zoolib/ZWinRegistry_Val.h"
 
+#include <set>
 #include <string.h> // For strstr
 
 namespace net_em {
 
 using std::string;
+using std::set;
 
 NAMESPACE_ZOOLIB_USING
 
@@ -15,7 +21,7 @@ using ZNetscape::NPVariantH;
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * sLoadGF
+#pragma mark * Carbon helpers
 
 #if ZCONFIG_SPI_Enabled(Carbon)
 
@@ -38,7 +44,156 @@ static string spFindFolder(short iDomain, OSType iFolderType)
 
 #endif // ZCONFIG_SPI_Enabled(Carbon)
 
-static ZRef<ZNetscape::GuestFactory> spLoadGF(const string& iPath)
+// =================================================================================================
+#pragma mark -
+#pragma mark * Windows helpers
+
+#if ZCONFIG_SPI_Enabled(Win)
+
+static string8 spTrailAsWin(const ZTrail& iTrail)
+	{
+	string8 result;
+	if (iTrail.Count() > 0)
+		{
+		result = iTrail.At(0) + ":\\";
+		if (iTrail.Count() > 1)
+			result += iTrail.SubTrail(1).AsString("\\", "");
+		}
+	return result;
+	}
+
+static ZTrail sWinAsTrail(const string8& iWin)
+	{
+	ZTrail result = ZTrail("\\", "", "", iWin);
+	if (result.Count())
+		{
+		const string firstComp = result.At(0);
+		if (firstComp.size() > 1)
+			{
+			if (firstComp[1] == ':')
+				result = firstComp.substr(0, 1) + result.SubTrail(1);
+			}
+		}
+	return result;
+	}
+
+using ZWinRegistry::KeyRef;
+using ZWinRegistry::Val;
+
+static Val sTrail(const Val& iVal, const ZTrail& iTrail)
+	{
+	Val curVal = iVal;
+	for (size_t x = 0; curVal && x < iTrail.Count(); ++x)
+		curVal = curVal.GetKeyRef().Get(iTrail.At(x));
+	return curVal;
+	}
+
+static ZTrail spGetTrailAt(const Val& iRoot, const ZTrail& iTrail)
+	{
+	string16 aPath;
+	if (sTrail(iRoot, iTrail).QGetString16(aPath))
+		return sWinAsTrail(ZUnicode::sAsUTF8(aPath));
+	return ZTrail(false);
+	}
+
+static void spGenerateCandidates(set<ZTrail>& oTrails)
+	{
+	{
+	const KeyRef theKR = sTrail(KeyRef::sHKLM(), "Software/Adobe/Adobe Bridge").GetKeyRef();
+	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
+		{
+		if (ZTrail theTrail = spGetTrailAt(theKR.Get(x), "Installer/!InstallPath"))
+			oTrails.insert(theTrail + "browser/plugins/npswf32.dll");
+		}
+	}
+
+	{
+	const KeyRef theKR = sTrail(KeyRef::sHKLM(), "Software/Mozilla/Mozilla Firefox").GetKeyRef();
+	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
+		{
+		if (ZTrail theTrail = spGetTrailAt(theKR.Get(x), "Main/!Install Directory"))
+			oTrails.insert(theTrail + "plugins/npswf32.dll");
+		}
+	}
+
+	{
+	const KeyRef theKR = sTrail(KeyRef::sHKLM(), "Software/Mozilla").GetKeyRef();
+	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
+		{
+		if (ZTrail theTrail = spGetTrailAt(theKR.Get(x), "extensions/!plugins"))
+			oTrails.insert(theTrail + "npswf32.dll");
+		}
+	}
+
+	for (int x = 0; x < 2; ++x)
+		{
+		const KeyRef curRoot = x ? KeyRef::sHKLM() : KeyRef::sHKCU();
+		if (ZTrail theTrail =
+			spGetTrailAt(curRoot, "Software/MozillaPlugins/@adobe.com/FlashPlayer/!Path"))
+			{
+			oTrails.insert(theTrail + "npswf32.dll");
+			}
+		}
+
+	WCHAR path[1024];
+	::GetSystemDirectoryW(path, countof(path));
+	oTrails.insert(sWinAsTrail(ZUnicode::sAsUTF8(path)) + "macromed/flash/npswf32.dll");
+	}
+
+static uint64 spGetVersionNumber(const ZTrail& iTrail)
+	{
+	const string16 thePath = ZUnicode::sAsUTF16(spTrailAsWin(iTrail));
+	DWORD dummy;
+	if (DWORD theSize = ::GetFileVersionInfoSizeW(const_cast<WCHAR*>(thePath.c_str()), &dummy))
+		{
+		vector<char> buffer(theSize);
+		if (::GetFileVersionInfoW(const_cast<WCHAR*>(thePath.c_str()), 0, theSize, &buffer[0]))
+			{
+			VS_FIXEDFILEINFO* info;
+			UINT infoSize;
+			if (::VerQueryValueW(&buffer[0], L"\\", (void**)&info, &infoSize)
+				&& infoSize >= sizeof(VS_FIXEDFILEINFO))
+				{
+				return uint64(info->dwFileVersionLS) | uint64(info->dwFileVersionMS) << 32;
+				}
+			}
+		}
+	return 0;
+	}
+
+static ZTrail spGetBestWindowsTrail()
+	{
+	set<ZTrail> candidates;
+	spGenerateCandidates(candidates);
+
+	ZTrail bestCandidate(false);
+	uint64  bestCandidateVer = 0;
+
+	for (set<ZTrail>::const_iterator i = candidates.begin(); i != candidates.end(); ++i)
+		{
+		const uint64 theVer = spGetVersionNumber(*i);
+		if (!bestCandidate || bestCandidateVer < theVer)
+			{
+			bestCandidate = *i;
+			bestCandidateVer = theVer;
+			}
+		}
+
+	if (bestCandidate)
+		{
+		if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
+			s << "Using " << bestCandidate.AsString();
+		}
+	return bestCandidate;
+	}
+
+#endif // ZCONFIG_SPI_Enabled(Win)
+
+// =================================================================================================
+#pragma mark -
+#pragma mark * sLoadGF
+
+static ZRef<ZNetscape::GuestFactory> spTryLoadGF(const string& iPath)
 	{
 	try
 		{
@@ -49,27 +204,32 @@ static ZRef<ZNetscape::GuestFactory> spLoadGF(const string& iPath)
 	return ZRef<ZNetscape::GuestFactory>();
 	}
 
-ZRef<ZNetscape::GuestFactory> sLoadGF()
+ZRef<ZNetscape::GuestFactory> sLoadGF(const std::string& iFlashLib)
 	{
+	if (iFlashLib.size())
+		{
+		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(iFlashLib))
+			return theGF;
+		}
 	
 	#if ZCONFIG_SPI_Enabled(Win)
 
-	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadGF("C:\\Program Files\\Mozilla Firefox\\plugins\\NPSWF32.dll"))
-		return theGF;
-
-	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadGF("C:\\Program Files (x86)\\Adobe\\Adobe Bridge CS4\\browser\\plugins\\NPSWF32.dll"))
-		return theGF;
+	if (ZTrail theTrail = spGetBestWindowsTrail())
+		{
+		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(spTrailAsWin(theTrail)))
+			return theGF;
+		}
 
 	#endif
 
 	#if ZCONFIG_SPI_Enabled(Carbon)
 
 	string thePath = spFindFolder(kUserDomain, kInternetPlugInFolderType) + "/Flash Player.plugin";
-	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadGF(thePath))
+	if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))
 		return theGF;
 
 	thePath = spFindFolder(kLocalDomain, kInternetPlugInFolderType) + "/Flash Player.plugin";
-	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadGF(thePath))
+	if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))
 		return theGF;
 
 	#endif

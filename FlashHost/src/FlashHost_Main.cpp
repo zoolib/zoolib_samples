@@ -150,12 +150,14 @@ public:
 	Int64 fLogPriority;
 	String fLogFile;
 	String fURL;
+	String fFlashLib;
 	CommandLine()
-	:	fHelp("--help", "Print this message and exit"),
-		fLogPriority("-p", "Priority below which log messages should be discarded", ZLog::eInfo),
-		fLogFile("--logfile", "Log: name of file to write log messages to", "-"),
-		fURL("--url", "URL from which to load an swf",
+	:	fHelp("--help", "Print this message and exit")
+	,	fLogPriority("-p", "Priority below which log messages should be discarded", ZLog::eInfo+2)
+	,	fLogFile("--logfile", "Log: name of file to write log messages to", "-")
+	,	fURL("--url", "URL from which to load an swf",
 			"http://www.adobe.com/devnet/flash/samples/game_2/2_amoebas.swf")
+	,	fFlashLib("--flashlib", "File from which to load the flash plugin", "")
 		{}
 	};
 } // anonymous namespace
@@ -219,7 +221,7 @@ int ZMain(int argc, char** argv)
 	if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
 		s.Writef("Starting");
 
-	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF();
+	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(cmd.fFlashLib());
 
 	const string theMIME = "application/x-shockwave-flash";
 	const string theURL = cmd.fURL();
