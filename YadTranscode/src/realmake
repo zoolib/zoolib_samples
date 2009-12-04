@@ -64,6 +64,7 @@ SOURCES := \
 	ZYad_JSON.cpp \
 	ZYad_ML.cpp \
 	ZYad_Std.cpp \
+	ZYad_XMLAttr.cpp \
 	ZYad_XMLPList.cpp \
 	ZYad_Any.cpp \
 	ZYad_ZooLib.cpp \

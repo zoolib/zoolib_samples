@@ -32,6 +32,7 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "zoolib/ZYad_JSON.h"
 #include "zoolib/ZYad_ML.h"
 #include "zoolib/ZYad_XMLPList.h"
+#include "zoolib/ZYad_XMLAttr.h"
 #include "zoolib/ZYad_ZooLibStream.h"
 #include "zoolib/ZYad_ZooLibStrim.h"
 
@@ -60,7 +61,7 @@ public:
 	CommandLine()
 	:	fHelp("--help", "Print this message and exit"),
 		fIF("--if", "Input file", "-"),
-		fIT("--it", "Input type (bencode|json|ml|xmlplist|zstream|zstreamtuple|zstrim)", "xmlplist"),
+		fIT("--it", "Input type (bencode|json|ml|xmlattr|xmlplist|zstream|zstreamtuple|zstrim)", "xmlplist"),
 		fOF("--of", "Output file", "-"),
 		fOT("--ot", "Output type (json|xmlplist|zstream|zstrim)", "xmlplist")
 		{}
@@ -184,6 +185,10 @@ int ZMain(int argc, char **argv)
 			{
 			theYadR = ZYad_XMLPList::sMakeYadR(theStrimmerU_ML);
 			}
+		else if (cmd.fIT() == "xmlattr")
+			{
+			theYadR = ZYad_XMLAttr::sMakeYadR(theStrimmerU_ML);
+			}
 		else if (cmd.fIT() == "ml")
 			{
 			theYadR = new ZYadMapR_ML(theStrimmerU_ML);
@@ -202,8 +207,8 @@ int ZMain(int argc, char **argv)
 
 	ZYadOptions theYadOptions(true);
 
-	ZStreamW_Buffered theStreamW(1*1024, theStreamerW->GetStreamW());
-//	const ZStreamW& theStreamW(theStreamerW->GetStreamW());
+//	ZStreamW_Buffered theStreamW(1*1024, theStreamerW->GetStreamW());
+	const ZStreamW& theStreamW(theStreamerW->GetStreamW());
 
 	if (false)
 		{}
