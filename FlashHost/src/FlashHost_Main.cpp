@@ -157,7 +157,7 @@ public:
 	,	fLogFile("--logfile", "Log: name of file to write log messages to", "-")
 	,	fURL("--url", "URL from which to load an swf",
 			"http://www.adobe.com/devnet/flash/samples/game_2/2_amoebas.swf")
-	,	fFlashLib("--flashlib", "File from which to load the flash plugin", "")
+	,	fFlashLib("--flashlib", "File from which to load the flash plugin", "./NPSWF32.dll")
 		{}
 	};
 } // anonymous namespace
@@ -222,6 +222,12 @@ int ZMain(int argc, char** argv)
 		s.Writef("Starting");
 
 	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(cmd.fFlashLib());
+	if (!theGF)
+		{
+		serr << "Couldn't find a flash plugin";
+		return 1;
+		}
+		
 
 	const string theMIME = "application/x-shockwave-flash";
 	const string theURL = cmd.fURL();

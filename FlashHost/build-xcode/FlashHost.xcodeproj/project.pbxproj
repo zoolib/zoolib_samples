@@ -68,6 +68,7 @@
 		C01179C10F24E37500E7E01D /* ZYad_ZooLibStrim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178AB0F24E37500E7E01D /* ZYad_ZooLibStrim.cpp */; };
 		C01179F30F24EB4E00E7E01D /* ZMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176FD0F24E37400E7E01D /* ZMain.cpp */; };
 		C038DCC70FD37AFF008DB712 /* ZRefWeak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C038DCC50FD37AFF008DB712 /* ZRefWeak.cpp */; };
+		C04ACF6A10953A4B00BCCD3A /* ZUtil_POSIXFD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04ACF6910953A4B00BCCD3A /* ZUtil_POSIXFD.cpp */; };
 		C04F3E910FF65737005B8753 /* ZThread_pthread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04F3E840FF65737005B8753 /* ZThread_pthread.cpp */; };
 		C04F3E920FF65737005B8753 /* ZThread_Win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04F3E870FF65737005B8753 /* ZThread_Win.cpp */; };
 		C058993A105D6BAF00C40669 /* ZNetscape_Host_Win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0589939105D6BAF00C40669 /* ZNetscape_Host_Win.cpp */; };
@@ -165,6 +166,7 @@
 		C011789B0F24E37500E7E01D /* ZYad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZYad.cpp; path = zoolib/ZYad.cpp; sourceTree = "<group>"; };
 		C01178AB0F24E37500E7E01D /* ZYad_ZooLibStrim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZYad_ZooLibStrim.cpp; path = zoolib/ZYad_ZooLibStrim.cpp; sourceTree = "<group>"; };
 		C038DCC50FD37AFF008DB712 /* ZRefWeak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZRefWeak.cpp; path = zoolib/ZRefWeak.cpp; sourceTree = "<group>"; };
+		C04ACF6910953A4B00BCCD3A /* ZUtil_POSIXFD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_POSIXFD.cpp; path = zoolib/ZUtil_POSIXFD.cpp; sourceTree = "<group>"; };
 		C04F3E840FF65737005B8753 /* ZThread_pthread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThread_pthread.cpp; path = zoolib/ZThread_pthread.cpp; sourceTree = "<group>"; };
 		C04F3E870FF65737005B8753 /* ZThread_Win.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThread_Win.cpp; path = zoolib/ZThread_Win.cpp; sourceTree = "<group>"; };
 		C04F3E8B0FF65737005B8753 /* ZVal_ZooLib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZVal_ZooLib.cpp; path = zoolib/ZVal_ZooLib.cpp; sourceTree = "<group>"; };
@@ -248,13 +250,14 @@
 		C01176620F24E37400E7E01D /* cxx */ = {
 			isa = PBXGroup;
 			children = (
+				C0F3B561102B8DA9002231CB /* ZAny.cpp */,
 				C01176740F24E37400E7E01D /* ZAtomic.cpp */,
 				C011768E0F24E37400E7E01D /* ZByteSwap.cpp */,
 				C01176900F24E37400E7E01D /* ZCommandLine.cpp */,
 				C01176940F24E37400E7E01D /* ZCompare.cpp */,
-				C01176CE0F24E37400E7E01D /* ZDebug.cpp */,
-				C0F3B561102B8DA9002231CB /* ZAny.cpp */,
+				C04F3ECA0FF65FBF005B8753 /* zconfig.h */,
 				C0F3B562102B8DA9002231CB /* ZData_Any.cpp */,
+				C01176CE0F24E37400E7E01D /* ZDebug.cpp */,
 				C01176D50F24E37400E7E01D /* ZFile.cpp */,
 				C01176D70F24E37400E7E01D /* ZFile_POSIX.cpp */,
 				C01176E50F24E37400E7E01D /* ZGeom.cpp */,
@@ -267,7 +270,6 @@
 				C01176FB0F24E37400E7E01D /* ZMacOSX.cpp */,
 				C01176FD0F24E37400E7E01D /* ZMain.cpp */,
 				C01176FF0F24E37400E7E01D /* ZMemory.cpp */,
-				C04F3ECA0FF65FBF005B8753 /* zconfig.h */,
 				C01177030F24E37400E7E01D /* ZMIME.cpp */,
 				C01177050F24E37400E7E01D /* ZML.cpp */,
 				C011770A0F24E37400E7E01D /* ZNet.cpp */,
@@ -278,18 +280,19 @@
 				C01177160F24E37400E7E01D /* ZNet_Local.cpp */,
 				C01177180F24E37400E7E01D /* ZNet_Local_Socket.cpp */,
 				C011771E0F24E37400E7E01D /* ZNet_Socket.cpp */,
-				C01177480F24E37400E7E01D /* ZServer.cpp */,
-				C011774C0F24E37400E7E01D /* ZStackCrawl.cpp */,
-				C011774F0F24E37400E7E01D /* ZStdIO.cpp */,
-				C080544F0FB8E9C4009C48A8 /* ZRef_CFType.cpp */,
-				C08054510FB8E9C4009C48A8 /* ZRef_Counted.cpp */,
 				C0F3B553102B8D7C002231CB /* ZNetscape.cpp */,
 				C0F3B554102B8D7C002231CB /* ZNetscape_GuestFactory.cpp */,
 				C0F3B555102B8D7C002231CB /* ZNetscape_Host.cpp */,
-				C0F3B55E102B8D93002231CB /* ZNetscape_Host_Std.cpp */,
 				C0F3B556102B8D7C002231CB /* ZNetscape_Host_Mac.cpp */,
+				C0F3B55E102B8D93002231CB /* ZNetscape_Host_Std.cpp */,
 				C0589939105D6BAF00C40669 /* ZNetscape_Host_Win.cpp */,
 				C0F3B557102B8D7C002231CB /* ZNetscape_Variant.cpp */,
+				C080544F0FB8E9C4009C48A8 /* ZRef_CFType.cpp */,
+				C08054510FB8E9C4009C48A8 /* ZRef_Counted.cpp */,
+				C038DCC50FD37AFF008DB712 /* ZRefWeak.cpp */,
+				C01177480F24E37400E7E01D /* ZServer.cpp */,
+				C011774C0F24E37400E7E01D /* ZStackCrawl.cpp */,
+				C011774F0F24E37400E7E01D /* ZStdIO.cpp */,
 				C01177510F24E37400E7E01D /* ZStream.cpp */,
 				C01177570F24E37500E7E01D /* ZStream_Buffered.cpp */,
 				C01177650F24E37500E7E01D /* ZStream_Filter.cpp */,
@@ -312,9 +315,6 @@
 				C01177F10F24E37500E7E01D /* ZThread.cpp */,
 				C04F3E840FF65737005B8753 /* ZThread_pthread.cpp */,
 				C04F3E870FF65737005B8753 /* ZThread_Win.cpp */,
-				C04F3E8B0FF65737005B8753 /* ZVal_ZooLib.cpp */,
-				C0F980AB1055F5590072462C /* ZWorker.cpp */,
-				C038DCC50FD37AFF008DB712 /* ZRefWeak.cpp */,
 				C01178010F24E37500E7E01D /* ZTime.cpp */,
 				C01178030F24E37500E7E01D /* ZTName.cpp */,
 				C01178160F24E37500E7E01D /* ZTrail.cpp */,
@@ -324,9 +324,12 @@
 				C01178560F24E37500E7E01D /* ZUtil_CFType.cpp */,
 				C011785A0F24E37500E7E01D /* ZUtil_Debug.cpp */,
 				C01178620F24E37500E7E01D /* ZUtil_MacOSX.cpp */,
+				C04ACF6910953A4B00BCCD3A /* ZUtil_POSIXFD.cpp */,
 				C011786B0F24E37500E7E01D /* ZUtil_Strim.cpp */,
 				C01178800F24E37500E7E01D /* ZUtil_Time.cpp */,
 				C011788A0F24E37500E7E01D /* ZUtil_Win.cpp */,
+				C04F3E8B0FF65737005B8753 /* ZVal_ZooLib.cpp */,
+				C0F980AB1055F5590072462C /* ZWorker.cpp */,
 				C011789B0F24E37500E7E01D /* ZYad.cpp */,
 				C01178AB0F24E37500E7E01D /* ZYad_ZooLibStrim.cpp */,
 			);
@@ -479,6 +482,7 @@
 				C0F980C81055F6860072462C /* ZStrim_Stream.cpp in Sources */,
 				C0F981021056D3040072462C /* FlashHost_Main.cpp in Sources */,
 				C058993A105D6BAF00C40669 /* ZNetscape_Host_Win.cpp in Sources */,
+				C04ACF6A10953A4B00BCCD3A /* ZUtil_POSIXFD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -171,11 +171,13 @@ static ZTrail spGetBestWindowsTrail()
 
 	for (set<ZTrail>::const_iterator i = candidates.begin(); i != candidates.end(); ++i)
 		{
-		const uint64 theVer = spGetVersionNumber(*i);
-		if (!bestCandidate || bestCandidateVer < theVer)
+		if (const uint64 theVer = spGetVersionNumber(*i))
 			{
-			bestCandidate = *i;
-			bestCandidateVer = theVer;
+			if (!bestCandidate || bestCandidateVer < theVer)
+				{
+				bestCandidate = *i;
+				bestCandidateVer = theVer;
+				}
 			}
 		}
 
