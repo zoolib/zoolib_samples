@@ -11,8 +11,8 @@
 
 namespace net_em {
 
-using std::string;
 using std::set;
+using std::string;
 
 NAMESPACE_ZOOLIB_USING
 
@@ -23,26 +23,21 @@ using ZNetscape::NPVariantH;
 #pragma mark -
 #pragma mark * Carbon helpers
 
-#if ZCONFIG_SPI_Enabled(Carbon)
+#if ZCONFIG_SPI_Enabled(Carbon64)
 
 static string spFindFolder(short iDomain, OSType iFolderType)
 	{
-	FSSpec theFSSpec;
-	if (noErr != ::FindFolder(iDomain, iFolderType, false, &theFSSpec.vRefNum, &theFSSpec.parID))
-		return string();
-
-	theFSSpec.name[0] = 0;
-
 	FSRef theFSRef;
-	::FSpMakeFSRef(&theFSSpec, &theFSRef);
-
-	char buffer[1024];
-	::FSRefMakePath(&theFSRef, (UInt8*)buffer, 1024);
-
-	return buffer;
+	if (noErr == ::FSFindFolder(iDomain, iFolderType, kDontCreateFolder, &theFSRef))
+		{
+		char buffer[1024];
+		::FSRefMakePath(&theFSRef, (UInt8*)buffer, 1024);
+		return buffer;
+		}
+	return string();
 	}
 
-#endif // ZCONFIG_SPI_Enabled(Carbon)
+#endif // ZCONFIG_SPI_Enabled(Carbon64)
 
 // =================================================================================================
 #pragma mark -
@@ -151,7 +146,7 @@ static uint64 spGetVersionNumber(const ZTrail& iTrail)
 			{
 			VS_FIXEDFILEINFO* info;
 			UINT infoSize;
-			if (::VerQueryValueW(&buffer[0], L"\\", (void**)&info, &infoSize)
+			if (::VerQueryValueW(&buffer[0], const_cast<WCHAR*>(L"\\"), (void**)&info, &infoSize)
 				&& infoSize >= sizeof(VS_FIXEDFILEINFO))
 				{
 				return uint64(info->dwFileVersionLS) | uint64(info->dwFileVersionMS) << 32;
@@ -224,7 +219,7 @@ ZRef<ZNetscape::GuestFactory> sLoadGF(const std::string& iFlashLib)
 
 	#endif
 
-	#if ZCONFIG_SPI_Enabled(Carbon)
+	#if ZCONFIG_SPI_Enabled(Carbon64)
 
 	string thePath = spFindFolder(kUserDomain, kInternetPlugInFolderType) + "/Flash Player.plugin";
 	if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))

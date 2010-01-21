@@ -44,6 +44,7 @@ SOURCES := \
 	ZNetscape_Variant.cpp \
 	ZRef_Counted.cpp \
 	ZRef_CFType.cpp \
+	ZRef_WinHANDLE.cpp \
 	ZRefWeak.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
@@ -75,16 +76,18 @@ SOURCES := \
 	ZUtil_CFType.cpp \
 	ZUtil_Debug.cpp \
 	ZUtil_MacOSX.cpp \
+	ZUtil_POSIXFD.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
 	ZVal_Any.cpp \
 	ZVal_ZooLib.cpp \
+	ZWinRegistry_Val.cpp \
 	ZWND.cpp \
 	ZWorker.cpp \
 
 
 LIBS :=
 LIBS += $(call ifplatform, Linux, stdc++ pthread c)
-LIBS += $(call ifplatform, Win, gdi32 user32 wsock32 ole32 oleaut32 uuid)
+LIBS += $(call ifplatform, Win, gdi32 user32 wsock32 ole32 oleaut32 uuid version)
 
 FRAMEWORKS := Carbon
