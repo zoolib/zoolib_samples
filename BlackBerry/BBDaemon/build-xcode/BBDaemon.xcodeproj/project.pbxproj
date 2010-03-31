@@ -29,6 +29,9 @@
 		C04E723110472E8800DF359A /* ZUtil_CFType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E722F10472E8800DF359A /* ZUtil_CFType.cpp */; };
 		C05CDDA30FE3300800D3DB4F /* ZThread_pthread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C05CDD9F0FE3300800D3DB4F /* ZThread_pthread.cpp */; };
 		C05CDDB60FE3308500D3DB4F /* ZThreadOld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C05CDDB40FE3308500D3DB4F /* ZThreadOld.cpp */; };
+		C074F4811163C93D00471E07 /* ZCompare_Integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C074F47D1163C93D00471E07 /* ZCompare_Integer.cpp */; };
+		C074F4821163C93D00471E07 /* ZCompare_String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C074F47F1163C93D00471E07 /* ZCompare_String.cpp */; };
+		C074F4851163C94800471E07 /* ZUtil_POSIXFD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C074F4831163C94800471E07 /* ZUtil_POSIXFD.cpp */; };
 		C08054A10FB90FEB009C48A8 /* ZRef_CFType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C080549D0FB90FEB009C48A8 /* ZRef_CFType.cpp */; };
 		C08054A20FB90FEB009C48A8 /* ZRef_Counted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C080549F0FB90FEB009C48A8 /* ZRef_Counted.cpp */; };
 		C092F27B0F5DB5CA001871C9 /* ZAtomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C092F2790F5DB5CA001871C9 /* ZAtomic.cpp */; };
@@ -136,6 +139,12 @@
 		C05CDDA20FE3300800D3DB4F /* ZThreadSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZThreadSafe.h; path = zoolib/ZThreadSafe.h; sourceTree = "<group>"; };
 		C05CDDB40FE3308500D3DB4F /* ZThreadOld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThreadOld.cpp; path = zoolib/ZThreadOld.cpp; sourceTree = "<group>"; };
 		C05CDDB50FE3308500D3DB4F /* ZThreadOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZThreadOld.h; path = zoolib/ZThreadOld.h; sourceTree = "<group>"; };
+		C074F47D1163C93D00471E07 /* ZCompare_Integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare_Integer.cpp; path = zoolib/ZCompare_Integer.cpp; sourceTree = "<group>"; };
+		C074F47E1163C93D00471E07 /* ZCompare_Integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCompare_Integer.h; path = zoolib/ZCompare_Integer.h; sourceTree = "<group>"; };
+		C074F47F1163C93D00471E07 /* ZCompare_String.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare_String.cpp; path = zoolib/ZCompare_String.cpp; sourceTree = "<group>"; };
+		C074F4801163C93D00471E07 /* ZCompare_String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCompare_String.h; path = zoolib/ZCompare_String.h; sourceTree = "<group>"; };
+		C074F4831163C94800471E07 /* ZUtil_POSIXFD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_POSIXFD.cpp; path = zoolib/ZUtil_POSIXFD.cpp; sourceTree = "<group>"; };
+		C074F4841163C94800471E07 /* ZUtil_POSIXFD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZUtil_POSIXFD.h; path = zoolib/ZUtil_POSIXFD.h; sourceTree = "<group>"; };
 		C080549D0FB90FEB009C48A8 /* ZRef_CFType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZRef_CFType.cpp; path = zoolib/ZRef_CFType.cpp; sourceTree = "<group>"; };
 		C080549E0FB90FEB009C48A8 /* ZRef_CFType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZRef_CFType.h; path = zoolib/ZRef_CFType.h; sourceTree = "<group>"; };
 		C080549F0FB90FEB009C48A8 /* ZRef_Counted.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZRef_Counted.cpp; path = zoolib/ZRef_Counted.cpp; sourceTree = "<group>"; };
@@ -310,6 +319,8 @@
 		C092F25A0F5DB53F001871C9 /* zoolib_cxx */ = {
 			isa = PBXGroup;
 			children = (
+				C04E71EE104723A700DF359A /* ZAny.cpp */,
+				C04E71EF104723A700DF359A /* ZAny.h */,
 				C092F2790F5DB5CA001871C9 /* ZAtomic.cpp */,
 				C092F27A0F5DB5CA001871C9 /* ZAtomic.h */,
 				C092F2860F5DB707001871C9 /* ZByteSwap.cpp */,
@@ -318,37 +329,21 @@
 				C092F2890F5DB707001871C9 /* ZCommandLine.h */,
 				C092F28A0F5DB707001871C9 /* ZCommer.cpp */,
 				C092F28B0F5DB707001871C9 /* ZCommer.h */,
-				C0A2C9250FCC3CC50088D59D /* ZStreamerCopier.cpp */,
-				C0A2C9260FCC3CC50088D59D /* ZStreamerCopier.h */,
-				C0A2C9270FCC3CC50088D59D /* ZStreamerReader.cpp */,
-				C0A2C9280FCC3CC50088D59D /* ZStreamerReader.h */,
-				C0A2C9290FCC3CC50088D59D /* ZStreamerWriter.cpp */,
-				C0A2C92A0FCC3CC50088D59D /* ZStreamerWriter.h */,
 				C092F28C0F5DB707001871C9 /* ZCompare.cpp */,
 				C092F28D0F5DB707001871C9 /* ZCompare.h */,
-				C038DB780FD360DE008DB712 /* ZStreamerListener.cpp */,
-				C038DB790FD360DE008DB712 /* ZStreamerListener.h */,
-				C038DB7A0FD360DE008DB712 /* ZTask.cpp */,
-				C038DB7B0FD360DE008DB712 /* ZTask.h */,
+				C074F47D1163C93D00471E07 /* ZCompare_Integer.cpp */,
+				C074F47E1163C93D00471E07 /* ZCompare_Integer.h */,
+				C074F47F1163C93D00471E07 /* ZCompare_String.cpp */,
+				C074F4801163C93D00471E07 /* ZCompare_String.h */,
 				C0F10CDD0FA623ED0080190E /* zconfig.h */,
+				C04E71F0104723A700DF359A /* ZData_Any.cpp */,
+				C04E71F1104723A700DF359A /* ZData_Any.h */,
 				C092F28E0F5DB707001871C9 /* ZDebug.cpp */,
 				C092F28F0F5DB707001871C9 /* ZDebug.h */,
-				C04E722F10472E8800DF359A /* ZUtil_CFType.cpp */,
-				C04E723010472E8800DF359A /* ZUtil_CFType.h */,
-				C04E722B10472E7300DF359A /* ZVal_CFType.cpp */,
-				C04E722C10472E7300DF359A /* ZVal_CFType.h */,
 				C092F2900F5DB707001871C9 /* ZFile.cpp */,
 				C092F2910F5DB707001871C9 /* ZFile.h */,
 				C092F2920F5DB707001871C9 /* ZFile_POSIX.cpp */,
 				C092F2930F5DB707001871C9 /* ZFile_POSIX.h */,
-				C04E71EE104723A700DF359A /* ZAny.cpp */,
-				C04E71EF104723A700DF359A /* ZAny.h */,
-				C04E71F0104723A700DF359A /* ZData_Any.cpp */,
-				C04E71F1104723A700DF359A /* ZData_Any.h */,
-				C04E71F2104723A700DF359A /* ZVal_Any.cpp */,
-				C04E71F3104723A700DF359A /* ZVal_Any.h */,
-				C04E71EB1047238100DF359A /* ZWorker.cpp */,
-				C04E71EC1047238100DF359A /* ZWorker.h */,
 				C092F2940F5DB707001871C9 /* ZLog.cpp */,
 				C092F2950F5DB707001871C9 /* ZLog.h */,
 				C092F2960F5DB707001871C9 /* ZMain.cpp */,
@@ -357,16 +352,16 @@
 				C092F2990F5DB707001871C9 /* ZMemory.h */,
 				C092F29C0F5DB707001871C9 /* ZNet.cpp */,
 				C092F29D0F5DB707001871C9 /* ZNet.h */,
-				C092F29E0F5DB707001871C9 /* ZNet_Local_Socket.cpp */,
-				C092F29F0F5DB707001871C9 /* ZNet_Local_Socket.h */,
-				C092F2A00F5DB707001871C9 /* ZNet_Local.cpp */,
-				C092F2A10F5DB707001871C9 /* ZNet_Local.h */,
-				C092F2A20F5DB707001871C9 /* ZNet_Internet_WinSock.cpp */,
-				C092F2A30F5DB707001871C9 /* ZNet_Internet_WinSock.h */,
 				C092F2A40F5DB707001871C9 /* ZNet_Internet.cpp */,
 				C092F2A50F5DB707001871C9 /* ZNet_Internet.h */,
 				C092F2A60F5DB707001871C9 /* ZNet_Internet_Socket.cpp */,
 				C092F2A70F5DB707001871C9 /* ZNet_Internet_Socket.h */,
+				C092F2A20F5DB707001871C9 /* ZNet_Internet_WinSock.cpp */,
+				C092F2A30F5DB707001871C9 /* ZNet_Internet_WinSock.h */,
+				C092F2A00F5DB707001871C9 /* ZNet_Local.cpp */,
+				C092F2A10F5DB707001871C9 /* ZNet_Local.h */,
+				C092F29E0F5DB707001871C9 /* ZNet_Local_Socket.cpp */,
+				C092F29F0F5DB707001871C9 /* ZNet_Local_Socket.h */,
 				C092F34C0F5DB85C001871C9 /* ZNet_Socket.cpp */,
 				C092F34D0F5DB85C001871C9 /* ZNet_Socket.h */,
 				C092F2AA0F5DB707001871C9 /* ZRef.h */,
@@ -374,11 +369,13 @@
 				C080549E0FB90FEB009C48A8 /* ZRef_CFType.h */,
 				C080549F0FB90FEB009C48A8 /* ZRef_Counted.cpp */,
 				C08054A00FB90FEB009C48A8 /* ZRef_Counted.h */,
+				C038DC580FD36C1D008DB712 /* ZRefWeak.cpp */,
+				C038DC590FD36C1D008DB712 /* ZRefWeak.h */,
 				C092F2AD0F5DB707001871C9 /* ZServer.cpp */,
 				C092F2AE0F5DB707001871C9 /* ZServer.h */,
-				C092F2AF0F5DB707001871C9 /* ZStdIO.h */,
 				C092F2B00F5DB707001871C9 /* ZStdInt.h */,
 				C092F2B10F5DB707001871C9 /* ZStdIO.cpp */,
+				C092F2AF0F5DB707001871C9 /* ZStdIO.h */,
 				C092F2B20F5DB707001871C9 /* ZStream.cpp */,
 				C092F2B30F5DB707001871C9 /* ZStream.h */,
 				C092F2B40F5DB707001871C9 /* ZStream_Filter.cpp */,
@@ -391,16 +388,26 @@
 				C092F2BD0F5DB707001871C9 /* ZStream_POSIX.h */,
 				C092F2BE0F5DB707001871C9 /* ZStream_SHA1.cpp */,
 				C092F2BF0F5DB707001871C9 /* ZStream_SHA1.h */,
-				C09351E60F69AEE700E7E50D /* ZStreamW_HexStrim.h */,
-				C09351E70F69AEE700E7E50D /* ZStreamW_HexStrim.cpp */,
 				C092F2C00F5DB707001871C9 /* ZStreamer.cpp */,
 				C092F2C10F5DB707001871C9 /* ZStreamer.h */,
+				C0A2C9250FCC3CC50088D59D /* ZStreamerCopier.cpp */,
+				C0A2C9260FCC3CC50088D59D /* ZStreamerCopier.h */,
+				C038DB780FD360DE008DB712 /* ZStreamerListener.cpp */,
+				C038DB790FD360DE008DB712 /* ZStreamerListener.h */,
+				C0A2C9270FCC3CC50088D59D /* ZStreamerReader.cpp */,
+				C0A2C9280FCC3CC50088D59D /* ZStreamerReader.h */,
+				C0A2C9290FCC3CC50088D59D /* ZStreamerWriter.cpp */,
+				C0A2C92A0FCC3CC50088D59D /* ZStreamerWriter.h */,
+				C09351E70F69AEE700E7E50D /* ZStreamW_HexStrim.cpp */,
+				C09351E60F69AEE700E7E50D /* ZStreamW_HexStrim.h */,
 				C092F2C80F5DB707001871C9 /* ZStrim.cpp */,
 				C092F2C90F5DB707001871C9 /* ZStrim.h */,
 				C092F2D00F5DB707001871C9 /* ZStrim_Stream.cpp */,
 				C092F2D10F5DB707001871C9 /* ZStrim_Stream.h */,
 				C092F2D20F5DB707001871C9 /* ZString.cpp */,
 				C092F2D30F5DB707001871C9 /* ZString.h */,
+				C038DB7A0FD360DE008DB712 /* ZTask.cpp */,
+				C038DB7B0FD360DE008DB712 /* ZTask.h */,
 				C092F2D40F5DB707001871C9 /* ZThread.cpp */,
 				C092F2D50F5DB707001871C9 /* ZThread.h */,
 				C05CDD9F0FE3300800D3DB4F /* ZThread_pthread.cpp */,
@@ -421,18 +428,26 @@
 				C092F2E80F5DB707001871C9 /* ZUnicodePrivB.h */,
 				C092F2E90F5DB707001871C9 /* ZUSB_OSX.cpp */,
 				C092F2EA0F5DB707001871C9 /* ZUSB_OSX.h */,
+				C04E722F10472E8800DF359A /* ZUtil_CFType.cpp */,
+				C04E723010472E8800DF359A /* ZUtil_CFType.h */,
 				C092F2EB0F5DB707001871C9 /* ZUtil_Debug.cpp */,
 				C092F2EC0F5DB707001871C9 /* ZUtil_Debug.h */,
+				C074F4831163C94800471E07 /* ZUtil_POSIXFD.cpp */,
+				C074F4841163C94800471E07 /* ZUtil_POSIXFD.h */,
 				C092F2EF0F5DB707001871C9 /* ZUtil_Strim_Data.cpp */,
-				C038DC580FD36C1D008DB712 /* ZRefWeak.cpp */,
-				C038DC590FD36C1D008DB712 /* ZRefWeak.h */,
 				C092F2F00F5DB707001871C9 /* ZUtil_Strim_Data.h */,
 				C092F2F30F5DB707001871C9 /* ZUtil_Time.cpp */,
 				C092F2F40F5DB707001871C9 /* ZUtil_Time.h */,
 				C092F2F50F5DB707001871C9 /* ZUtil_Win.cpp */,
 				C092F2F60F5DB707001871C9 /* ZUtil_Win.h */,
+				C04E71F2104723A700DF359A /* ZVal_Any.cpp */,
+				C04E71F3104723A700DF359A /* ZVal_Any.h */,
+				C04E722B10472E7300DF359A /* ZVal_CFType.cpp */,
+				C04E722C10472E7300DF359A /* ZVal_CFType.h */,
 				C092F2F70F5DB707001871C9 /* ZWinCOM.cpp */,
 				C092F2F80F5DB707001871C9 /* ZWinCOM.h */,
+				C04E71EB1047238100DF359A /* ZWorker.cpp */,
+				C04E71EC1047238100DF359A /* ZWorker.h */,
 			);
 			name = zoolib_cxx;
 			path = ../../../../zoolib/source/cxx;
@@ -549,6 +564,9 @@
 				C04E71F6104723A700DF359A /* ZVal_Any.cpp in Sources */,
 				C04E722D10472E7300DF359A /* ZVal_CFType.cpp in Sources */,
 				C04E723110472E8800DF359A /* ZUtil_CFType.cpp in Sources */,
+				C074F4811163C93D00471E07 /* ZCompare_Integer.cpp in Sources */,
+				C074F4821163C93D00471E07 /* ZCompare_String.cpp in Sources */,
+				C074F4851163C94800471E07 /* ZUtil_POSIXFD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +605,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
@@ -604,6 +623,7 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

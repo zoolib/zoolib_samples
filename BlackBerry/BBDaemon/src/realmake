@@ -25,6 +25,8 @@ SOURCES := \
 	ZCommandLine.cpp \
 	ZCommer.cpp \
 	ZCompare.cpp \
+	ZCompare_Integer.cpp \
+	ZCompare_String.cpp \
 	ZData_Any.cpp \
 	ZDebug.cpp \
 	ZFile.cpp \
@@ -72,6 +74,7 @@ SOURCES := \
 	ZUSB_OSX.cpp \
 	ZUtil_CFType.cpp \
 	ZUtil_Debug.cpp \
+	ZUtil_POSIXFD.cpp \
 	ZUtil_Strim_Data.cpp \
 	ZUtil_Time.cpp \
 	ZUtil_Win.cpp \
