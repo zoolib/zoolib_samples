@@ -96,7 +96,7 @@ public:
 	Responder_BB(ZRef<ZServer> iServer, ZBlackBerryServer* iBBServer);
 
 // From ZServer::Responder
-	virtual void Handle(ZRef<ZStreamerRW> iStreamerRW);
+	virtual void Respond(ZRef<ZStreamerRW> iStreamerRW);
 
 private:
 	ZBlackBerryServer* fBBServer;
@@ -107,7 +107,7 @@ Responder_BB::Responder_BB(ZRef<ZServer> iServer, ZBlackBerryServer* iBBServer)
 ,	fBBServer(iBBServer)
 	{}
 
-void Responder_BB::Handle(ZRef<ZStreamerRW> iStreamerRW)
+void Responder_BB::Respond(ZRef<ZStreamerRW> iStreamerRW)
 	{
 	if (ZRef<ZStreamerRWCon> theSRWCon
 		= ZRefDynamicCast<ZStreamerRWCon>(iStreamerRW))
