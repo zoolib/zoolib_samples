@@ -221,7 +221,8 @@ int ZMain(int argc, char** argv)
 	if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
 		s.Writef("Starting");
 
-	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(cmd.fFlashLib());
+	uint64 theVersion;
+	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(theVersion, &cmd.fFlashLib(), 1);
 	if (!theGF)
 		{
 		serr << "Couldn't find a flash plugin";

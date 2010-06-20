@@ -2,15 +2,17 @@
 #define __FlashHost__ 1
 #include "zconfig.h"
 
+#if ! ZCONFIG_Is64Bit
+
 #include "zoolib/netscape/ZNetscape_GuestFactory.h"
 #include "zoolib/netscape/ZNetscape_Host_Mac.h"
 #include "zoolib/netscape/ZNetscape_Host_Win.h"
 
 namespace net_em {
 
-NAMESPACE_ZOOLIB_USING
+using namespace ZooLib;
 
-ZRef<ZNetscape::GuestFactory> sLoadGF(const std::string& iFlashLib);
+ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const std::string* iNativePaths, size_t iCount);
 
 using ZNetscape::NPObjectH;
 
@@ -80,5 +82,7 @@ public:
 #endif // defined(XP_WIN)
 
 } // namespace net_em
+
+#endif // ! ZCONFIG_Is64Bit
 
 #endif // __FlashHost__
