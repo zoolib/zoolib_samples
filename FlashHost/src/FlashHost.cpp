@@ -90,12 +90,12 @@ static Val spTrail(const Val& iVal, const ZTrail& iTrail)
 	return curVal;
 	}
 
-static ZTrail spGetTrailAt(const Val& iRoot, const ZTrail& iTrail)
+static ZQ<ZTrail> spGetTrailAt(const Val& iRoot, const ZTrail& iTrail)
 	{
 	string16 aPath;
 	if (spTrail(iRoot, iTrail).QGetString16(aPath))
 		return spWinAsTrail(ZUnicode::sAsUTF8(aPath));
-	return ZTrail(false);
+	return null;
 	}
 
 static void spGenerateCandidates(set<ZTrail>& oTrails)
@@ -104,8 +104,8 @@ static void spGenerateCandidates(set<ZTrail>& oTrails)
 	const KeyRef theKR = spTrail(KeyRef::sHKLM(), "Software/Adobe/Adobe Bridge").GetKeyRef();
 	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
 		{
-		if (ZTrail theTrail = spGetTrailAt(theKR.Get(x), "Installer/!InstallPath"))
-			oTrails.insert(theTrail + "browser/plugins/npswf32.dll");
+		if (ZQ<ZTrail> theTrail = spGetTrailAt(theKR.Get(x), "Installer/!InstallPath"))
+			oTrails.insert(theTrail.Get() + "browser/plugins/npswf32.dll");
 		}
 	}
 
@@ -113,8 +113,8 @@ static void spGenerateCandidates(set<ZTrail>& oTrails)
 	const KeyRef theKR = spTrail(KeyRef::sHKLM(), "Software/Mozilla/Mozilla Firefox").GetKeyRef();
 	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
 		{
-		if (ZTrail theTrail = spGetTrailAt(theKR.Get(x), "Main/!Install Directory"))
-			oTrails.insert(theTrail + "plugins/npswf32.dll");
+		if (ZQ<ZTrail> theTrail = spGetTrailAt(theKR.Get(x), "Main/!Install Directory"))
+			oTrails.insert(theTrail.Get() + "plugins/npswf32.dll");
 		}
 	}
 
@@ -122,18 +122,18 @@ static void spGenerateCandidates(set<ZTrail>& oTrails)
 	const KeyRef theKR = spTrail(KeyRef::sHKLM(), "Software/Mozilla").GetKeyRef();
 	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
 		{
-		if (ZTrail theTrail = spGetTrailAt(theKR.Get(x), "extensions/!plugins"))
-			oTrails.insert(theTrail + "npswf32.dll");
+		if (ZQ<ZTrail> theTrail = spGetTrailAt(theKR.Get(x), "extensions/!plugins"))
+			oTrails.insert(theTrail.Get() + "npswf32.dll");
 		}
 	}
 
 	for (int x = 0; x < 2; ++x)
 		{
 		const KeyRef curRoot = x ? KeyRef::sHKLM() : KeyRef::sHKCU();
-		if (ZTrail theTrail =
+		if (ZQ<ZTrail> theTrail =
 			spGetTrailAt(curRoot, "Software/MozillaPlugins/@adobe.com/FlashPlayer/!Path"))
 			{
-			oTrails.insert(theTrail + "npswf32.dll");
+			oTrails.insert(theTrail.Get() + "npswf32.dll");
 			}
 		}
 
@@ -173,12 +173,12 @@ static uint64 spGetVersionNumber(const string16& iPath)
 static uint64 spGetVersionNumber(const ZTrail& iTrail)
 	{ return spGetVersionNumber(ZUnicode::sAsUTF16(spTrailAsWin(iTrail))); }
 
-static ZTrail spGetBestWindowsTrail(uint64& oVersion)
+static ZQ<ZTrail> spGetBestWindowsTrail(uint64& oVersion)
 	{
 	set<ZTrail> candidates;
 	spGenerateCandidates(candidates);
 
-	ZTrail bestCandidate(false);
+	ZQ<ZTrail> bestCandidate;
 	oVersion = 0;
 
 	for (set<ZTrail>::const_iterator i = candidates.begin(); i != candidates.end(); ++i)
@@ -196,7 +196,7 @@ static ZTrail spGetBestWindowsTrail(uint64& oVersion)
 	if (bestCandidate)
 		{
 		if (ZLOG(s, ePriority_Info, "FlashHost"))
-			s << "Using file: " << bestCandidate.AsString();
+			s << "Using file: " << bestCandidate.Get().AsString();
 		}
 
 	return bestCandidate;
@@ -239,9 +239,9 @@ ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const string* iNativePat
 	
 	#if ZCONFIG_SPI_Enabled(Win)
 
-	if (ZTrail theTrail = spGetBestWindowsTrail(oVersion))
+	if (ZQ<ZTrail> theTrail = spGetBestWindowsTrail(oVersion))
 		{
-		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(spTrailAsWin(theTrail)))
+		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(spTrailAsWin(theTrail.Get())))
 			return theGF;
 		}
 

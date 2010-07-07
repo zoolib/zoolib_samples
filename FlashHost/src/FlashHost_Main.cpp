@@ -24,7 +24,7 @@
 using std::string;
 using std::vector;
 
-NAMESPACE_ZOOLIB_USING
+using namespace ZooLib;
 
 ZNetscape::HostMeister_Std sHostMeister;
 
@@ -140,9 +140,9 @@ static ZNetscape::Host_Std* sBuildUI_Win(ZRef<ZNetscape::GuestFactory> iGF)
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * CommandLine
+#pragma mark * CommandLine (anonymous)
 
-namespace ZANONYMOUS {
+namespace { // anonymous
 class CommandLine : public ZCommandLine
 	{
 public:
@@ -156,7 +156,9 @@ public:
 	,	fLogPriority("-p", "Priority below which log messages should be discarded", ZLog::eInfo+2)
 	,	fLogFile("--logfile", "Log: name of file to write log messages to", "-")
 	,	fURL("--url", "URL from which to load an swf",
-			"http://www.adobe.com/devnet/flash/samples/game_2/2_amoebas.swf")
+			"http://surfer.em.net/~ag/form1easy.swf")
+//			"http://www.tizag.com/pics/flash/form1easy.swf")
+//			"http://www.adobe.com/devnet/flash/samples/game_2/2_amoebas.swf")
 	,	fFlashLib("--flashlib", "File from which to load the flash plugin", "./NPSWF32.dll")
 		{}
 	};
@@ -261,6 +263,10 @@ int ZMain(int argc, char** argv)
 						continue;
 					if (!useCompositing && !useWindowRef)
 						continue;
+
+//					if (useCompositing || !useWindowRef || useAllowCG)
+//					if (!useCompositing || useWindowRef || !useAllowCG)
+//						continue;
 
 					ZNetscape::Host_Std* theFlashHost
 						= sBuildUI_Carbon(theGF, useWindowRef, useAllowCG, useCompositing);
