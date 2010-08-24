@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8DD76F790486A8DE00D96B5E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */; };
+		C001A394118490F300E0A488 /* ZWorkerRunner_Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C001A392118490F300E0A488 /* ZWorkerRunner_Thread.cpp */; };
 		C02A7A290FF1DBD7009B1495 /* ZUnicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C092F2E50F5DB707001871C9 /* ZUnicode.cpp */; };
 		C038DB7C0FD360DE008DB712 /* ZStreamerListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C038DB780FD360DE008DB712 /* ZStreamerListener.cpp */; };
 		C038DB7D0FD360DE008DB712 /* ZTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C038DB7A0FD360DE008DB712 /* ZTask.cpp */; };
-		C038DC5A0FD36C1D008DB712 /* ZRefWeak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C038DC580FD36C1D008DB712 /* ZRefWeak.cpp */; };
+		C040407211BAA4C100644ECE /* ZWeakRef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C040407111BAA4C100644ECE /* ZWeakRef.cpp */; };
 		C04E71E11047231700DF359A /* ZBlackBerry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71CF1047231700DF359A /* ZBlackBerry.cpp */; };
 		C04E71E21047231700DF359A /* ZBlackBerry_BBDevMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71D11047231700DF359A /* ZBlackBerry_BBDevMgr.cpp */; };
-		C04E71E31047231700DF359A /* ZBlackBerry_Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71D31047231700DF359A /* ZBlackBerry_Client.cpp */; };
 		C04E71E41047231700DF359A /* ZBlackBerry_OSXUSB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71D51047231700DF359A /* ZBlackBerry_OSXUSB.cpp */; };
 		C04E71E51047231700DF359A /* ZBlackBerry_Streamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71D71047231700DF359A /* ZBlackBerry_Streamer.cpp */; };
 		C04E71E61047231700DF359A /* ZBlackBerry_Union.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71D91047231700DF359A /* ZBlackBerry_Union.cpp */; };
@@ -28,7 +28,6 @@
 		C04E722D10472E7300DF359A /* ZVal_CFType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E722B10472E7300DF359A /* ZVal_CFType.cpp */; };
 		C04E723110472E8800DF359A /* ZUtil_CFType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E722F10472E8800DF359A /* ZUtil_CFType.cpp */; };
 		C05CDDA30FE3300800D3DB4F /* ZThread_pthread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C05CDD9F0FE3300800D3DB4F /* ZThread_pthread.cpp */; };
-		C05CDDB60FE3308500D3DB4F /* ZThreadOld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C05CDDB40FE3308500D3DB4F /* ZThreadOld.cpp */; };
 		C074F4811163C93D00471E07 /* ZCompare_Integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C074F47D1163C93D00471E07 /* ZCompare_Integer.cpp */; };
 		C074F4821163C93D00471E07 /* ZCompare_String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C074F47F1163C93D00471E07 /* ZCompare_String.cpp */; };
 		C074F4851163C94800471E07 /* ZUtil_POSIXFD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C074F4831163C94800471E07 /* ZUtil_POSIXFD.cpp */; };
@@ -80,6 +79,8 @@
 		C0A2C92B0FCC3CC50088D59D /* ZStreamerCopier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A2C9250FCC3CC50088D59D /* ZStreamerCopier.cpp */; };
 		C0A2C92C0FCC3CC50088D59D /* ZStreamerReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A2C9270FCC3CC50088D59D /* ZStreamerReader.cpp */; };
 		C0A2C92D0FCC3CC50088D59D /* ZStreamerWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A2C9290FCC3CC50088D59D /* ZStreamerWriter.cpp */; };
+		C0E8729811C55B5900B923EA /* ZBlackBerry_Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04E71D31047231700DF359A /* ZBlackBerry_Client.cpp */; };
+		C0FAD7E111922AD400D60FF2 /* ZCounted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0FAD7E011922AD400D60FF2 /* ZCounted.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,12 +98,13 @@
 /* Begin PBXFileReference section */
 		09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		8DD76F7E0486A8DE00D96B5E /* BBDaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BBDaemon; sourceTree = BUILT_PRODUCTS_DIR; };
+		C001A392118490F300E0A488 /* ZWorkerRunner_Thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWorkerRunner_Thread.cpp; path = zoolib/ZWorkerRunner_Thread.cpp; sourceTree = "<group>"; };
+		C001A393118490F300E0A488 /* ZWorkerRunner_Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWorkerRunner_Thread.h; path = zoolib/ZWorkerRunner_Thread.h; sourceTree = "<group>"; };
 		C038DB780FD360DE008DB712 /* ZStreamerListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamerListener.cpp; path = zoolib/ZStreamerListener.cpp; sourceTree = "<group>"; };
 		C038DB790FD360DE008DB712 /* ZStreamerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZStreamerListener.h; path = zoolib/ZStreamerListener.h; sourceTree = "<group>"; };
 		C038DB7A0FD360DE008DB712 /* ZTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZTask.cpp; path = zoolib/ZTask.cpp; sourceTree = "<group>"; };
 		C038DB7B0FD360DE008DB712 /* ZTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZTask.h; path = zoolib/ZTask.h; sourceTree = "<group>"; };
-		C038DC580FD36C1D008DB712 /* ZRefWeak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZRefWeak.cpp; path = zoolib/ZRefWeak.cpp; sourceTree = "<group>"; };
-		C038DC590FD36C1D008DB712 /* ZRefWeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZRefWeak.h; path = zoolib/ZRefWeak.h; sourceTree = "<group>"; };
+		C040407111BAA4C100644ECE /* ZWeakRef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWeakRef.cpp; path = zoolib/ZWeakRef.cpp; sourceTree = "<group>"; };
 		C04E71CF1047231700DF359A /* ZBlackBerry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZBlackBerry.cpp; path = zoolib/blackberry/ZBlackBerry.cpp; sourceTree = "<group>"; };
 		C04E71D01047231700DF359A /* ZBlackBerry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZBlackBerry.h; path = zoolib/blackberry/ZBlackBerry.h; sourceTree = "<group>"; };
 		C04E71D11047231700DF359A /* ZBlackBerry_BBDevMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZBlackBerry_BBDevMgr.cpp; path = zoolib/blackberry/ZBlackBerry_BBDevMgr.cpp; sourceTree = "<group>"; };
@@ -137,8 +139,6 @@
 		C05CDDA00FE3300800D3DB4F /* ZThread_pthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZThread_pthread.h; path = zoolib/ZThread_pthread.h; sourceTree = "<group>"; };
 		C05CDDA10FE3300800D3DB4F /* ZThread_T.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZThread_T.h; path = zoolib/ZThread_T.h; sourceTree = "<group>"; };
 		C05CDDA20FE3300800D3DB4F /* ZThreadSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZThreadSafe.h; path = zoolib/ZThreadSafe.h; sourceTree = "<group>"; };
-		C05CDDB40FE3308500D3DB4F /* ZThreadOld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThreadOld.cpp; path = zoolib/ZThreadOld.cpp; sourceTree = "<group>"; };
-		C05CDDB50FE3308500D3DB4F /* ZThreadOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZThreadOld.h; path = zoolib/ZThreadOld.h; sourceTree = "<group>"; };
 		C074F47D1163C93D00471E07 /* ZCompare_Integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare_Integer.cpp; path = zoolib/ZCompare_Integer.cpp; sourceTree = "<group>"; };
 		C074F47E1163C93D00471E07 /* ZCompare_Integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCompare_Integer.h; path = zoolib/ZCompare_Integer.h; sourceTree = "<group>"; };
 		C074F47F1163C93D00471E07 /* ZCompare_String.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare_String.cpp; path = zoolib/ZCompare_String.cpp; sourceTree = "<group>"; };
@@ -246,6 +246,8 @@
 		C0A2C9290FCC3CC50088D59D /* ZStreamerWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamerWriter.cpp; path = zoolib/ZStreamerWriter.cpp; sourceTree = "<group>"; };
 		C0A2C92A0FCC3CC50088D59D /* ZStreamerWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZStreamerWriter.h; path = zoolib/ZStreamerWriter.h; sourceTree = "<group>"; };
 		C0F10CDD0FA623ED0080190E /* zconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zconfig.h; path = default_config/zconfig.h; sourceTree = "<group>"; };
+		C0FAD7E011922AD400D60FF2 /* ZCounted.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCounted.cpp; path = zoolib/ZCounted.cpp; sourceTree = "<group>"; };
+		C0FAD7E211922ADA00D60FF2 /* ZCounted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCounted.h; path = zoolib/ZCounted.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,8 @@
 				C074F47F1163C93D00471E07 /* ZCompare_String.cpp */,
 				C074F4801163C93D00471E07 /* ZCompare_String.h */,
 				C0F10CDD0FA623ED0080190E /* zconfig.h */,
+				C0FAD7E011922AD400D60FF2 /* ZCounted.cpp */,
+				C0FAD7E211922ADA00D60FF2 /* ZCounted.h */,
 				C04E71F0104723A700DF359A /* ZData_Any.cpp */,
 				C04E71F1104723A700DF359A /* ZData_Any.h */,
 				C092F28E0F5DB707001871C9 /* ZDebug.cpp */,
@@ -369,8 +373,6 @@
 				C080549E0FB90FEB009C48A8 /* ZRef_CFType.h */,
 				C080549F0FB90FEB009C48A8 /* ZRef_Counted.cpp */,
 				C08054A00FB90FEB009C48A8 /* ZRef_Counted.h */,
-				C038DC580FD36C1D008DB712 /* ZRefWeak.cpp */,
-				C038DC590FD36C1D008DB712 /* ZRefWeak.h */,
 				C092F2AD0F5DB707001871C9 /* ZServer.cpp */,
 				C092F2AE0F5DB707001871C9 /* ZServer.h */,
 				C092F2B00F5DB707001871C9 /* ZStdInt.h */,
@@ -413,8 +415,6 @@
 				C05CDD9F0FE3300800D3DB4F /* ZThread_pthread.cpp */,
 				C05CDDA00FE3300800D3DB4F /* ZThread_pthread.h */,
 				C05CDDA10FE3300800D3DB4F /* ZThread_T.h */,
-				C05CDDB40FE3308500D3DB4F /* ZThreadOld.cpp */,
-				C05CDDB50FE3308500D3DB4F /* ZThreadOld.h */,
 				C05CDDA20FE3300800D3DB4F /* ZThreadSafe.h */,
 				C092F2DB0F5DB707001871C9 /* ZTime.cpp */,
 				C092F2DC0F5DB707001871C9 /* ZTime.h */,
@@ -444,10 +444,13 @@
 				C04E71F3104723A700DF359A /* ZVal_Any.h */,
 				C04E722B10472E7300DF359A /* ZVal_CFType.cpp */,
 				C04E722C10472E7300DF359A /* ZVal_CFType.h */,
+				C040407111BAA4C100644ECE /* ZWeakRef.cpp */,
 				C092F2F70F5DB707001871C9 /* ZWinCOM.cpp */,
 				C092F2F80F5DB707001871C9 /* ZWinCOM.h */,
 				C04E71EB1047238100DF359A /* ZWorker.cpp */,
 				C04E71EC1047238100DF359A /* ZWorker.h */,
+				C001A392118490F300E0A488 /* ZWorkerRunner_Thread.cpp */,
+				C001A393118490F300E0A488 /* ZWorkerRunner_Thread.h */,
 			);
 			name = zoolib_cxx;
 			path = ../../../../zoolib/source/cxx;
@@ -545,13 +548,10 @@
 				C0A2C92D0FCC3CC50088D59D /* ZStreamerWriter.cpp in Sources */,
 				C038DB7C0FD360DE008DB712 /* ZStreamerListener.cpp in Sources */,
 				C038DB7D0FD360DE008DB712 /* ZTask.cpp in Sources */,
-				C038DC5A0FD36C1D008DB712 /* ZRefWeak.cpp in Sources */,
 				C05CDDA30FE3300800D3DB4F /* ZThread_pthread.cpp in Sources */,
-				C05CDDB60FE3308500D3DB4F /* ZThreadOld.cpp in Sources */,
 				C02A7A290FF1DBD7009B1495 /* ZUnicode.cpp in Sources */,
 				C04E71E11047231700DF359A /* ZBlackBerry.cpp in Sources */,
 				C04E71E21047231700DF359A /* ZBlackBerry_BBDevMgr.cpp in Sources */,
-				C04E71E31047231700DF359A /* ZBlackBerry_Client.cpp in Sources */,
 				C04E71E41047231700DF359A /* ZBlackBerry_OSXUSB.cpp in Sources */,
 				C04E71E51047231700DF359A /* ZBlackBerry_Streamer.cpp in Sources */,
 				C04E71E61047231700DF359A /* ZBlackBerry_Union.cpp in Sources */,
@@ -567,6 +567,10 @@
 				C074F4811163C93D00471E07 /* ZCompare_Integer.cpp in Sources */,
 				C074F4821163C93D00471E07 /* ZCompare_String.cpp in Sources */,
 				C074F4851163C94800471E07 /* ZUtil_POSIXFD.cpp in Sources */,
+				C001A394118490F300E0A488 /* ZWorkerRunner_Thread.cpp in Sources */,
+				C0FAD7E111922AD400D60FF2 /* ZCounted.cpp in Sources */,
+				C040407211BAA4C100644ECE /* ZWeakRef.cpp in Sources */,
+				C0E8729811C55B5900B923EA /* ZBlackBerry_Client.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="flashhost"
 	ProjectGUID="{79C31A47-BD5E-4841-9044-FE7E7814AB85}"
 	RootNamespace="flashhost"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -19,8 +20,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\Output\Debug"
-			IntermediateDirectory=".\Output\Debug"
+			OutputDirectory=".\Output\Debug\"
+			IntermediateDirectory="$(OutDir)"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -45,7 +46,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\Output\Debug/flashhost.tlb"
+				TypeLibraryName="$(OutDir)\flashhost.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -56,9 +57,9 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
-				AssemblerListingLocation=".\Output\Debug/"
-				ObjectFile=".\Output\Debug/"
-				ProgramDataBaseFileName=".\Output\Debug/"
+				AssemblerListingLocation="$(OutDir)"
+				ObjectFile="$(OutDir)"
+				ProgramDataBaseFileName="$(OutDir)"
 				BrowseInformation="1"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
@@ -80,12 +81,15 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shell32.lib ole32.lib kernel32.lib gdi32.lib user32.lib advapi32.lib version.lib wsock32.lib"
+				AdditionalDependencies="shell32.lib ole32.lib kernel32.lib gdi32.lib user32.lib advapi32.lib version.lib wsock32.lib secur32.lib"
 				OutputFile=".\Output\Win\Debug\flashhost.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(USERPROFILE)\flashhost.pdb"
+				OptimizeReferences="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -107,7 +111,220 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			ConfigurationType="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName="$(OutDir)flashhost.tlb"
+				HeaderFileName=""
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				AdditionalIncludeDirectories="&quot;..\..\..\zoolib\source\cxx\default_config&quot;;&quot;..\..\..\zoolib\source\cxx&quot;;&quot;..\..\..\zoolib\source\cxx\more&quot;"
+				PreprocessorDefinitions="ISOLATION_AWARE_ENABLED=1;WIN32=1;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_WINDOWS;_USRDLL;SG3_EXPORTS"
+				BasicRuntimeChecks="0"
+				SmallerTypeCheck="false"
+				RuntimeLibrary="1"
+				BufferSecurityCheck="false"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="0"
+				AssemblerListingLocation=".\Output\Release/"
+				ObjectFile=".\Output\Release/"
+				ProgramDataBaseFileName=".\Output\Release/"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="&quot;$(IntDir)&quot;"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				UseLibraryDependencyInputs="true"
+				AdditionalDependencies="shell32.lib ole32.lib kernel32.lib gdi32.lib user32.lib advapi32.lib version.lib wsock32.lib secur32.lib"
+				OutputFile=".\Output\Win\Debug\flashhost.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(USERPROFILE)\flashhost.pdb"
+				OptimizeReferences="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			ConfigurationType="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -190,6 +407,22 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZCompare_Integer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZCompare_Real.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZCompare_String.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZCounted.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZData_Any.cpp"
 				>
 			</File>
@@ -250,6 +483,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZNet_Local.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZNet_Local_Win.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZRef_CFType.cpp"
 				>
 			</File>
@@ -259,10 +500,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZRef_WinHANDLE.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZRefWeak.cpp"
 				>
 			</File>
 			<File
@@ -318,11 +555,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZStreamerRWCon_SSL.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZStreamR_Boundary.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZStreamR_HexStrim.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZStreamRWCon_SSL_Win.cpp"
 				>
 			</File>
 			<File
@@ -406,10 +651,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZThreadOld.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZTime.cpp"
 				>
 			</File>
@@ -450,6 +691,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZUtil_WinFile.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZVal_Any.cpp"
 				>
 			</File>
@@ -462,7 +707,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZVal_ZooLib.cpp"
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZVisitor.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZWeakRef.cpp"
 				>
 			</File>
 			<File
@@ -482,6 +731,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZWorkerRunner_Thread.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZYad.cpp"
 				>
 			</File>
@@ -491,10 +744,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZYad_Std.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZYad_ZooLib.cpp"
 				>
 			</File>
 			<File
