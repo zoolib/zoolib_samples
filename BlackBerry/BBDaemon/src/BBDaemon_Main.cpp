@@ -39,15 +39,15 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #	include <CoreFoundation/CFRunLoop.h>
 #endif
 
-NAMESPACE_ZOOLIB_USING
+using namespace ZooLib;
 
 using std::string;
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * CommandLine
+#pragma mark * CommandLine (anonymous)
 
-namespace ZANONYMOUS {
+namespace { // anonymous
 class CommandLine : public ZCommandLine
 	{
 public:
@@ -189,7 +189,7 @@ int ZMain(int argc, char **argv)
 
 	#if ZCONFIG_SPI_Enabled(MacOSX)
 		// Listen on domain socket
-		theListener_Local = ZNetListener_Local::sCreate("/tmp/org.zoolib.BlackBerryDaemon", 5);
+		theListener_Local = ZNetListener_Local::sCreate("/tmp/org.zoolib.BlackBerryDaemon");
 	#else
 		// Start listening on TCP port 17983
 		theListener_TCP = ZNetListener_TCP::sCreate(17983, 5);
