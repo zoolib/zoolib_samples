@@ -19,7 +19,7 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------------------------- */
 
 #include "zoolib/ZNet_Internet.h"
-#include "zoolib/ZRefSafe.h"
+#include "zoolib/ZSafeRef.h"
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZStreamerCopier.h"
 #include "zoolib/ZStreamerOpener.h"
@@ -31,14 +31,14 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "zoolib/ZCompat_NSObject.h"
 
-NAMESPACE_ZOOLIB_USING
+using namespace ZooLib;
 
 using std::pair;
 using std::string;
 using std::vector;
 
 typedef ZVal_Z ZVal;
-typedef ZList_Z ZList;
+typedef ZSeq_Z ZSeq;
 typedef ZMap_Z ZMap;
 
 const ZStrimW& serr = ZStdIO::strim_err;
@@ -50,7 +50,7 @@ const ZStrimW& sout = ZStdIO::strim_out;
 
 class Responder_PF
 :	public ZServer::Responder
-,	public ZTaskOwner
+,	public ZTaskMaster
 	{
 public:
 	Responder_PF(ZRef<ZServer> iServer, ZRef<ZNetName> iNN);
@@ -59,17 +59,17 @@ public:
 	virtual void Kill();
 
 // From ZServer::Responder
-	virtual void Handle(ZRef<ZStreamerRW> iStreamerRW);
+	virtual void Respond(ZRef<ZStreamerRW> iStreamerRW);
 
-// From ZTaskOwner
+// From ZTaskMaster
 	virtual void Task_Finished(ZRef<ZTask> iTask);
 
 private:
 	ZRef<ZStreamerRWCon> fLocalCon;
 	ZRef<ZNetName> fNN;
-	ZRefSafe<ZStreamerOpener> fOpener;
-	ZRefSafe<ZStreamerCopier> fLocalToRemote;
-	ZRefSafe<ZStreamerCopier> fRemoteToLocal;
+	ZSafeRef<ZStreamerOpener> fOpener;
+	ZSafeRef<ZStreamerCopier> fLocalToRemote;
+	ZSafeRef<ZStreamerCopier> fRemoteToLocal;
 	};
 
 Responder_PF::Responder_PF(ZRef<ZServer> iServer, ZRef<ZNetName> iNN)
@@ -89,7 +89,7 @@ void Responder_PF::Kill()
 		theRemoteToLocal->Kill();
 	}
 
-void Responder_PF::Handle(ZRef<ZStreamerRW> iStreamerRW)
+void Responder_PF::Respond(ZRef<ZStreamerRW> iStreamerRW)
 	{
 	fLocalCon = ZRefDynamicCast<ZStreamerRWCon>(iStreamerRW);
 
@@ -121,10 +121,10 @@ void Responder_PF::Task_Finished(ZRef<ZTask> iTask)
 			}
 		}
 
-	if (iTask == fLocalToRemote)
+	if (fLocalToRemote == iTask)
 		fLocalToRemote.Clear();
 
-	if (iTask == fRemoteToLocal)
+	if (fRemoteToLocal == iTask)
 		fRemoteToLocal.Clear();
 
 	if (!fOpener && !fRemoteToLocal && !fLocalToRemote)
@@ -135,19 +135,19 @@ static ZRef<ZServer> sStartListener(const ZMap& iSpec)
 	{
 	int16 localPort;
 	if (!iSpec.Get("l").QGetInt16(localPort))
-		return ZRef<ZServer>();
+		return null;
 
 	int16 remotePort;
 	if (!iSpec.Get("rp").QGetInt16(remotePort))
-		return ZRef<ZServer>();
+		return null;
 
 	string remoteHost;
 	if (!iSpec.Get("rh").QGetString(remoteHost))
-		return ZRef<ZServer>();
+		return null;
 
-	ZRef<ZNetListener> theListener = ZNetListener_TCP::sCreateListener(localPort, 5);
+	ZRef<ZNetListener> theListener = ZNetListener_TCP::sCreate(localPort);
 	if (!theListener)
-		return ZRef<ZServer>();
+		return null;
 	
 	ZRef<ZNetName> remoteName = new ZNetName_Internet(remoteHost, remotePort);
 	
@@ -192,11 +192,11 @@ int ZMain(int argc, char **argv)
 		}
 
 	vector<ZRef<ZServer> > theServers;
-	if (const ZList theList = theVal.GetList())
+	if (const ZSeq theSeq = theVal.GetSeq())
 		{
-		for (size_t x = 0; x < theList.Count(); ++x)
+		for (size_t x = 0; x < theSeq.Count(); ++x)
 			{
-			if (const ZMap theMap = theList.Get(x).GetMap())
+			if (const ZMap theMap = theSeq.Get(x).GetMap())
 				{
 				if (ZRef<ZServer> theServer = sStartListener(theMap))
 					theServers.push_back(theServer);
