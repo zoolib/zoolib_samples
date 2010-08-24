@@ -21,22 +21,22 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "zoolib/ZCommandLine.h"
 #include "zoolib/ZFile.h"
 #include "zoolib/ZLog.h"
+#include "zoolib/ZML.h"
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZStream_Buffered.h"
 #include "zoolib/ZStream_POSIX.h"
 #include "zoolib/ZStrim_Stream.h"
 #include "zoolib/ZStrimmer_Streamer.h"
 #include "zoolib/ZStrimU_Unreader.h"
-#include "zoolib/ZStrimW_ML.h"
 #include "zoolib/ZYad_Bencode.h"
 #include "zoolib/ZYad_JSON.h"
 #include "zoolib/ZYad_ML.h"
-#include "zoolib/ZYad_XMLPList.h"
 #include "zoolib/ZYad_XMLAttr.h"
+#include "zoolib/ZYad_XMLPList.h"
 #include "zoolib/ZYad_ZooLibStream.h"
 #include "zoolib/ZYad_ZooLibStrim.h"
 
-NAMESPACE_ZOOLIB_USING
+using namespace ZooLib;
 
 using std::string;
 
@@ -48,7 +48,7 @@ const ZStreamR& stream_in = ZStdIO::stream_in;
 #pragma mark -
 #pragma mark * CommandLine
 
-namespace ZANONYMOUS {
+namespace {
 class CommandLine : public ZCommandLine
 	{
 public:
@@ -61,9 +61,11 @@ public:
 	CommandLine()
 	:	fHelp("--help", "Print this message and exit"),
 		fIF("--if", "Input file", "-"),
-		fIT("--it", "Input type (bencode|json|ml|xmlattr|xmlplist|zstream|zstreamtuple|zstrim)", "xmlplist"),
+		fIT("--it",
+			"Input type (bencode|json|ml|xmlattr|xmlplist|zstream|zstream|zstreamtuple|zstrim)",
+			"xmlplist"),
 		fOF("--of", "Output file", "-"),
-		fOT("--ot", "Output type (json|xmlplist|zstream|zstrim)", "xmlplist")
+		fOT("--ot", "Output type (json|xmlplist|zstream|zstreamjava|zstrim)", "xmlplist")
 		{}
 	};
 } // anonymous namespace
@@ -97,7 +99,9 @@ static ZRef<ZStreamerR> sOpenStreamerR(const string& iPath)
 	else
 		{
 		if (ZRef<ZStreamerR> theStreamerR = ZFileSpec(iPath).OpenR())
+			{
 			return theStreamerR;
+			}
 		}
 	return ZRef<ZStreamerR>();
 	}
@@ -161,10 +165,6 @@ int ZMain(int argc, char **argv)
 
 		if (false)
 			{}
-		else if (cmd.fIT() == "zstrim")
-			{
-			theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimmerU_Unreader);
-			}
 		else if (cmd.fIT() == "zstream")
 			{
 			theYadR = ZYad_ZooLibStream::sMakeYadR(theStreamerR_Buffered);
@@ -181,17 +181,21 @@ int ZMain(int argc, char **argv)
 			{
 			theYadR = ZYad_JSON::sMakeYadR(theStrimmerU_Unreader);
 			}
-		else if (cmd.fIT() == "xmlplist")
+		else if (cmd.fIT() == "zstrim")
 			{
-			theYadR = ZYad_XMLPList::sMakeYadR(theStrimmerU_ML);
+			theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimmerU_Unreader);
+			}
+		else if (cmd.fIT() == "ml")
+			{
+			theYadR = new ZYadMapR_ML(theStrimmerU_ML);
 			}
 		else if (cmd.fIT() == "xmlattr")
 			{
 			theYadR = ZYad_XMLAttr::sMakeYadR(theStrimmerU_ML);
 			}
-		else if (cmd.fIT() == "ml")
+		else if (cmd.fIT() == "xmlplist")
 			{
-			theYadR = new ZYadMapR_ML(theStrimmerU_ML);
+			theYadR = ZYad_XMLPList::sMakeYadR(theStrimmerU_ML);
 			}
 		else
 			{
@@ -212,12 +216,11 @@ int ZMain(int argc, char **argv)
 
 	if (false)
 		{}
-	else if (cmd.fOT() == "zstrim")
-		{
-		ZYad_ZooLibStrim::sToStrim(0, theYadOptions,
-			theYadR, ZStrimW_StreamUTF8(theStreamW));
-		}
 	else if (cmd.fOT() == "zstream")
+		{
+		ZYad_ZooLibStream::sToStream(theStreamW, theYadR);
+		}
+	else if (cmd.fOT() == "zstreamjava")
 		{
 		ZYad_ZooLibStream::sToStream(theStreamW, theYadR);
 		}
@@ -226,10 +229,15 @@ int ZMain(int argc, char **argv)
 		ZYad_JSON::sToStrim(0, theYadOptions,
 			theYadR, ZStrimW_StreamUTF8(theStreamW));
 		}
+	else if (cmd.fOT() == "zstrim")
+		{
+		ZYad_ZooLibStrim::sToStrim(0, theYadOptions,
+			theYadR, ZStrimW_StreamUTF8(theStreamW));
+		}
 	else if (cmd.fOT() == "xmlplist")
 		{
 		ZStrimW_StreamUTF8 theStrimW(theStreamW);
-		ZStrimW_ML theStrimW_ML(theStrimW);
+		ZML::StrimW theStrimW_ML(theStrimW);
 
 		theStrimW_ML.PI("xml");
 			theStrimW_ML.Attr("version", "1.0");
@@ -253,5 +261,6 @@ int ZMain(int argc, char **argv)
 		}
 
 	sout << "\n";
+
 	return 0;
 	}
