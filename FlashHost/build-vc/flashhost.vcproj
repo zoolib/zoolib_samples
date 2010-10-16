@@ -116,6 +116,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="1"
 			>
 			<Tool
@@ -135,6 +137,11 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\..\..\zoolib\source\cxx\default_config;..\..\..\zoolib\source\cxx;..\..\..\zoolib\source\cxx\more"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -147,8 +154,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="shell32.lib ole32.lib kernel32.lib gdi32.lib user32.lib advapi32.lib version.lib wsock32.lib secur32.lib"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(USERPROFILE)\flashhost_x64.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -221,7 +233,7 @@
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="3"
+				DebugInformationFormat="0"
 				CompileAs="0"
 			/>
 			<Tool
@@ -307,6 +319,7 @@
 				Name="VCLinkerTool"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -423,6 +436,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZCountedWithoutFinalize.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZData_Any.cpp"
 				>
 			</File>
@@ -492,10 +509,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZRef_CFType.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZRef_Counted.cpp"
 				>
 			</File>
 			<File
@@ -611,10 +624,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZTask.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZTextCoder.cpp"
 				>
 			</File>
@@ -708,10 +717,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZVisitor.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\zoolib\source\cxx\zoolib\ZWeakRef.cpp"
 				>
 			</File>
 			<File

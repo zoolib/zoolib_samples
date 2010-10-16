@@ -1,22 +1,22 @@
 #include "FlashHost.h"
 
-#if ! ZCONFIG_Is64Bit
-
 #include "zoolib/ZLog.h"
 #include "zoolib/ZStream_String.h"
 #include "zoolib/ZTrail.h"
 #include "zoolib/ZUnicode.h"
 #include "zoolib/ZWinRegistry_Val.h"
 
+#include <map>
 #include <set>
 #include <string.h> // For strstr
 
-#if ZCONFIG_SPI_Enabled(Win) && !ZCONFIG(Compiler, CodeWarrior)
+#if 0 // ZCONFIG_SPI_Enabled(Win) && !ZCONFIG(Compiler, CodeWarrior)
 	#include <Shlobj.h>
 #endif
 
 namespace net_em {
 
+using std::multimap;
 using std::set;
 using std::string;
 using std::vector;
@@ -25,6 +25,21 @@ using namespace ZooLib;
 
 using ZNetscape::NPObjectH;
 using ZNetscape::NPVariantH;
+
+// =================================================================================================
+#pragma mark -
+#pragma mark * spTryLoadGF
+
+static ZRef<ZNetscape::GuestFactory> spTryLoadGF(const string& iPath)
+	{
+	try
+		{
+		return ZNetscape::sMakeGuestFactory(iPath);
+		}
+	catch (...)
+		{}
+	return null;
+	}
 
 // =================================================================================================
 #pragma mark -
@@ -98,14 +113,18 @@ static ZQ<ZTrail> spGetTrailAt(const Val& iRoot, const ZTrail& iTrail)
 	return null;
 	}
 
-static void spGenerateCandidates(set<ZTrail>& oTrails)
+static set<ZTrail> spGenerateCandidates()
 	{
+	set<ZTrail> result;
 	{
 	const KeyRef theKR = spTrail(KeyRef::sHKLM(), "Software/Adobe/Adobe Bridge").GetKeyRef();
 	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
 		{
 		if (ZQ<ZTrail> theTrail = spGetTrailAt(theKR.Get(x), "Installer/!InstallPath"))
-			oTrails.insert(theTrail.Get() + "browser/plugins/npswf32.dll");
+			{
+			result.insert(theTrail.Get() + "browser/plugins/npswf32.dll");
+			result.insert(theTrail.Get() + "browser/plugins/npswf64.dll");
+			}
 		}
 	}
 
@@ -114,7 +133,10 @@ static void spGenerateCandidates(set<ZTrail>& oTrails)
 	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
 		{
 		if (ZQ<ZTrail> theTrail = spGetTrailAt(theKR.Get(x), "Main/!Install Directory"))
-			oTrails.insert(theTrail.Get() + "plugins/npswf32.dll");
+			{
+			result.insert(theTrail.Get() + "plugins/npswf32.dll");
+			result.insert(theTrail.Get() + "plugins/npswf64.dll");
+			}
 		}
 	}
 
@@ -123,7 +145,10 @@ static void spGenerateCandidates(set<ZTrail>& oTrails)
 	for (KeyRef::Index_t x = theKR.Begin(); x != theKR.End(); ++x)
 		{
 		if (ZQ<ZTrail> theTrail = spGetTrailAt(theKR.Get(x), "extensions/!plugins"))
-			oTrails.insert(theTrail.Get() + "npswf32.dll");
+			{
+			result.insert(theTrail.Get() + "npswf32.dll");
+			result.insert(theTrail.Get() + "npswf64.dll");
+			}
 		}
 	}
 
@@ -133,21 +158,27 @@ static void spGenerateCandidates(set<ZTrail>& oTrails)
 		if (ZQ<ZTrail> theTrail =
 			spGetTrailAt(curRoot, "Software/MozillaPlugins/@adobe.com/FlashPlayer/!Path"))
 			{
-			oTrails.insert(theTrail.Get() + "npswf32.dll");
+			result.insert(theTrail.Get() + "npswf32.dll");
+			result.insert(theTrail.Get() + "npswf64.dll");
 			}
 		}
 
 	WCHAR path[1024];
 	::GetSystemDirectoryW(path, countof(path));
-	oTrails.insert(spWinAsTrail(ZUnicode::sAsUTF8(path)) + "macromed/flash/npswf32.dll");
+	result.insert(spWinAsTrail(ZUnicode::sAsUTF8(path)) + "macromed/flash/npswf32.dll");
+	result.insert(spWinAsTrail(ZUnicode::sAsUTF8(path)) + "macromed/flash/npswf64.dll");
 
 	#if !ZCONFIG(Compiler, CodeWarrior)
 		if (SUCCEEDED(::SHGetFolderPathW(0, CSIDL_PROGRAM_FILES_COMMON, NULL, SHGFP_TYPE_CURRENT, path)))
 			{
-			oTrails.insert(spWinAsTrail(ZUnicode::sAsUTF8(path))
+			result.insert(spWinAsTrail(ZUnicode::sAsUTF8(path))
 				+ "Adobe Air/Versions/1.0/Resources/npswf32.dll");
+			result.insert(spWinAsTrail(ZUnicode::sAsUTF8(path))
+				+ "Adobe Air/Versions/1.0/Resources/npswf64.dll");
 			}
 	#endif
+
+	return result;
 	}
 
 static uint64 spGetVersionNumber(const string16& iPath)
@@ -173,33 +204,30 @@ static uint64 spGetVersionNumber(const string16& iPath)
 static uint64 spGetVersionNumber(const ZTrail& iTrail)
 	{ return spGetVersionNumber(ZUnicode::sAsUTF16(spTrailAsWin(iTrail))); }
 
-static ZQ<ZTrail> spGetBestWindowsTrail(uint64& oVersion)
+ZRef<ZNetscape::GuestFactory> spLoadWindows(uint64& oVersion)
 	{
-	set<ZTrail> candidates;
-	spGenerateCandidates(candidates);
+	set<ZTrail> candidates = spGenerateCandidates();
 
-	ZQ<ZTrail> bestCandidate;
-	oVersion = 0;
-
+	multimap<uint64, ZTrail> theMap;
 	for (set<ZTrail>::const_iterator i = candidates.begin(); i != candidates.end(); ++i)
 		{
-		if (const uint64 theVer = spGetVersionNumber(*i))
+		const ZTrail theTrail = *i;
+		if (const uint64 theVer = spGetVersionNumber(theTrail))
+			theMap.insert(std::make_pair(theVer, theTrail));
+		}
+
+	for (multimap<uint64, ZTrail>::reverse_iterator i = theMap.rbegin(); i != theMap.rend(); ++i)
+		{
+		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(spTrailAsWin(i->second)))
 			{
-			if (!bestCandidate || oVersion < theVer)
-				{
-				bestCandidate = *i;
-				oVersion = theVer;
-				}
+			if (ZLOGF(s, ePriority_Info))
+				s << "Using file: " << i->second.AsString();
+			oVersion = i->first;
+			return theGF;
 			}
 		}
 
-	if (bestCandidate)
-		{
-		if (ZLOG(s, ePriority_Info, "FlashHost"))
-			s << "Using file: " << bestCandidate.Get().AsString();
-		}
-
-	return bestCandidate;
+	return null;
 	}
 
 #endif // ZCONFIG_SPI_Enabled(Win)
@@ -207,17 +235,6 @@ static ZQ<ZTrail> spGetBestWindowsTrail(uint64& oVersion)
 // =================================================================================================
 #pragma mark -
 #pragma mark * sLoadGF
-
-static ZRef<ZNetscape::GuestFactory> spTryLoadGF(const string& iPath)
-	{
-	try
-		{
-		return ZNetscape::sMakeGuestFactory(iPath);
-		}
-	catch (...)
-		{}
-	return ZRef<ZNetscape::GuestFactory>();
-	}
 
 ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const string* iNativePaths, size_t iCount)
 	{
@@ -239,13 +256,10 @@ ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const string* iNativePat
 	
 	#if ZCONFIG_SPI_Enabled(Win)
 
-	if (ZQ<ZTrail> theTrail = spGetBestWindowsTrail(oVersion))
-		{
-		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(spTrailAsWin(theTrail.Get())))
-			return theGF;
-		}
+	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadWindows(oVersion))
+		return theGF;
 
-	#endif
+	#endif // ZCONFIG_SPI_Enabled(Win)
 
 	#if ZCONFIG_SPI_Enabled(Carbon64)
 
@@ -257,9 +271,9 @@ ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const string* iNativePat
 	if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))
 		return theGF;
 
-	#endif
+	#endif // ZCONFIG_SPI_Enabled(Carbon64)
 
-	return ZRef<ZNetscape::GuestFactory>();
+	return null;
 	}
 
 // =================================================================================================
@@ -303,7 +317,7 @@ bool ObjectH_Location::Imp_GetProperty(const std::string& iName, NPVariantH& oRe
 #pragma mark -
 #pragma mark * FlashHost_WindowRef
 
-#if defined(XP_MAC) || defined(XP_MACOSX)
+#if defined(XP_MAC) || defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 FlashHost_WindowRef::FlashHost_WindowRef(
 	ZRef<ZNetscape::GuestFactory> iGF,  bool iAllowCG, WindowRef iWindowRef)
@@ -333,13 +347,13 @@ ZRef<NPObjectH> FlashHost_WindowRef::Host_GetWindowObject()
 	return new ObjectH_Location(theURL);
 	}
 
-#endif // defined(XP_MAC) || defined(XP_MACOSX)
+#endif // defined(XP_MAC) || defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * FlashHost_WindowRef
+#pragma mark * FlashHost_HIViewRef
 
-#if defined(XP_MACOSX)
+#if defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 FlashHost_HIViewRef::FlashHost_HIViewRef(
 	ZRef<ZNetscape::GuestFactory> iGF,  bool iAllowCG, HIViewRef iHIViewRef)
@@ -369,7 +383,7 @@ ZRef<NPObjectH> FlashHost_HIViewRef::Host_GetWindowObject()
 	return new ObjectH_Location(theURL);
 	}
 
-#endif // defined(XP_MACOSX)
+#endif // defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 // =================================================================================================
 #pragma mark -
@@ -407,5 +421,3 @@ ZRef<NPObjectH> FlashHost_Win::Host_GetWindowObject()
 #endif // defined(XP_WIN)
 
 } // namespace net_em
-
-#endif // ! ZCONFIG_Is64Bit

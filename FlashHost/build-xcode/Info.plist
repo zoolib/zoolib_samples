@@ -21,6 +21,10 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CSResourcesFileMapped</key>
-	<true/>
+	<false/>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSMainNibFile</key>
+	<string>MainNib</string>
 </dict>
 </plist>

@@ -2,9 +2,8 @@
 #define __FlashHost__ 1
 #include "zconfig.h"
 
-#if ! ZCONFIG_Is64Bit
-
 #include "zoolib/netscape/ZNetscape_GuestFactory.h"
+#include "zoolib/netscape/ZNetscape_Host_Cocoa.h"
 #include "zoolib/netscape/ZNetscape_Host_Mac.h"
 #include "zoolib/netscape/ZNetscape_Host_Win.h"
 
@@ -20,7 +19,7 @@ using ZNetscape::NPObjectH;
 #pragma mark -
 #pragma mark * FlashHost_WindowRef
 
-#if defined(XP_MAC) || defined(XP_MACOSX)
+#if defined(XP_MAC) || defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 class FlashHost_WindowRef : public ZNetscape::Host_WindowRef
 	{
@@ -36,13 +35,13 @@ public:
 	virtual ZRef<NPObjectH> Host_GetWindowObject();
 	};
 
-#endif // defined(XP_MAC) || defined(XP_MACOSX)
+#endif // defined(XP_MAC) || defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 // =================================================================================================
 #pragma mark -
-#pragma mark * FlashHost_WindowRef
+#pragma mark * FlashHost_HIViewRef
 
-#if defined(XP_MACOSX)
+#if defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 class FlashHost_HIViewRef : public ZNetscape::Host_HIViewRef
 	{
@@ -58,7 +57,7 @@ public:
 	virtual ZRef<NPObjectH> Host_GetWindowObject();
 	};
 
-#endif // defined(XP_MACOSX)
+#endif // defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 // =================================================================================================
 #pragma mark -
@@ -82,7 +81,5 @@ public:
 #endif // defined(XP_WIN)
 
 } // namespace net_em
-
-#endif // ! ZCONFIG_Is64Bit
 
 #endif // __FlashHost__
