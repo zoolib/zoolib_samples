@@ -10,8 +10,8 @@
 #include <set>
 #include <string.h> // For strstr
 
-#if 0 // ZCONFIG_SPI_Enabled(Win) && !ZCONFIG(Compiler, CodeWarrior)
-	#include <Shlobj.h>
+#if ZCONFIG_SPI_Enabled(Win) && !ZCONFIG(Compiler, CodeWarrior)
+	#include <Shlobj.h> // For SHGetFolderPathW
 #endif
 
 namespace net_em {
@@ -280,24 +280,23 @@ ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const string* iNativePat
 #pragma mark -
 #pragma mark * ObjectH_Location
 
-class ObjectH_Location : public ZNetscape::ObjectH
-	{
-public:
-	ObjectH_Location(const string& iPageURL);
-	virtual ~ObjectH_Location();
-
-	virtual bool Imp_GetProperty(const std::string& iName, NPVariantH& oResult);
-
-private:
-	const string fPageURL;
-	};
-
 ObjectH_Location::ObjectH_Location(const string& iPageURL)
 :	fPageURL(iPageURL)
 	{}
 
 ObjectH_Location::~ObjectH_Location()
 	{}
+
+bool ObjectH_Location::Imp_Invoke(
+	const std::string& iName, const NPVariantH* iArgs, size_t iCount, NPVariantH& oResult)
+	{
+	if (iName == "__flash_getWindowLocation" || iName == "__flash_getTopLocation")
+		{
+		oResult = fPageURL;
+		return true;
+		}
+	return false;
+	}
 
 bool ObjectH_Location::Imp_GetProperty(const std::string& iName, NPVariantH& oResult)
 	{
@@ -325,8 +324,7 @@ FlashHost_WindowRef::FlashHost_WindowRef(
 	{}
 
 FlashHost_WindowRef::~FlashHost_WindowRef()
-	{
-	}
+	{}
 
 NPError FlashHost_WindowRef::Host_GetURLNotify(NPP npp,
 	const char* iRelativeURL, const char* iTarget, void* notifyData)
@@ -347,6 +345,13 @@ ZRef<NPObjectH> FlashHost_WindowRef::Host_GetWindowObject()
 	return new ObjectH_Location(theURL);
 	}
 
+bool FlashHost_WindowRef::Host_Evaluate(NPP npp,
+	NPObject* obj, NPString* script, NPVariant* result)
+	{
+	((NPVariantH*)(result))->SetNull();
+	return true;
+	}
+
 #endif // defined(XP_MAC) || defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 // =================================================================================================
@@ -361,8 +366,7 @@ FlashHost_HIViewRef::FlashHost_HIViewRef(
 	{}
 
 FlashHost_HIViewRef::~FlashHost_HIViewRef()
-	{
-	}
+	{}
 
 NPError FlashHost_HIViewRef::Host_GetURLNotify(NPP npp,
 	const char* iRelativeURL, const char* iTarget, void* notifyData)
@@ -383,6 +387,13 @@ ZRef<NPObjectH> FlashHost_HIViewRef::Host_GetWindowObject()
 	return new ObjectH_Location(theURL);
 	}
 
+bool FlashHost_HIViewRef::Host_Evaluate(NPP npp,
+	NPObject* obj, NPString* script, NPVariant* result)
+	{
+	((NPVariantH*)(result))->SetNull();
+	return true;
+	}
+
 #endif // defined(XP_MACOSX) && !ZCONFIG_Is64Bit
 
 // =================================================================================================
@@ -396,8 +407,7 @@ FlashHost_Win::FlashHost_Win(ZRef<ZNetscape::GuestFactory> iGF, HWND iHWND)
 	{}
 
 FlashHost_Win::~FlashHost_Win()
-	{
-	}
+	{}
 
 NPError FlashHost_Win::Host_GetURLNotify(NPP npp,
 	const char* iRelativeURL, const char* iTarget, void* notifyData)
@@ -416,6 +426,13 @@ ZRef<NPObjectH> FlashHost_Win::Host_GetWindowObject()
 	{
 	string theURL = fURL.substr(0, fURL.find('?'));
 	return new ObjectH_Location(theURL);
+	}
+
+bool FlashHost_Win::Host_Evaluate(NPP npp,
+	NPObject* obj, NPString* script, NPVariant* result)
+	{
+	((NPVariantH*)(result))->SetNull();
+	return true;
 	}
 
 #endif // defined(XP_WIN)

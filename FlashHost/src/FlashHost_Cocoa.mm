@@ -1,4 +1,5 @@
 #include "FlashHost_Cocoa.h"
+#include "FlashHost.h"
 
 #if ZCONFIG_SPI_Enabled(Cocoa)
 
@@ -9,60 +10,6 @@ namespace net_em {
 using ZNetscape::NPObjectH;
 using ZNetscape::NPVariantH;
 using std::string;
-
-// =================================================================================================
-#pragma mark -
-#pragma mark * ObjectH_Location (anonymous)
-
-namespace { // anonymous
-
-class ObjectH_Location : public ZNetscape::ObjectH
-	{
-public:
-	ObjectH_Location(const string& iPageURL);
-	virtual ~ObjectH_Location();
-
-	virtual bool Imp_Invoke(
-		const std::string& iName, const NPVariantH* iArgs, size_t iCount, NPVariantH& oResult);
-	virtual bool Imp_GetProperty(const std::string& iName, NPVariantH& oResult);
-
-private:
-	const string fPageURL;
-	};
-
-ObjectH_Location::ObjectH_Location(const string& iPageURL)
-:	fPageURL(iPageURL)
-	{}
-
-ObjectH_Location::~ObjectH_Location()
-	{}
-
-bool ObjectH_Location::Imp_Invoke(
-	const std::string& iName, const NPVariantH* iArgs, size_t iCount, NPVariantH& oResult)
-	{
-	if (iName == "__flash_getWindowLocation" || iName == "__flash_getTopLocation")
-		{
-		oResult = fPageURL;
-		return true;
-		}
-	return false;
-	}
-
-bool ObjectH_Location::Imp_GetProperty(const std::string& iName, NPVariantH& oResult)
-	{
-	if (iName == "location")
-		{
-		oResult = fPageURL;
-		return true;
-		}
-	else
-		{
-		oResult = this;
-		return true;
-		}
-	}
-
-} // anonymous namespace
 
 // =================================================================================================
 #pragma mark -

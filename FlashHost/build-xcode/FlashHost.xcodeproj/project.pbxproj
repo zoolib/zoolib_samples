@@ -29,7 +29,6 @@
 		C01178EE0F24E37500E7E01D /* ZHTTP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176F50F24E37400E7E01D /* ZHTTP.cpp */; };
 		C01178EF0F24E37500E7E01D /* ZHTTP_Requests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176F70F24E37400E7E01D /* ZHTTP_Requests.cpp */; };
 		C01178F00F24E37500E7E01D /* ZLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176F90F24E37400E7E01D /* ZLog.cpp */; };
-		C01178F10F24E37500E7E01D /* ZMacOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176FB0F24E37400E7E01D /* ZMacOSX.cpp */; };
 		C01178F30F24E37500E7E01D /* ZMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176FF0F24E37400E7E01D /* ZMemory.cpp */; };
 		C01178F50F24E37500E7E01D /* ZMIME.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01177030F24E37400E7E01D /* ZMIME.cpp */; };
 		C01178F60F24E37500E7E01D /* ZML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01177050F24E37400E7E01D /* ZML.cpp */; };
@@ -96,6 +95,8 @@
 		C0F3B55F102B8D93002231CB /* ZNetscape_Host_Std.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F3B55E102B8D93002231CB /* ZNetscape_Host_Std.cpp */; };
 		C0F3B563102B8DA9002231CB /* ZAny.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F3B561102B8DA9002231CB /* ZAny.cpp */; };
 		C0F3B564102B8DA9002231CB /* ZData_Any.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F3B562102B8DA9002231CB /* ZData_Any.cpp */; };
+		C0F55259126D2C5200A34324 /* ZMacOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176FB0F24E37400E7E01D /* ZMacOSX.cpp */; };
+		C0F553DC126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */; };
 		C0F980AC1055F5590072462C /* ZWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F980AB1055F5590072462C /* ZWorker.cpp */; };
 		C0F980B11055F57C0072462C /* ZUtil_CFType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178560F24E37500E7E01D /* ZUtil_CFType.cpp */; };
 		C0F980B61055F5A70072462C /* ZStreamR_Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01177950F24E37500E7E01D /* ZStreamR_Boundary.cpp */; };
@@ -212,6 +213,8 @@
 		C0F3B55E102B8D93002231CB /* ZNetscape_Host_Std.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZNetscape_Host_Std.cpp; path = more/zoolib/netscape/ZNetscape_Host_Std.cpp; sourceTree = "<group>"; };
 		C0F3B561102B8DA9002231CB /* ZAny.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZAny.cpp; path = zoolib/ZAny.cpp; sourceTree = "<group>"; };
 		C0F3B562102B8DA9002231CB /* ZData_Any.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZData_Any.cpp; path = zoolib/ZData_Any.cpp; sourceTree = "<group>"; };
+		C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWorkerRunner_CFRunLoop.cpp; path = ../../../../../Clients/MediaLab/trunk/zoolib_cxx/zoolib/ZWorkerRunner_CFRunLoop.cpp; sourceTree = SOURCE_ROOT; };
+		C0F553DB126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWorkerRunner_CFRunLoop.h; path = ../../../../../Clients/MediaLab/trunk/zoolib_cxx/zoolib/ZWorkerRunner_CFRunLoop.h; sourceTree = SOURCE_ROOT; };
 		C0F980AB1055F5590072462C /* ZWorker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWorker.cpp; path = zoolib/ZWorker.cpp; sourceTree = "<group>"; };
 		C0F981011056D3040072462C /* FlashHost_Main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FlashHost_Main.mm; path = ../src/FlashHost_Main.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +292,8 @@
 		C01176620F24E37400E7E01D /* cxx */ = {
 			isa = PBXGroup;
 			children = (
+				C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */,
+				C0F553DB126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.h */,
 				C0F3B561102B8DA9002231CB /* ZAny.cpp */,
 				C01176740F24E37400E7E01D /* ZAtomic.cpp */,
 				C011768E0F24E37400E7E01D /* ZByteSwap.cpp */,
@@ -468,7 +473,6 @@
 				C01178EE0F24E37500E7E01D /* ZHTTP.cpp in Sources */,
 				C01178EF0F24E37500E7E01D /* ZHTTP_Requests.cpp in Sources */,
 				C01178F00F24E37500E7E01D /* ZLog.cpp in Sources */,
-				C01178F10F24E37500E7E01D /* ZMacOSX.cpp in Sources */,
 				C01178F30F24E37500E7E01D /* ZMemory.cpp in Sources */,
 				C01178F50F24E37500E7E01D /* ZMIME.cpp in Sources */,
 				C01178F60F24E37500E7E01D /* ZML.cpp in Sources */,
@@ -548,6 +552,8 @@
 				C074A6DB12678B930053DC3C /* FlashHost_Cocoa.mm in Sources */,
 				C0DA8E461268A2E6001E643C /* NSApplicationDelegate_FlashHost.mm in Sources */,
 				C0DA8EAE1268A4E3001E643C /* ZObjC.mm in Sources */,
+				C0F55259126D2C5200A34324 /* ZMacOSX.cpp in Sources */,
+				C0F553DC126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

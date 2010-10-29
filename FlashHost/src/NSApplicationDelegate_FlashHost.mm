@@ -27,8 +27,12 @@ ZRef<ZNetscape::GuestFactory> sharedGF;
 
 - (void) awakeFromNib
 	{
-	fWindow = [[NSWindow alloc] init];
-	[fWindow setFrame:ZGRectf(0, 0, 400, 300) display:true animate:false];
+	fWindow = [[NSWindow alloc]
+		initWithContentRect:ZGRectf(0, 0, 400, 300)
+		styleMask:NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask
+		backing:NSBackingStoreBuffered
+		defer:NO];
+
 	[fWindow setAcceptsMouseMovedEvents:YES];
 
 	NSView_NetscapeHost* theView = [[NSView_NetscapeHost alloc]init];
@@ -40,7 +44,7 @@ ZRef<ZNetscape::GuestFactory> sharedGF;
 	const string theMIME = "application/x-shockwave-flash";
 //	const string theURL = "http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/game_2/_jcr_content/articlecontentAdobe/generic/file.res/2_amoebas%5b1%5d.swf";
 
-	const string theURL = "http://surfer.em.net/~ag/form1easy.swf";
+	const string theURL = "http://127.0.0.1/~ag/form1easy.swf";
 
 	typedef ZNetscape::Host_Std::Param_t Param_t;
 	vector<Param_t> theParams;

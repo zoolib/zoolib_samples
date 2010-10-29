@@ -177,7 +177,8 @@ public:
 	,	fLogPriority("-p", "Priority below which log messages should be discarded", ZLog::eDebug)
 	,	fLogFile("--logfile", "Log: name of file to write log messages to", "-")
 	,	fURL("--url", "URL from which to load an swf",
-			"http://surfer.em.net/~ag/form1easy.swf")
+			"http://127.0.0.1/~ag/form1easy.swf")
+//			"http://surfer.em.net/~ag/form1easy.swf")
 //			"http://www.tizag.com/pics/flash/form1easy.swf")
 //			"http://www.adobe.com/devnet/flash/samples/game_2/2_amoebas.swf")
 //			"http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/game_2/_jcr_content/articlecontentAdobe/generic/file.res/2_amoebas%5b1%5d.swf")

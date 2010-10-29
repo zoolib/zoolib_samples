@@ -3,17 +3,35 @@
 #include "zconfig.h"
 
 #include "zoolib/netscape/ZNetscape_GuestFactory.h"
-#include "zoolib/netscape/ZNetscape_Host_Cocoa.h"
 #include "zoolib/netscape/ZNetscape_Host_Mac.h"
 #include "zoolib/netscape/ZNetscape_Host_Win.h"
 
 namespace net_em {
 
 using namespace ZooLib;
+using ZNetscape::NPObjectH;
+using ZNetscape::NPVariantH;
+using std::string;
 
 ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const std::string* iNativePaths, size_t iCount);
 
-using ZNetscape::NPObjectH;
+// =================================================================================================
+#pragma mark -
+#pragma mark * ObjectH_Location
+
+class ObjectH_Location : public ZNetscape::ObjectH
+	{
+public:
+	ObjectH_Location(const string& iPageURL);
+	virtual ~ObjectH_Location();
+
+	virtual bool Imp_Invoke(
+		const std::string& iName, const NPVariantH* iArgs, size_t iCount, NPVariantH& oResult);
+	virtual bool Imp_GetProperty(const std::string& iName, NPVariantH& oResult);
+
+private:
+	const string fPageURL;
+	};
 
 // =================================================================================================
 #pragma mark -
@@ -33,6 +51,9 @@ public:
 		const char* URL, const char* window, void* notifyData);
 
 	virtual ZRef<NPObjectH> Host_GetWindowObject();
+
+	virtual bool Host_Evaluate(NPP npp,
+		NPObject* obj, NPString* script, NPVariant* result);
 	};
 
 #endif // defined(XP_MAC) || defined(XP_MACOSX) && !ZCONFIG_Is64Bit
@@ -55,6 +76,9 @@ public:
 		const char* URL, const char* window, void* notifyData);
 
 	virtual ZRef<NPObjectH> Host_GetWindowObject();
+
+	virtual bool Host_Evaluate(NPP npp,
+		NPObject* obj, NPString* script, NPVariant* result);
 	};
 
 #endif // defined(XP_MACOSX) && !ZCONFIG_Is64Bit
@@ -76,6 +100,9 @@ public:
 		const char* URL, const char* window, void* notifyData);
 
 	virtual ZRef<NPObjectH> Host_GetWindowObject();
+
+	virtual bool Host_Evaluate(NPP npp,
+		NPObject* obj, NPString* script, NPVariant* result);
 	};
 
 #endif // defined(XP_WIN)
