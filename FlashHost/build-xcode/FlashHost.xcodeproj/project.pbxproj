@@ -213,8 +213,8 @@
 		C0F3B55E102B8D93002231CB /* ZNetscape_Host_Std.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZNetscape_Host_Std.cpp; path = more/zoolib/netscape/ZNetscape_Host_Std.cpp; sourceTree = "<group>"; };
 		C0F3B561102B8DA9002231CB /* ZAny.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZAny.cpp; path = zoolib/ZAny.cpp; sourceTree = "<group>"; };
 		C0F3B562102B8DA9002231CB /* ZData_Any.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZData_Any.cpp; path = zoolib/ZData_Any.cpp; sourceTree = "<group>"; };
-		C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWorkerRunner_CFRunLoop.cpp; path = ../../../../../Clients/MediaLab/trunk/zoolib_cxx/zoolib/ZWorkerRunner_CFRunLoop.cpp; sourceTree = SOURCE_ROOT; };
-		C0F553DB126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWorkerRunner_CFRunLoop.h; path = ../../../../../Clients/MediaLab/trunk/zoolib_cxx/zoolib/ZWorkerRunner_CFRunLoop.h; sourceTree = SOURCE_ROOT; };
+		C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWorkerRunner_CFRunLoop.cpp; path = zoolib/ZWorkerRunner_CFRunLoop.cpp; sourceTree = "<group>"; };
+		C0F553DB126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWorkerRunner_CFRunLoop.h; path = zoolib/ZWorkerRunner_CFRunLoop.h; sourceTree = "<group>"; };
 		C0F980AB1055F5590072462C /* ZWorker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZWorker.cpp; path = zoolib/ZWorker.cpp; sourceTree = "<group>"; };
 		C0F981011056D3040072462C /* FlashHost_Main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FlashHost_Main.mm; path = ../src/FlashHost_Main.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,8 +292,6 @@
 		C01176620F24E37400E7E01D /* cxx */ = {
 			isa = PBXGroup;
 			children = (
-				C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */,
-				C0F553DB126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.h */,
 				C0F3B561102B8DA9002231CB /* ZAny.cpp */,
 				C01176740F24E37400E7E01D /* ZAtomic.cpp */,
 				C011768E0F24E37400E7E01D /* ZByteSwap.cpp */,
@@ -384,6 +382,8 @@
 				C011788A0F24E37500E7E01D /* ZUtil_Win.cpp */,
 				C07D2E4D1121E0EF003C0AED /* ZVal_Any.cpp */,
 				C0F980AB1055F5590072462C /* ZWorker.cpp */,
+				C0F553DA126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.cpp */,
+				C0F553DB126D3BDF00A34324 /* ZWorkerRunner_CFRunLoop.h */,
 				C008607D118C84290097CFB3 /* ZWorkerRunner_Thread.cpp */,
 			);
 			name = cxx;
