@@ -42,9 +42,7 @@ ZRef<ZNetscape::GuestFactory> sharedGF;
 	FlashHost_Cocoa* theHost = new FlashHost_Cocoa(sharedGF, theView);
 
 	const string theMIME = "application/x-shockwave-flash";
-//	const string theURL = "http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/game_2/_jcr_content/articlecontentAdobe/generic/file.res/2_amoebas%5b1%5d.swf";
-
-	const string theURL = "http://127.0.0.1/~ag/form1easy.swf";
+	const string theURL = "http://www.em.net/fl_64/form1easy.swf";
 
 	typedef ZNetscape::Host_Std::Param_t Param_t;
 	vector<Param_t> theParams;
