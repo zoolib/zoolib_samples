@@ -29,6 +29,7 @@ OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "zoolib/ZStrimmer_Streamer.h"
 #include "zoolib/ZStrimU_Unreader.h"
 #include "zoolib/ZYad_Bencode.h"
+#include "zoolib/ZYad_DividedValues.h"
 #include "zoolib/ZYad_JSON.h"
 #include "zoolib/ZYad_ML.h"
 #include "zoolib/ZYad_XMLAttr.h"
@@ -64,7 +65,7 @@ public:
 	:	fHelp("--help", "Print this message and exit"),
 		fIF("--if", "Input file", "-"),
 		fIT("--it",
-			"Input type (bencode|json|ml|quicktime|xmlattr|xmlplist|zstream|zstream|zstreamtuple|zstrim)",
+			"Input type (bencode|json|ml|quicktime|xmlattr|xmlplist|zstream|zstreamtuple|zstrim|tabcr)",
 			"xmlplist"),
 		fOF("--of", "Output file", "-"),
 		fOT("--ot", "Output type (json|xmlplist|zstream|zstreamjava|zstrim)", "xmlplist")
@@ -149,6 +150,7 @@ int ZMain(int argc, char **argv)
 		}
 
 	ZRef<ZYadR> theYadR;
+	ZYadOptions theYadOptions(true);
 
 	try
 		{
@@ -181,7 +183,8 @@ int ZMain(int argc, char **argv)
 			}
 		else if (cmd.fIT() == "quicktime")
 			{
-			theYadR = FileFormat::QuickTime::sMakeYadR(theStreamerR_Buffered);
+			theYadOptions.fRawSizeCap = 256;
+			theYadR = FileFormat::QuickTime::sMakeYadR(theStreamerR);//theStreamerR_Buffered);
 			}
 		else if (cmd.fIT() == "xmlattr")
 			{
@@ -203,6 +206,10 @@ int ZMain(int argc, char **argv)
 			{
 			theYadR = ZYad_ZooLibStrim::sMakeYadR(theStrimmerU_Unreader);
 			}
+		else if (cmd.fIT() == "tabcr")
+			{
+			theYadR = ZYad_DividedValues::sMakeYadR('\t', '\n', theStrimmerR_StreamUTF8);
+			}
 		else
 			{
 			serr << "Couldn't handle input format\n";
@@ -214,8 +221,6 @@ int ZMain(int argc, char **argv)
 		serr << "\nCaught exception: " << ex.what() << "\n";
 		return 1;
 		}
-
-	ZYadOptions theYadOptions(true);
 
 //	ZStreamW_Buffered theStreamW(1*1024, theStreamerW->GetStreamW());
 	const ZStreamW& theStreamW(theStreamerW->GetStreamW());
