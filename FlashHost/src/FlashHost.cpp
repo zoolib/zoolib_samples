@@ -204,7 +204,7 @@ static uint64 spGetVersionNumber(const string16& iPath)
 static uint64 spGetVersionNumber(const ZTrail& iTrail)
 	{ return spGetVersionNumber(ZUnicode::sAsUTF16(spTrailAsWin(iTrail))); }
 
-ZRef<ZNetscape::GuestFactory> spLoadWindows(uint64& oVersion)
+static ZRef<ZNetscape::GuestFactory> spLoadWindows(uint64& oVersion)
 	{
 	set<ZTrail> candidates = spGenerateCandidates();
 

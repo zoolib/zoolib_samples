@@ -7,9 +7,10 @@
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZStrim_Stream.h"
 #include "zoolib/ZStrimmer_Streamer.h"
-#include "zoolib/ZUtil_CFType.h"
+#include "zoolib/ZUtil_CF.h"
 #include "zoolib/ZUtil_Debug.h"
 #include "zoolib/ZUtil_STL.h"
+#include "zoolib/ZUtil_Strim_Operators.h"
 #include "zoolib/ZWND.h"
 
 #include "zoolib/netscape/ZNetscape_Host_Std.h"
@@ -110,7 +111,7 @@ static ZNetscape::Host_Std* sBuildUI_Carbon(
 	if (iCompositing)
 		title += "/Compositing";
 
-	::SetWindowTitleWithCFString(theWindowRef, ZUtil_CFType::sString(title));
+	::SetWindowTitleWithCFString(theWindowRef, ZUtil_CF::sString(title));
 
 	::ShowWindow(theWindowRef);
 	::BringToFront(theWindowRef);
@@ -216,7 +217,7 @@ int ZMain(int argc, char** argv)
 		serr << "Usage: " << argv[0] << " " << cmd << "\n";
 		for (size_t x = 0; x < argc; ++x)
 			{
-			serr.Writef("%d: ", x);
+			serr << x << ": ";
 			serr << argv[x];
 			serr << "\n";
 			}

@@ -8,7 +8,7 @@
 #include "zoolib/ZStrimmer_Streamer.h"
 #include "zoolib/ZUtil_CFType.h"
 #include "zoolib/ZUtil_Debug.h"
-#include "zoolib/ZUtil_STL.h"
+#include "zoolib/ZUtil_STL_vector.h"
 #include "zoolib/ZWND.h"
 
 #include "zoolib/netscape/ZNetscape_Host_Std.h"

@@ -4,7 +4,7 @@
 
 #include "FlashHost_Cocoa.h"
 
-#include "zoolib/ZUtil_STL.h"
+#include "zoolib/ZUtil_STL_vector.h"
 
 #include "zoolib/ZGeometry.h"
 #include "zoolib/netscape/ZNetscape_Host_Cocoa.h"
