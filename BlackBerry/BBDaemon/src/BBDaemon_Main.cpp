@@ -110,11 +110,11 @@ Responder_BB::Responder_BB(ZRef<ZServer> iServer, ZBlackBerryServer* iBBServer)
 void Responder_BB::Respond(ZRef<ZStreamerRW> iStreamerRW)
 	{
 	if (ZRef<ZStreamerRWCon> theSRWCon
-		= ZRefDynamicCast<ZStreamerRWCon>(iStreamerRW))
+		= iStreamerRW.DynamicCast<ZStreamerRWCon>())
 		{
 		fBBServer->HandleRequest(theSRWCon);
 		}
-	ZTask::pFinished();	
+	Responder::pFinished();	
 	}
 
 // =================================================================================================
