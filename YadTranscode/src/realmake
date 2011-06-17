@@ -16,6 +16,8 @@ SOURCES := \
 	ZByteSwap.cpp \
 	ZCommandLine.cpp \
 	ZCompare.cpp \
+	ZCounted.cpp \
+	ZCountedWithoutFinalize.cpp \
 	ZData_Any.cpp \
 	ZDebug.cpp \
 	ZFile.cpp \
@@ -24,7 +26,6 @@ SOURCES := \
 	ZMain.cpp \
 	ZMemory.cpp \
 	ZML.cpp \
-	ZRef_Counted.cpp \
 	ZServer.cpp \
 	ZStdIO.cpp \
 	ZStream.cpp \
