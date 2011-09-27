@@ -1,7 +1,15 @@
-PROJECT_TARGET_NAME := ButtonMessage
+TARGET_NAME := ButtonMessage
 
 PROJECT_PATHS := \
 	$(PROJECT_DIR) \
+
+SOURCE_PATHS := \
+	$(PROJECT_DIR) \
+	$(ZOOLIB_STANDARD_SOURCE_PATHS)
+
+HEADER_PATHS := \
+	$(PROJECT_DIR) \
+	$(ZOOLIB_STANDARD_HEADER_PATHS)
 
 # Troublesome sources:
 #	ZUtil_Strim.cpp \
@@ -111,6 +119,13 @@ PROJECT_SOURCES := \
 	ZXLib.cpp \
 	ZXServer.cpp \
 
-PROJECT_LIBS_LINUX := stdc++ pthread c /usr/X11R6/lib/X11 /usr/X11R6/lib/Xext z png
+# PROJECT_LIBS_LINUX := stdc++ pthread c /usr/X11R6/lib/X11 /usr/X11R6/lib/Xext z png
 
-PROJECT_LIBS_BE := be stdc++
+# PROJECT_LIBS_BE := be stdc++
+
+LIBS :=
+LIBS += $(call ifplatform, Darwin, stdc++ pthread c)
+LIBS += $(call ifplatform, Linux, stdc++ pthread c X11 Xext z png)
+LIBS += $(call ifplatform, Win, wsock32)
+
+#ZMAKE_CFLAGS = -DZCONFIG_SPI_Desired__Carbon=0
