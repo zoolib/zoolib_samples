@@ -1,6 +1,7 @@
 /* ------------------------------------------------------------
-Copyright (c) GoingWare Inc.
-http://www.goingware.com
+Copyright (c) 2000 GoingWare Inc., 2011 Dulcinea Technologies Corporation
+http://www.dulcineatech.com
+http://www.zoolib.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

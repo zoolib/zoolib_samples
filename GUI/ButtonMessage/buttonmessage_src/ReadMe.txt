@@ -1,15 +1,19 @@
+                     ButtonMessage GUI Sample
+        The ZooLib C++ Cross-Platform Application Framework
+                       http://www.zoolib.org
+
 This is a demo program built using ZooLib, a multithreaded 
 cross-platform C++ application framework.
 
 Besides GUI, ZooLib also includes a lightweight database file format 
 (in which the databases are entirely contained in single files, so 
 they can serve as user documents) and TCP networking.  There is also 
-quite a bit of debugging support (assertions and a debugging 
+quite a bit of debugging support (assertions and a debugging memory
 allocator).
 
 While ZooLib's home page is http://www.zoolib.org , you can find full 
 details including sample code and the source distribution at 
-http://zoolib.sourceforge.net
+http://sourceforge.net/projects/zoolib
 
 ZooLib was written over the past several years by Andrew Green of the 
 Electric Magic Company, http://www.em.net and Learning in Motion, 
@@ -40,15 +44,14 @@ Also shown is how to lock a window before refreshing its pane, and an
 example of how to refresh a pane whose size is changing - call 
 ZSubPane::Refresh() on it both before and after doing the size changing
 operation.  In our case the text in the display window originally
-reads "http://zoolib.sourceforge.net" and when you click a button it
+reads "http://www.zoolib.org" and when you click a button it
 changes to a digit.  If we only refreshed the pane after changing its
 text, we wouldn't erase most of the old string.
 
 Enjoy!
 
 Michael D. Crawford
-GoingWare Inc. - Expert Software Development and Consulting
-http://www.goingware.com
-crawford@goingware.com
- 
-   Tilting at Windmills for a Better Tomorrow.
+Dulcinea Technologies Corporation
+Software of Elegance and Beauty
+http://www.dulcineatech.com
+mike@dulcineatech.com
