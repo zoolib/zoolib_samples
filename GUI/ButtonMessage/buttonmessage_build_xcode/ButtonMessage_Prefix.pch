@@ -1,0 +1,3 @@
+#if defined __APPLE__
+#include <CarbonCore/ConditionalMacros.h>
+#endif

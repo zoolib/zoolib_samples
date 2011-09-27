@@ -1,0 +1,1689 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		270AFBE40F387BAA008AA85E /* ZTName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 270AFBE20F387BAA008AA85E /* ZTName.cpp */; };
+		270AFBEF0F387C55008AA85E /* ZStream_Chunked.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 270AFBED0F387C55008AA85E /* ZStream_Chunked.cpp */; };
+		270AFBF90F387CF4008AA85E /* ZUtil_Strim_Tuple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 270AFBF70F387CF4008AA85E /* ZUtil_Strim_Tuple.cpp */; };
+		27366E490A2D8DDC00D4E02A /* ZInterest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366C810A2D8DDB00D4E02A /* ZInterest.cpp */; };
+		27366E570A2D8DDC00D4E02A /* ZFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CAD0A2D8DDB00D4E02A /* ZFile.cpp */; };
+		27366E580A2D8DDC00D4E02A /* ZUtil_File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CAF0A2D8DDB00D4E02A /* ZUtil_File.cpp */; };
+		27366E590A2D8DDC00D4E02A /* ZAtomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CB20A2D8DDB00D4E02A /* ZAtomic.cpp */; };
+		27366E5A0A2D8DDC00D4E02A /* ZByteSwap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CB40A2D8DDB00D4E02A /* ZByteSwap.cpp */; };
+		27366E5B0A2D8DDC00D4E02A /* ZCompare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CB60A2D8DDB00D4E02A /* ZCompare.cpp */; };
+		27366E5C0A2D8DDC00D4E02A /* ZDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CB80A2D8DDB00D4E02A /* ZDebug.cpp */; };
+		27366E5D0A2D8DDC00D4E02A /* ZHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CBA0A2D8DDB00D4E02A /* ZHandle.cpp */; };
+		27366E5E0A2D8DDC00D4E02A /* ZMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CBC0A2D8DDB00D4E02A /* ZMain.cpp */; };
+		27366E5F0A2D8DDC00D4E02A /* ZMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CBE0A2D8DDB00D4E02A /* ZMemory.cpp */; };
+		27366E600A2D8DDC00D4E02A /* ZMemoryBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CC00A2D8DDB00D4E02A /* ZMemoryBlock.cpp */; };
+		27366E610A2D8DDC00D4E02A /* ZMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CC20A2D8DDB00D4E02A /* ZMessage.cpp */; };
+		27366E620A2D8DDC00D4E02A /* ZMessageLooperImpStd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CC40A2D8DDB00D4E02A /* ZMessageLooperImpStd.cpp */; };
+		27366E630A2D8DDC00D4E02A /* ZNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CC60A2D8DDB00D4E02A /* ZNode.cpp */; };
+		27366E640A2D8DDC00D4E02A /* ZNodeRep_Overlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CC80A2D8DDB00D4E02A /* ZNodeRep_Overlay.cpp */; };
+		27366E650A2D8DDC00D4E02A /* ZNodeRep_Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CCA0A2D8DDB00D4E02A /* ZNodeRep_Wrapper.cpp */; };
+		27366E660A2D8DDC00D4E02A /* ZRefCount.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CCC0A2D8DDB00D4E02A /* ZRefCount.cpp */; };
+		27366E670A2D8DDC00D4E02A /* ZStackCrawl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CCE0A2D8DDB00D4E02A /* ZStackCrawl.cpp */; };
+		27366E680A2D8DDC00D4E02A /* ZString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CD00A2D8DDB00D4E02A /* ZString.cpp */; };
+		27366E690A2D8DDC00D4E02A /* ZTicks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CD20A2D8DDB00D4E02A /* ZTicks.cpp */; };
+		27366E6A0A2D8DDC00D4E02A /* ZTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CD40A2D8DDB00D4E02A /* ZTime.cpp */; };
+		27366E6B0A2D8DDC00D4E02A /* ZTrail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CD60A2D8DDB00D4E02A /* ZTrail.cpp */; };
+		27366E6C0A2D8DDC00D4E02A /* ZTuple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CD80A2D8DDB00D4E02A /* ZTuple.cpp */; };
+		27366E6E0A2D8DDC00D4E02A /* ZTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CDC0A2D8DDB00D4E02A /* ZTypes.cpp */; };
+		27366E6F0A2D8DDC00D4E02A /* ZUnicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CDE0A2D8DDC00D4E02A /* ZUnicode.cpp */; };
+		27366E700A2D8DDC00D4E02A /* ZUtil_Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CE30A2D8DDC00D4E02A /* ZUtil_Time.cpp */; };
+		27366E710A2D8DDC00D4E02A /* ZUtil_Tuple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CE50A2D8DDC00D4E02A /* ZUtil_Tuple.cpp */; };
+		27366E720A2D8DDC00D4E02A /* ZBigRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CE80A2D8DDC00D4E02A /* ZBigRegion.cpp */; };
+		27366E730A2D8DDC00D4E02A /* ZDC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CEA0A2D8DDC00D4E02A /* ZDC.cpp */; };
+		27366E740A2D8DDC00D4E02A /* ZDC_ZooLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CEC0A2D8DDC00D4E02A /* ZDC_ZooLib.cpp */; };
+		27366E750A2D8DDC00D4E02A /* ZDCFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CEE0A2D8DDC00D4E02A /* ZDCFont.cpp */; };
+		27366E760A2D8DDC00D4E02A /* ZDCGlyphServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CF00A2D8DDC00D4E02A /* ZDCGlyphServer.cpp */; };
+		27366E770A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CF20A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.cpp */; };
+		27366E780A2D8DDC00D4E02A /* ZDCInk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CF40A2D8DDC00D4E02A /* ZDCInk.cpp */; };
+		27366E790A2D8DDC00D4E02A /* ZDCPixmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CF60A2D8DDC00D4E02A /* ZDCPixmap.cpp */; };
+		27366E7A0A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CF80A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.cpp */; };
+		27366E7B0A2D8DDC00D4E02A /* ZDCPixmapBlit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CFA0A2D8DDC00D4E02A /* ZDCPixmapBlit.cpp */; };
+		27366E7C0A2D8DDC00D4E02A /* ZDCPixmapCoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CFD0A2D8DDC00D4E02A /* ZDCPixmapCoder.cpp */; };
+		27366E7D0A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366CFF0A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.cpp */; };
+		27366E7E0A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D010A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.cpp */; };
+		27366E7F0A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D030A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.cpp */; };
+		27366E800A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D050A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.cpp */; };
+		27366E810A2D8DDC00D4E02A /* ZDCPixmapNS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D070A2D8DDC00D4E02A /* ZDCPixmapNS.cpp */; };
+		27366E820A2D8DDC00D4E02A /* ZDCPoly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D090A2D8DDC00D4E02A /* ZDCPoly.cpp */; };
+		27366E830A2D8DDC00D4E02A /* ZDCRgn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D0B0A2D8DDC00D4E02A /* ZDCRgn.cpp */; };
+		27366E840A2D8DDC00D4E02A /* ZGeom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D0D0A2D8DDC00D4E02A /* ZGeom.cpp */; };
+		27366E850A2D8DDC00D4E02A /* ZRGBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D0F0A2D8DDC00D4E02A /* ZRGBColor.cpp */; };
+		27366E860A2D8DDC00D4E02A /* ZUtil_Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D110A2D8DDC00D4E02A /* ZUtil_Graphics.cpp */; };
+		27366E930A2D8DDC00D4E02A /* ZAsset_MacOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D310A2D8DDC00D4E02A /* ZAsset_MacOS.cpp */; };
+		27366E940A2D8DDC00D4E02A /* ZDC_QD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D330A2D8DDC00D4E02A /* ZDC_QD.cpp */; };
+		27366E950A2D8DDC00D4E02A /* ZDebug_Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D350A2D8DDC00D4E02A /* ZDebug_Mac.cpp */; };
+		27366E960A2D8DDC00D4E02A /* ZFile_MacClassic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D370A2D8DDC00D4E02A /* ZFile_MacClassic.cpp */; };
+		27366E980A2D8DDC00D4E02A /* ZMacOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D3B0A2D8DDC00D4E02A /* ZMacOSX.cpp */; };
+		27366E990A2D8DDC00D4E02A /* ZMenu_Carbon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D3D0A2D8DDC00D4E02A /* ZMenu_Carbon.cpp */; };
+		27366E9A0A2D8DDC00D4E02A /* ZMenu_Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D3F0A2D8DDC00D4E02A /* ZMenu_Mac.cpp */; };
+		27366E9F0A2D8DDC00D4E02A /* ZOSWindow_Carbon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D490A2D8DDC00D4E02A /* ZOSWindow_Carbon.cpp */; };
+		27366EA00A2D8DDC00D4E02A /* ZOSWindow_Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D4B0A2D8DDC00D4E02A /* ZOSWindow_Mac.cpp */; };
+		27366EA10A2D8DDC00D4E02A /* ZPrint_Carbon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D4D0A2D8DDC00D4E02A /* ZPrint_Carbon.cpp */; };
+		27366EA20A2D8DDC00D4E02A /* ZPrint_MacClassic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D4F0A2D8DDC00D4E02A /* ZPrint_MacClassic.cpp */; };
+		27366EA30A2D8DDC00D4E02A /* ZStream_Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D510A2D8DDC00D4E02A /* ZStream_Mac.cpp */; };
+		27366EA40A2D8DDC00D4E02A /* ZStream_MacOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D530A2D8DDC00D4E02A /* ZStream_MacOSX.cpp */; };
+		27366EA50A2D8DDC00D4E02A /* ZTextCoder_Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D550A2D8DDC00D4E02A /* ZTextCoder_Mac.cpp */; };
+		27366EA60A2D8DDC00D4E02A /* ZThreadTM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D570A2D8DDC00D4E02A /* ZThreadTM.cpp */; };
+		27366EA80A2D8DDC00D4E02A /* ZUtil_Mac_LL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D5B0A2D8DDC00D4E02A /* ZUtil_Mac_LL.cpp */; };
+		27366EC00A2D8DDC00D4E02A /* ZPrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D900A2D8DDC00D4E02A /* ZPrint.cpp */; };
+		27366EC10A2D8DDC00D4E02A /* ZPrintDroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D920A2D8DDC00D4E02A /* ZPrintDroid.cpp */; };
+		27366EC20A2D8DDC00D4E02A /* ZStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D950A2D8DDC00D4E02A /* ZStream.cpp */; };
+		27366EC30A2D8DDC00D4E02A /* ZStream_ASCIIStrim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D970A2D8DDC00D4E02A /* ZStream_ASCIIStrim.cpp */; };
+		27366EC40A2D8DDC00D4E02A /* ZStream_Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D990A2D8DDC00D4E02A /* ZStream_Base64.cpp */; };
+		27366EC50A2D8DDC00D4E02A /* ZStream_Buffered.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D9B0A2D8DDC00D4E02A /* ZStream_Buffered.cpp */; };
+		27366EC60A2D8DDC00D4E02A /* ZStream_Count.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D9D0A2D8DDC00D4E02A /* ZStream_Count.cpp */; };
+		27366EC70A2D8DDC00D4E02A /* ZStream_CRLF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366D9F0A2D8DDC00D4E02A /* ZStream_CRLF.cpp */; };
+		27366EC80A2D8DDC00D4E02A /* ZStream_HexStrim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DA10A2D8DDC00D4E02A /* ZStream_HexStrim.cpp */; };
+		27366ECA0A2D8DDC00D4E02A /* ZStream_Limited.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DA50A2D8DDC00D4E02A /* ZStream_Limited.cpp */; };
+		27366ECB0A2D8DDC00D4E02A /* ZStream_LZW.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DA70A2D8DDC00D4E02A /* ZStream_LZW.cpp */; };
+		27366ECC0A2D8DDC00D4E02A /* ZStream_MD5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DA90A2D8DDC00D4E02A /* ZStream_MD5.cpp */; };
+		27366ECD0A2D8DDC00D4E02A /* ZStream_Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DAB0A2D8DDC00D4E02A /* ZStream_Memory.cpp */; };
+		27366ECE0A2D8DDC00D4E02A /* ZStream_PageBuffered.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DAD0A2D8DDC00D4E02A /* ZStream_PageBuffered.cpp */; };
+		27366ECF0A2D8DDC00D4E02A /* ZStream_SHA1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DAF0A2D8DDC00D4E02A /* ZStream_SHA1.cpp */; };
+		27366ED00A2D8DDC00D4E02A /* ZStream_String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DB10A2D8DDC00D4E02A /* ZStream_String.cpp */; };
+		27366ED10A2D8DDC00D4E02A /* ZStream_Tee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DB30A2D8DDC00D4E02A /* ZStream_Tee.cpp */; };
+		27366ED20A2D8DDC00D4E02A /* ZStream_ZLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DB50A2D8DDC00D4E02A /* ZStream_ZLib.cpp */; };
+		27366ED30A2D8DDC00D4E02A /* ZStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DB70A2D8DDC00D4E02A /* ZStreamer.cpp */; };
+		27366ED40A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DB90A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.cpp */; };
+		27366ED60A2D8DDC00D4E02A /* ZStreamR_Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DBD0A2D8DDC00D4E02A /* ZStreamR_Boundary.cpp */; };
+		27366ED70A2D8DDC00D4E02A /* ZStreamR_Cat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DBF0A2D8DDC00D4E02A /* ZStreamR_Cat.cpp */; };
+		27366ED80A2D8DDC00D4E02A /* ZStreamR_Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DC10A2D8DDC00D4E02A /* ZStreamR_Random.cpp */; };
+		27366ED90A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DC30A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.cpp */; };
+		27366EDA0A2D8DDC00D4E02A /* ZStreamR_Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DC50A2D8DDC00D4E02A /* ZStreamR_Source.cpp */; };
+		27366EDB0A2D8DDC00D4E02A /* ZStreamRPos_StreamR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DC70A2D8DDC00D4E02A /* ZStreamRPos_StreamR.cpp */; };
+		27366EDC0A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DC90A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.cpp */; };
+		27366EDD0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DCB0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.cpp */; };
+		27366EDE0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DCD0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.cpp */; };
+		27366EDF0A2D8DDC00D4E02A /* ZStrim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DCF0A2D8DDC00D4E02A /* ZStrim.cpp */; };
+		27366EE00A2D8DDC00D4E02A /* ZStrim_CRLF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DD10A2D8DDC00D4E02A /* ZStrim_CRLF.cpp */; };
+		27366EE10A2D8DDC00D4E02A /* ZStrim_Limited.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DD30A2D8DDC00D4E02A /* ZStrim_Limited.cpp */; };
+		27366EE20A2D8DDC00D4E02A /* ZStrim_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DD50A2D8DDC00D4E02A /* ZStrim_Stream.cpp */; };
+		27366EE30A2D8DDC00D4E02A /* ZStrim_Tee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DD70A2D8DDC00D4E02A /* ZStrim_Tee.cpp */; };
+		27366EE40A2D8DDC00D4E02A /* ZStrimmer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DD90A2D8DDC00D4E02A /* ZStrimmer.cpp */; };
+		27366EE50A2D8DDC00D4E02A /* ZStrimR_Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DDD0A2D8DDC00D4E02A /* ZStrimR_Boundary.cpp */; };
+		27366EE60A2D8DDC00D4E02A /* ZStrimR_Rewind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DDF0A2D8DDC00D4E02A /* ZStrimR_Rewind.cpp */; };
+		27366EE70A2D8DDC00D4E02A /* ZStrimW_Escapify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DE10A2D8DDC00D4E02A /* ZStrimW_Escapify.cpp */; };
+		27366EE80A2D8DDC00D4E02A /* ZStrimW_ML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DE30A2D8DDC00D4E02A /* ZStrimW_ML.cpp */; };
+		27366EE90A2D8DDC00D4E02A /* ZUtil_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DE50A2D8DDC00D4E02A /* ZUtil_Stream.cpp */; };
+		27366EEA0A2D8DDC00D4E02A /* ZUtil_Strim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DE70A2D8DDC00D4E02A /* ZUtil_Strim.cpp */; };
+		27366EEB0A2D8DDC00D4E02A /* ZRegex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DEA0A2D8DDC00D4E02A /* ZRegex.cpp */; };
+		27366EEC0A2D8DDC00D4E02A /* ZTextCoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DEC0A2D8DDC00D4E02A /* ZTextCoder.cpp */; };
+		27366EED0A2D8DDC00D4E02A /* ZTextCoder_ICU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DEE0A2D8DDC00D4E02A /* ZTextCoder_ICU.cpp */; };
+		27366EEE0A2D8DDC00D4E02A /* ZTextCoder_Std.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DF00A2D8DDC00D4E02A /* ZTextCoder_Std.cpp */; };
+		27366EEF0A2D8DDC00D4E02A /* ZTextCoder_Unicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DF20A2D8DDC00D4E02A /* ZTextCoder_Unicode.cpp */; };
+		27366EF00A2D8DDC00D4E02A /* ZTextCollator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DF40A2D8DDC00D4E02A /* ZTextCollator.cpp */; };
+		27366EF10A2D8DDC00D4E02A /* ZTextCollator_ASCII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DF60A2D8DDC00D4E02A /* ZTextCollator_ASCII.cpp */; };
+		27366EF20A2D8DDC00D4E02A /* ZTextCollator_ICU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DF80A2D8DDC00D4E02A /* ZTextCollator_ICU.cpp */; };
+		27366EF30A2D8DDC00D4E02A /* ZUITextEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DFA0A2D8DDC00D4E02A /* ZUITextEngine.cpp */; };
+		27366EF40A2D8DDC00D4E02A /* ZUITextEngine_Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DFC0A2D8DDC00D4E02A /* ZUITextEngine_Mac.cpp */; };
+		27366EF50A2D8DDC00D4E02A /* ZUITextEngine_Z.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366DFE0A2D8DDC00D4E02A /* ZUITextEngine_Z.cpp */; };
+		27366EF60A2D8DDC00D4E02A /* ZUtil_TextCoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E000A2D8DDC00D4E02A /* ZUtil_TextCoder.cpp */; };
+		27366EF70A2D8DDC00D4E02A /* ZThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E030A2D8DDC00D4E02A /* ZThread.cpp */; };
+		27366EF80A2D8DDC00D4E02A /* ZThreadSimple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E050A2D8DDC00D4E02A /* ZThreadSimple.cpp */; };
+		27366EF90A2D8DDC00D4E02A /* ZApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E080A2D8DDC00D4E02A /* ZApp.cpp */; };
+		27366EFA0A2D8DDC00D4E02A /* ZCursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E0A0A2D8DDC00D4E02A /* ZCursor.cpp */; };
+		27366EFB0A2D8DDC00D4E02A /* ZDragClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E0C0A2D8DDC00D4E02A /* ZDragClip.cpp */; };
+		27366EFC0A2D8DDC00D4E02A /* ZEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E0E0A2D8DDC00D4E02A /* ZEvent.cpp */; };
+		27366EFD0A2D8DDC00D4E02A /* ZEventHr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E100A2D8DDC00D4E02A /* ZEventHr.cpp */; };
+		27366EFE0A2D8DDC00D4E02A /* ZFakeWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E120A2D8DDC00D4E02A /* ZFakeWindow.cpp */; };
+		27366EFF0A2D8DDC00D4E02A /* ZMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E140A2D8DDC00D4E02A /* ZMenu.cpp */; };
+		27366F000A2D8DDC00D4E02A /* ZMouseTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E160A2D8DDC00D4E02A /* ZMouseTracker.cpp */; };
+		27366F010A2D8DDC00D4E02A /* ZOSWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E180A2D8DDC00D4E02A /* ZOSWindow.cpp */; };
+		27366F020A2D8DDC00D4E02A /* ZOSWindow_Std.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E1A0A2D8DDC00D4E02A /* ZOSWindow_Std.cpp */; };
+		27366F030A2D8DDC00D4E02A /* ZPane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E1C0A2D8DDC00D4E02A /* ZPane.cpp */; };
+		27366F040A2D8DDC00D4E02A /* ZUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E1E0A2D8DDC00D4E02A /* ZUI.cpp */; };
+		27366F050A2D8DDC00D4E02A /* ZUIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E200A2D8DDC00D4E02A /* ZUIBase.cpp */; };
+		27366F060A2D8DDC00D4E02A /* ZUIColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E220A2D8DDC00D4E02A /* ZUIColor.cpp */; };
+		27366F070A2D8DDC00D4E02A /* ZUIDisplayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E240A2D8DDC00D4E02A /* ZUIDisplayState.cpp */; };
+		27366F080A2D8DDC00D4E02A /* ZUIFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E260A2D8DDC00D4E02A /* ZUIFactory.cpp */; };
+		27366F090A2D8DDC00D4E02A /* ZUIFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E280A2D8DDC00D4E02A /* ZUIFont.cpp */; };
+		27366F0A0A2D8DDC00D4E02A /* ZUIInk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E2A0A2D8DDC00D4E02A /* ZUIInk.cpp */; };
+		27366F0B0A2D8DDC00D4E02A /* ZUIMetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E2C0A2D8DDC00D4E02A /* ZUIMetric.cpp */; };
+		27366F0C0A2D8DDC00D4E02A /* ZUIRendered.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E2E0A2D8DDC00D4E02A /* ZUIRendered.cpp */; };
+		27366F0D0A2D8DDC00D4E02A /* ZUtil_UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E300A2D8DDC00D4E02A /* ZUtil_UI.cpp */; };
+		27366F0E0A2D8DDC00D4E02A /* ZWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E320A2D8DDC00D4E02A /* ZWindow.cpp */; };
+		27366F0F0A2D8DDC00D4E02A /* ZAlert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E350A2D8DDC00D4E02A /* ZAlert.cpp */; };
+		27366F100A2D8DDC00D4E02A /* ZFontMenus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E370A2D8DDC00D4E02A /* ZFontMenus.cpp */; };
+		27366F110A2D8DDC00D4E02A /* ZRegionAdorner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E390A2D8DDC00D4E02A /* ZRegionAdorner.cpp */; };
+		27366F120A2D8DDC00D4E02A /* ZUICartesianPlane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E3B0A2D8DDC00D4E02A /* ZUICartesianPlane.cpp */; };
+		27366F130A2D8DDC00D4E02A /* ZUIGridPane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E3D0A2D8DDC00D4E02A /* ZUIGridPane.cpp */; };
+		27366F140A2D8DDC00D4E02A /* ZUIRenderer_Appearance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E3F0A2D8DDC00D4E02A /* ZUIRenderer_Appearance.cpp */; };
+		27366F150A2D8DDC00D4E02A /* ZUIRenderer_Platinum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E410A2D8DDC00D4E02A /* ZUIRenderer_Platinum.cpp */; };
+		27366F160A2D8DDC00D4E02A /* ZUIRenderer_Win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E430A2D8DDC00D4E02A /* ZUIRenderer_Win32.cpp */; };
+		27366F170A2D8DDC00D4E02A /* ZUISwitchable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27366E450A2D8DDC00D4E02A /* ZUISwitchable.cpp */; };
+		2736712D0A2DACC400D4E02A /* ZASParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 273671280A2DACC400D4E02A /* ZASParser.cpp */; };
+		2736712E0A2DACC400D4E02A /* ZAsset_FS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 273671290A2DACC400D4E02A /* ZAsset_FS.cpp */; };
+		2736712F0A2DACC400D4E02A /* ZAsset_Std.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2736712A0A2DACC400D4E02A /* ZAsset_Std.cpp */; };
+		273671300A2DACC400D4E02A /* ZAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2736712B0A2DACC400D4E02A /* ZAsset.cpp */; };
+		273671310A2DACC400D4E02A /* ZUtil_Asset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2736712C0A2DACC400D4E02A /* ZUtil_Asset.cpp */; };
+		273671400A2DAE1900D4E02A /* ZUtil_Mac_HL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2736713F0A2DAE1900D4E02A /* ZUtil_Mac_HL.cpp */; };
+		2736715F0A2DB0C000D4E02A /* ZDateTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2736715D0A2DB0C000D4E02A /* ZDateTime.cpp */; };
+		273671600A2DB0C000D4E02A /* ZTextUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2736715E0A2DB0C000D4E02A /* ZTextUtil.cpp */; };
+		276C5A550CA5ED9500C79710 /* ZFile_POSIX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276C5A540CA5ED9500C79710 /* ZFile_POSIX.cpp */; };
+		276C5A580CA5EDF300C79710 /* ZBitStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276C5A560CA5EDF300C79710 /* ZBitStream.cpp */; };
+		276C5A5D0CA5EE2600C79710 /* ZUtil_CFType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276C5A5B0CA5EE2600C79710 /* ZUtil_CFType.cpp */; };
+		27E0D9E30A44853F00B4AAA0 /* BMApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E0D9DA0A44853F00B4AAA0 /* BMApp.cpp */; };
+		27E0D9E40A44854000B4AAA0 /* BMButtonWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E0D9DC0A44853F00B4AAA0 /* BMButtonWindow.cpp */; };
+		27E0D9E50A44854000B4AAA0 /* BMDisplayWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E0D9DE0A44853F00B4AAA0 /* BMDisplayWindow.cpp */; };
+		27E0D9E60A44854000B4AAA0 /* BMMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E0D9E00A44853F00B4AAA0 /* BMMain.cpp */; };
+		27E0D9E70A44854000B4AAA0 /* MessageButtonPane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E0D9E10A44853F00B4AAA0 /* MessageButtonPane.cpp */; };
+		27F807200A6668AA00DD7D4F /* ZUtil_MacOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27F8071C0A6668AA00DD7D4F /* ZUtil_MacOSX.cpp */; };
+		27F807370A666ACC00DD7D4F /* ZLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27F807350A666ACC00DD7D4F /* ZLog.cpp */; };
+		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
+		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
+		8D0C4E930486CD37000505A6 /* libstdc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0249A66BFF388E3F11CA2CEA /* libstdc++.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0249A66BFF388E3F11CA2CEA /* libstdc++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libstdc++.a"; path = "/usr/lib/libstdc++.a"; sourceTree = "<absolute>"; };
+		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		270AFBE20F387BAA008AA85E /* ZTName.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ZTName.cpp; sourceTree = "<group>"; };
+		270AFBE30F387BAA008AA85E /* ZTName.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ZTName.h; sourceTree = "<group>"; };
+		270AFBED0F387C55008AA85E /* ZStream_Chunked.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ZStream_Chunked.cpp; sourceTree = "<group>"; };
+		270AFBEE0F387C55008AA85E /* ZStream_Chunked.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ZStream_Chunked.h; sourceTree = "<group>"; };
+		270AFBF70F387CF4008AA85E /* ZUtil_Strim_Tuple.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ZUtil_Strim_Tuple.cpp; sourceTree = "<group>"; };
+		270AFBF80F387CF4008AA85E /* ZUtil_Strim_Tuple.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ZUtil_Strim_Tuple.h; sourceTree = "<group>"; };
+		271F4DDD0F7900E200B68161 /* ZUtil_Win_UI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ZUtil_Win_UI.h; sourceTree = "<group>"; };
+		27366C7E0A2D8DDB00D4E02A /* ZCmdLine.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCmdLine.h; path = ../../../src/_deprecated/ZCmdLine.h; sourceTree = SOURCE_ROOT; };
+		27366C800A2D8DDB00D4E02A /* ZDateTime.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDateTime.h; path = ../../../src/_deprecated/ZDateTime.h; sourceTree = SOURCE_ROOT; };
+		27366C810A2D8DDB00D4E02A /* ZInterest.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZInterest.cpp; path = ../../../src/_deprecated/ZInterest.cpp; sourceTree = SOURCE_ROOT; };
+		27366C820A2D8DDB00D4E02A /* ZInterest.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZInterest.h; path = ../../../src/_deprecated/ZInterest.h; sourceTree = SOURCE_ROOT; };
+		27366C830A2D8DDB00D4E02A /* ZKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZKeyboard.h; path = ../../../src/_deprecated/ZKeyboard.h; sourceTree = SOURCE_ROOT; };
+		27366C840A2D8DDB00D4E02A /* ZMenuDef.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenuDef.h; path = ../../../src/_deprecated/ZMenuDef.h; sourceTree = SOURCE_ROOT; };
+		27366C860A2D8DDB00D4E02A /* ZTextUtil.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextUtil.h; path = ../../../src/_deprecated/ZTextUtil.h; sourceTree = SOURCE_ROOT; };
+		27366C8D0A2D8DDB00D4E02A /* ZASParser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZASParser.h; path = ../../../src/asset/ZASParser.h; sourceTree = SOURCE_ROOT; };
+		27366C8F0A2D8DDB00D4E02A /* ZAsset.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAsset.h; path = ../../../src/asset/ZAsset.h; sourceTree = SOURCE_ROOT; };
+		27366C910A2D8DDB00D4E02A /* ZAsset_FS.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAsset_FS.h; path = ../../../src/asset/ZAsset_FS.h; sourceTree = SOURCE_ROOT; };
+		27366C930A2D8DDB00D4E02A /* ZAsset_Std.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAsset_Std.h; path = ../../../src/asset/ZAsset_Std.h; sourceTree = SOURCE_ROOT; };
+		27366C950A2D8DDB00D4E02A /* ZUtil_Asset.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Asset.h; path = ../../../src/asset/ZUtil_Asset.h; sourceTree = SOURCE_ROOT; };
+		27366C970A2D8DDB00D4E02A /* ZCompat_algorithm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCompat_algorithm.h; path = ../../../src/compat/ZCompat_algorithm.h; sourceTree = SOURCE_ROOT; };
+		27366C980A2D8DDB00D4E02A /* ZCompat_cmath.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCompat_cmath.h; path = ../../../src/compat/ZCompat_cmath.h; sourceTree = SOURCE_ROOT; };
+		27366C990A2D8DDB00D4E02A /* ZCompat_NonCopyable.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCompat_NonCopyable.h; path = ../../../src/compat/ZCompat_NonCopyable.h; sourceTree = SOURCE_ROOT; };
+		27366C9A0A2D8DDB00D4E02A /* ZCompat_operator_bool.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCompat_operator_bool.h; path = ../../../src/compat/ZCompat_operator_bool.h; sourceTree = SOURCE_ROOT; };
+		27366C9C0A2D8DDB00D4E02A /* zconfig.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = zconfig.h; path = ../../../src/config/zconfig.h; sourceTree = SOURCE_ROOT; };
+		27366C9D0A2D8DDB00D4E02A /* ZCONFIG_API.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCONFIG_API.h; path = ../../../src/config/ZCONFIG_API.h; sourceTree = SOURCE_ROOT; };
+		27366C9E0A2D8DDB00D4E02A /* ZCONFIG_API_Definitions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCONFIG_API_Definitions.h; path = ../../../src/config/ZCONFIG_API_Definitions.h; sourceTree = SOURCE_ROOT; };
+		27366C9F0A2D8DDB00D4E02A /* ZCONFIG_SPI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCONFIG_SPI.h; path = ../../../src/config/ZCONFIG_SPI.h; sourceTree = SOURCE_ROOT; };
+		27366CA00A2D8DDB00D4E02A /* ZCONFIG_SPI_Definitions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCONFIG_SPI_Definitions.h; path = ../../../src/config/ZCONFIG_SPI_Definitions.h; sourceTree = SOURCE_ROOT; };
+		27366CA10A2D8DDB00D4E02A /* zconfigd.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = zconfigd.h; path = ../../../src/config/zconfigd.h; sourceTree = SOURCE_ROOT; };
+		27366CA20A2D8DDB00D4E02A /* zconfigl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = zconfigl.h; path = ../../../src/config/zconfigl.h; sourceTree = SOURCE_ROOT; };
+		27366CA50A2D8DDB00D4E02A /* ZCONFIG_API_Choices.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCONFIG_API_Choices.h; path = ../../../src/config_choices/ZCONFIG_API_Choices.h; sourceTree = SOURCE_ROOT; };
+		27366CA60A2D8DDB00D4E02A /* ZCONFIG_SPI_Choices.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCONFIG_SPI_Choices.h; path = ../../../src/config_choices/ZCONFIG_SPI_Choices.h; sourceTree = SOURCE_ROOT; };
+		27366CAD0A2D8DDB00D4E02A /* ZFile.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZFile.cpp; path = ../../../src/file/ZFile.cpp; sourceTree = SOURCE_ROOT; };
+		27366CAE0A2D8DDB00D4E02A /* ZFile.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZFile.h; path = ../../../src/file/ZFile.h; sourceTree = SOURCE_ROOT; };
+		27366CAF0A2D8DDB00D4E02A /* ZUtil_File.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_File.cpp; path = ../../../src/file/ZUtil_File.cpp; sourceTree = SOURCE_ROOT; };
+		27366CB00A2D8DDB00D4E02A /* ZUtil_File.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_File.h; path = ../../../src/file/ZUtil_File.h; sourceTree = SOURCE_ROOT; };
+		27366CB20A2D8DDB00D4E02A /* ZAtomic.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZAtomic.cpp; path = ../../../src/foundation/ZAtomic.cpp; sourceTree = SOURCE_ROOT; };
+		27366CB30A2D8DDB00D4E02A /* ZAtomic.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAtomic.h; path = ../../../src/foundation/ZAtomic.h; sourceTree = SOURCE_ROOT; };
+		27366CB40A2D8DDB00D4E02A /* ZByteSwap.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZByteSwap.cpp; path = ../../../src/foundation/ZByteSwap.cpp; sourceTree = SOURCE_ROOT; };
+		27366CB50A2D8DDB00D4E02A /* ZByteSwap.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZByteSwap.h; path = ../../../src/foundation/ZByteSwap.h; sourceTree = SOURCE_ROOT; };
+		27366CB60A2D8DDB00D4E02A /* ZCompare.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare.cpp; path = ../../../src/foundation/ZCompare.cpp; sourceTree = SOURCE_ROOT; };
+		27366CB70A2D8DDB00D4E02A /* ZCompare.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCompare.h; path = ../../../src/foundation/ZCompare.h; sourceTree = SOURCE_ROOT; };
+		27366CB80A2D8DDB00D4E02A /* ZDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDebug.cpp; path = ../../../src/foundation/ZDebug.cpp; sourceTree = SOURCE_ROOT; };
+		27366CB90A2D8DDB00D4E02A /* ZDebug.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDebug.h; path = ../../../src/foundation/ZDebug.h; sourceTree = SOURCE_ROOT; };
+		27366CBA0A2D8DDB00D4E02A /* ZHandle.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZHandle.cpp; path = ../../../src/foundation/ZHandle.cpp; sourceTree = SOURCE_ROOT; };
+		27366CBB0A2D8DDB00D4E02A /* ZHandle.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZHandle.h; path = ../../../src/foundation/ZHandle.h; sourceTree = SOURCE_ROOT; };
+		27366CBC0A2D8DDB00D4E02A /* ZMain.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMain.cpp; path = ../../../src/foundation/ZMain.cpp; sourceTree = SOURCE_ROOT; };
+		27366CBD0A2D8DDB00D4E02A /* ZMain.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMain.h; path = ../../../src/foundation/ZMain.h; sourceTree = SOURCE_ROOT; };
+		27366CBE0A2D8DDB00D4E02A /* ZMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMemory.cpp; path = ../../../src/foundation/ZMemory.cpp; sourceTree = SOURCE_ROOT; };
+		27366CBF0A2D8DDB00D4E02A /* ZMemory.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMemory.h; path = ../../../src/foundation/ZMemory.h; sourceTree = SOURCE_ROOT; };
+		27366CC00A2D8DDB00D4E02A /* ZMemoryBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMemoryBlock.cpp; path = ../../../src/foundation/ZMemoryBlock.cpp; sourceTree = SOURCE_ROOT; };
+		27366CC10A2D8DDB00D4E02A /* ZMemoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMemoryBlock.h; path = ../../../src/foundation/ZMemoryBlock.h; sourceTree = SOURCE_ROOT; };
+		27366CC20A2D8DDB00D4E02A /* ZMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMessage.cpp; path = ../../../src/foundation/ZMessage.cpp; sourceTree = SOURCE_ROOT; };
+		27366CC30A2D8DDB00D4E02A /* ZMessage.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMessage.h; path = ../../../src/foundation/ZMessage.h; sourceTree = SOURCE_ROOT; };
+		27366CC40A2D8DDB00D4E02A /* ZMessageLooperImpStd.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMessageLooperImpStd.cpp; path = ../../../src/foundation/ZMessageLooperImpStd.cpp; sourceTree = SOURCE_ROOT; };
+		27366CC50A2D8DDB00D4E02A /* ZMessageLooperImpStd.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMessageLooperImpStd.h; path = ../../../src/foundation/ZMessageLooperImpStd.h; sourceTree = SOURCE_ROOT; };
+		27366CC60A2D8DDB00D4E02A /* ZNode.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZNode.cpp; path = ../../../src/foundation/ZNode.cpp; sourceTree = SOURCE_ROOT; };
+		27366CC70A2D8DDB00D4E02A /* ZNode.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNode.h; path = ../../../src/foundation/ZNode.h; sourceTree = SOURCE_ROOT; };
+		27366CC80A2D8DDB00D4E02A /* ZNodeRep_Overlay.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZNodeRep_Overlay.cpp; path = ../../../src/foundation/ZNodeRep_Overlay.cpp; sourceTree = SOURCE_ROOT; };
+		27366CC90A2D8DDB00D4E02A /* ZNodeRep_Overlay.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNodeRep_Overlay.h; path = ../../../src/foundation/ZNodeRep_Overlay.h; sourceTree = SOURCE_ROOT; };
+		27366CCA0A2D8DDB00D4E02A /* ZNodeRep_Wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZNodeRep_Wrapper.cpp; path = ../../../src/foundation/ZNodeRep_Wrapper.cpp; sourceTree = SOURCE_ROOT; };
+		27366CCB0A2D8DDB00D4E02A /* ZNodeRep_Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNodeRep_Wrapper.h; path = ../../../src/foundation/ZNodeRep_Wrapper.h; sourceTree = SOURCE_ROOT; };
+		27366CCC0A2D8DDB00D4E02A /* ZRefCount.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZRefCount.cpp; path = ../../../src/foundation/ZRefCount.cpp; sourceTree = SOURCE_ROOT; };
+		27366CCD0A2D8DDB00D4E02A /* ZRefCount.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZRefCount.h; path = ../../../src/foundation/ZRefCount.h; sourceTree = SOURCE_ROOT; };
+		27366CCE0A2D8DDB00D4E02A /* ZStackCrawl.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStackCrawl.cpp; path = ../../../src/foundation/ZStackCrawl.cpp; sourceTree = SOURCE_ROOT; };
+		27366CCF0A2D8DDB00D4E02A /* ZStackCrawl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStackCrawl.h; path = ../../../src/foundation/ZStackCrawl.h; sourceTree = SOURCE_ROOT; };
+		27366CD00A2D8DDB00D4E02A /* ZString.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZString.cpp; path = ../../../src/foundation/ZString.cpp; sourceTree = SOURCE_ROOT; };
+		27366CD10A2D8DDB00D4E02A /* ZString.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZString.h; path = ../../../src/foundation/ZString.h; sourceTree = SOURCE_ROOT; };
+		27366CD20A2D8DDB00D4E02A /* ZTicks.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTicks.cpp; path = ../../../src/foundation/ZTicks.cpp; sourceTree = SOURCE_ROOT; };
+		27366CD30A2D8DDB00D4E02A /* ZTicks.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTicks.h; path = ../../../src/foundation/ZTicks.h; sourceTree = SOURCE_ROOT; };
+		27366CD40A2D8DDB00D4E02A /* ZTime.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTime.cpp; path = ../../../src/foundation/ZTime.cpp; sourceTree = SOURCE_ROOT; };
+		27366CD50A2D8DDB00D4E02A /* ZTime.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTime.h; path = ../../../src/foundation/ZTime.h; sourceTree = SOURCE_ROOT; };
+		27366CD60A2D8DDB00D4E02A /* ZTrail.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTrail.cpp; path = ../../../src/foundation/ZTrail.cpp; sourceTree = SOURCE_ROOT; };
+		27366CD70A2D8DDB00D4E02A /* ZTrail.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTrail.h; path = ../../../src/foundation/ZTrail.h; sourceTree = SOURCE_ROOT; };
+		27366CD80A2D8DDB00D4E02A /* ZTuple.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTuple.cpp; path = ../../../src/foundation/ZTuple.cpp; sourceTree = SOURCE_ROOT; };
+		27366CD90A2D8DDB00D4E02A /* ZTuple.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTuple.h; path = ../../../src/foundation/ZTuple.h; sourceTree = SOURCE_ROOT; };
+		27366CDC0A2D8DDB00D4E02A /* ZTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTypes.cpp; path = ../../../src/foundation/ZTypes.cpp; sourceTree = SOURCE_ROOT; };
+		27366CDD0A2D8DDC00D4E02A /* ZTypes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTypes.h; path = ../../../src/foundation/ZTypes.h; sourceTree = SOURCE_ROOT; };
+		27366CDE0A2D8DDC00D4E02A /* ZUnicode.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUnicode.cpp; path = ../../../src/foundation/ZUnicode.cpp; sourceTree = SOURCE_ROOT; };
+		27366CDF0A2D8DDC00D4E02A /* ZUnicode.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUnicode.h; path = ../../../src/foundation/ZUnicode.h; sourceTree = SOURCE_ROOT; };
+		27366CE00A2D8DDC00D4E02A /* ZUnicodePriv.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUnicodePriv.h; path = ../../../src/foundation/ZUnicodePriv.h; sourceTree = SOURCE_ROOT; };
+		27366CE10A2D8DDC00D4E02A /* ZUnicodePrivB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUnicodePrivB.h; path = ../../../src/foundation/ZUnicodePrivB.h; sourceTree = SOURCE_ROOT; };
+		27366CE20A2D8DDC00D4E02A /* ZUtil_STL.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_STL.h; path = ../../../src/foundation/ZUtil_STL.h; sourceTree = SOURCE_ROOT; };
+		27366CE30A2D8DDC00D4E02A /* ZUtil_Time.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Time.cpp; path = ../../../src/foundation/ZUtil_Time.cpp; sourceTree = SOURCE_ROOT; };
+		27366CE40A2D8DDC00D4E02A /* ZUtil_Time.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Time.h; path = ../../../src/foundation/ZUtil_Time.h; sourceTree = SOURCE_ROOT; };
+		27366CE50A2D8DDC00D4E02A /* ZUtil_Tuple.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Tuple.cpp; path = ../../../src/foundation/ZUtil_Tuple.cpp; sourceTree = SOURCE_ROOT; };
+		27366CE60A2D8DDC00D4E02A /* ZUtil_Tuple.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Tuple.h; path = ../../../src/foundation/ZUtil_Tuple.h; sourceTree = SOURCE_ROOT; };
+		27366CE80A2D8DDC00D4E02A /* ZBigRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZBigRegion.cpp; path = ../../../src/graphics/ZBigRegion.cpp; sourceTree = SOURCE_ROOT; };
+		27366CE90A2D8DDC00D4E02A /* ZBigRegion.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZBigRegion.h; path = ../../../src/graphics/ZBigRegion.h; sourceTree = SOURCE_ROOT; };
+		27366CEA0A2D8DDC00D4E02A /* ZDC.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDC.cpp; path = ../../../src/graphics/ZDC.cpp; sourceTree = SOURCE_ROOT; };
+		27366CEB0A2D8DDC00D4E02A /* ZDC.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDC.h; path = ../../../src/graphics/ZDC.h; sourceTree = SOURCE_ROOT; };
+		27366CEC0A2D8DDC00D4E02A /* ZDC_ZooLib.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDC_ZooLib.cpp; path = ../../../src/graphics/ZDC_ZooLib.cpp; sourceTree = SOURCE_ROOT; };
+		27366CED0A2D8DDC00D4E02A /* ZDC_ZooLib.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDC_ZooLib.h; path = ../../../src/graphics/ZDC_ZooLib.h; sourceTree = SOURCE_ROOT; };
+		27366CEE0A2D8DDC00D4E02A /* ZDCFont.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCFont.cpp; path = ../../../src/graphics/ZDCFont.cpp; sourceTree = SOURCE_ROOT; };
+		27366CEF0A2D8DDC00D4E02A /* ZDCFont.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCFont.h; path = ../../../src/graphics/ZDCFont.h; sourceTree = SOURCE_ROOT; };
+		27366CF00A2D8DDC00D4E02A /* ZDCGlyphServer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCGlyphServer.cpp; path = ../../../src/graphics/ZDCGlyphServer.cpp; sourceTree = SOURCE_ROOT; };
+		27366CF10A2D8DDC00D4E02A /* ZDCGlyphServer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCGlyphServer.h; path = ../../../src/graphics/ZDCGlyphServer.h; sourceTree = SOURCE_ROOT; };
+		27366CF20A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCGlyphServer_Asset.cpp; path = ../../../src/graphics/ZDCGlyphServer_Asset.cpp; sourceTree = SOURCE_ROOT; };
+		27366CF30A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCGlyphServer_Asset.h; path = ../../../src/graphics/ZDCGlyphServer_Asset.h; sourceTree = SOURCE_ROOT; };
+		27366CF40A2D8DDC00D4E02A /* ZDCInk.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCInk.cpp; path = ../../../src/graphics/ZDCInk.cpp; sourceTree = SOURCE_ROOT; };
+		27366CF50A2D8DDC00D4E02A /* ZDCInk.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCInk.h; path = ../../../src/graphics/ZDCInk.h; sourceTree = SOURCE_ROOT; };
+		27366CF60A2D8DDC00D4E02A /* ZDCPixmap.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmap.cpp; path = ../../../src/graphics/ZDCPixmap.cpp; sourceTree = SOURCE_ROOT; };
+		27366CF70A2D8DDC00D4E02A /* ZDCPixmap.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmap.h; path = ../../../src/graphics/ZDCPixmap.h; sourceTree = SOURCE_ROOT; };
+		27366CF80A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmap_Asset_BMP.cpp; path = ../../../src/graphics/ZDCPixmap_Asset_BMP.cpp; sourceTree = SOURCE_ROOT; };
+		27366CF90A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmap_Asset_BMP.h; path = ../../../src/graphics/ZDCPixmap_Asset_BMP.h; sourceTree = SOURCE_ROOT; };
+		27366CFA0A2D8DDC00D4E02A /* ZDCPixmapBlit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapBlit.cpp; path = ../../../src/graphics/ZDCPixmapBlit.cpp; sourceTree = SOURCE_ROOT; };
+		27366CFB0A2D8DDC00D4E02A /* ZDCPixmapBlit.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapBlit.h; path = ../../../src/graphics/ZDCPixmapBlit.h; sourceTree = SOURCE_ROOT; };
+		27366CFC0A2D8DDC00D4E02A /* ZDCPixmapBlitPriv.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapBlitPriv.h; path = ../../../src/graphics/ZDCPixmapBlitPriv.h; sourceTree = SOURCE_ROOT; };
+		27366CFD0A2D8DDC00D4E02A /* ZDCPixmapCoder.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapCoder.cpp; path = ../../../src/graphics/ZDCPixmapCoder.cpp; sourceTree = SOURCE_ROOT; };
+		27366CFE0A2D8DDC00D4E02A /* ZDCPixmapCoder.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapCoder.h; path = ../../../src/graphics/ZDCPixmapCoder.h; sourceTree = SOURCE_ROOT; };
+		27366CFF0A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapCoder_BMP.cpp; path = ../../../src/graphics/ZDCPixmapCoder_BMP.cpp; sourceTree = SOURCE_ROOT; };
+		27366D000A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapCoder_BMP.h; path = ../../../src/graphics/ZDCPixmapCoder_BMP.h; sourceTree = SOURCE_ROOT; };
+		27366D010A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapCoder_GIF.cpp; path = ../../../src/graphics/ZDCPixmapCoder_GIF.cpp; sourceTree = SOURCE_ROOT; };
+		27366D020A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapCoder_GIF.h; path = ../../../src/graphics/ZDCPixmapCoder_GIF.h; sourceTree = SOURCE_ROOT; };
+		27366D030A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapCoder_JPEGLib.cpp; path = ../../../src/graphics/ZDCPixmapCoder_JPEGLib.cpp; sourceTree = SOURCE_ROOT; };
+		27366D040A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapCoder_JPEGLib.h; path = ../../../src/graphics/ZDCPixmapCoder_JPEGLib.h; sourceTree = SOURCE_ROOT; };
+		27366D050A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapCoder_PNG.cpp; path = ../../../src/graphics/ZDCPixmapCoder_PNG.cpp; sourceTree = SOURCE_ROOT; };
+		27366D060A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapCoder_PNG.h; path = ../../../src/graphics/ZDCPixmapCoder_PNG.h; sourceTree = SOURCE_ROOT; };
+		27366D070A2D8DDC00D4E02A /* ZDCPixmapNS.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPixmapNS.cpp; path = ../../../src/graphics/ZDCPixmapNS.cpp; sourceTree = SOURCE_ROOT; };
+		27366D080A2D8DDC00D4E02A /* ZDCPixmapNS.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPixmapNS.h; path = ../../../src/graphics/ZDCPixmapNS.h; sourceTree = SOURCE_ROOT; };
+		27366D090A2D8DDC00D4E02A /* ZDCPoly.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCPoly.cpp; path = ../../../src/graphics/ZDCPoly.cpp; sourceTree = SOURCE_ROOT; };
+		27366D0A0A2D8DDC00D4E02A /* ZDCPoly.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCPoly.h; path = ../../../src/graphics/ZDCPoly.h; sourceTree = SOURCE_ROOT; };
+		27366D0B0A2D8DDC00D4E02A /* ZDCRgn.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDCRgn.cpp; path = ../../../src/graphics/ZDCRgn.cpp; sourceTree = SOURCE_ROOT; };
+		27366D0C0A2D8DDC00D4E02A /* ZDCRgn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDCRgn.h; path = ../../../src/graphics/ZDCRgn.h; sourceTree = SOURCE_ROOT; };
+		27366D0D0A2D8DDC00D4E02A /* ZGeom.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZGeom.cpp; path = ../../../src/graphics/ZGeom.cpp; sourceTree = SOURCE_ROOT; };
+		27366D0E0A2D8DDC00D4E02A /* ZGeom.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZGeom.h; path = ../../../src/graphics/ZGeom.h; sourceTree = SOURCE_ROOT; };
+		27366D0F0A2D8DDC00D4E02A /* ZRGBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZRGBColor.cpp; path = ../../../src/graphics/ZRGBColor.cpp; sourceTree = SOURCE_ROOT; };
+		27366D100A2D8DDC00D4E02A /* ZRGBColor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZRGBColor.h; path = ../../../src/graphics/ZRGBColor.h; sourceTree = SOURCE_ROOT; };
+		27366D110A2D8DDC00D4E02A /* ZUtil_Graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Graphics.cpp; path = ../../../src/graphics/ZUtil_Graphics.cpp; sourceTree = SOURCE_ROOT; };
+		27366D120A2D8DDC00D4E02A /* ZUtil_Graphics.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Graphics.h; path = ../../../src/graphics/ZUtil_Graphics.h; sourceTree = SOURCE_ROOT; };
+		27366D150A2D8DDC00D4E02A /* ZNet.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet.h; path = ../../../src/net/ZNet.h; sourceTree = SOURCE_ROOT; };
+		27366D170A2D8DDC00D4E02A /* ZNet_AppleTalk.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_AppleTalk.h; path = ../../../src/net/ZNet_AppleTalk.h; sourceTree = SOURCE_ROOT; };
+		27366D190A2D8DDC00D4E02A /* ZNet_Internet.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet.h; path = ../../../src/net/ZNet_Internet.h; sourceTree = SOURCE_ROOT; };
+		27366D1B0A2D8DDC00D4E02A /* ZServer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZServer.h; path = ../../../src/net/ZServer.h; sourceTree = SOURCE_ROOT; };
+		27366D1E0A2D8DDC00D4E02A /* TLS.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = TLS.h; path = ../../../src/platform/beos/TLS.h; sourceTree = SOURCE_ROOT; };
+		27366D210A2D8DDC00D4E02A /* TLSpriv.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = TLSpriv.h; path = ../../../src/platform/beos/TLSpriv.h; sourceTree = SOURCE_ROOT; };
+		27366D230A2D8DDC00D4E02A /* ZBRegionAlternate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZBRegionAlternate.h; path = ../../../src/platform/beos/ZBRegionAlternate.h; sourceTree = SOURCE_ROOT; };
+		27366D250A2D8DDC00D4E02A /* ZDC_Be.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDC_Be.h; path = ../../../src/platform/beos/ZDC_Be.h; sourceTree = SOURCE_ROOT; };
+		27366D270A2D8DDC00D4E02A /* ZMenu_Be.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenu_Be.h; path = ../../../src/platform/beos/ZMenu_Be.h; sourceTree = SOURCE_ROOT; };
+		27366D290A2D8DDC00D4E02A /* ZNet_Internet_Be.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet_Be.h; path = ../../../src/platform/beos/ZNet_Internet_Be.h; sourceTree = SOURCE_ROOT; };
+		27366D2B0A2D8DDC00D4E02A /* ZOSWindow_Be.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow_Be.h; path = ../../../src/platform/beos/ZOSWindow_Be.h; sourceTree = SOURCE_ROOT; };
+		27366D2D0A2D8DDC00D4E02A /* CarbonResource.r */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.rez; name = CarbonResource.r; path = ../../../src/platform/macos/CarbonResource.r; sourceTree = SOURCE_ROOT; };
+		27366D310A2D8DDC00D4E02A /* ZAsset_MacOS.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZAsset_MacOS.cpp; path = ../../../src/platform/macos/ZAsset_MacOS.cpp; sourceTree = SOURCE_ROOT; };
+		27366D320A2D8DDC00D4E02A /* ZAsset_MacOS.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAsset_MacOS.h; path = ../../../src/platform/macos/ZAsset_MacOS.h; sourceTree = SOURCE_ROOT; };
+		27366D330A2D8DDC00D4E02A /* ZDC_QD.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDC_QD.cpp; path = ../../../src/platform/macos/ZDC_QD.cpp; sourceTree = SOURCE_ROOT; };
+		27366D340A2D8DDC00D4E02A /* ZDC_QD.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDC_QD.h; path = ../../../src/platform/macos/ZDC_QD.h; sourceTree = SOURCE_ROOT; };
+		27366D350A2D8DDC00D4E02A /* ZDebug_Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDebug_Mac.cpp; path = ../../../src/platform/macos/ZDebug_Mac.cpp; sourceTree = SOURCE_ROOT; };
+		27366D360A2D8DDC00D4E02A /* ZDebug_Mac.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDebug_Mac.h; path = ../../../src/platform/macos/ZDebug_Mac.h; sourceTree = SOURCE_ROOT; };
+		27366D370A2D8DDC00D4E02A /* ZFile_MacClassic.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZFile_MacClassic.cpp; path = ../../../src/platform/macos/ZFile_MacClassic.cpp; sourceTree = SOURCE_ROOT; };
+		27366D380A2D8DDC00D4E02A /* ZFile_MacClassic.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZFile_MacClassic.h; path = ../../../src/platform/macos/ZFile_MacClassic.h; sourceTree = SOURCE_ROOT; };
+		27366D3B0A2D8DDC00D4E02A /* ZMacOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMacOSX.cpp; path = ../../../src/platform/macos/ZMacOSX.cpp; sourceTree = SOURCE_ROOT; };
+		27366D3C0A2D8DDC00D4E02A /* ZMacOSX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMacOSX.h; path = ../../../src/platform/macos/ZMacOSX.h; sourceTree = SOURCE_ROOT; };
+		27366D3D0A2D8DDC00D4E02A /* ZMenu_Carbon.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMenu_Carbon.cpp; path = ../../../src/platform/macos/ZMenu_Carbon.cpp; sourceTree = SOURCE_ROOT; };
+		27366D3E0A2D8DDC00D4E02A /* ZMenu_Carbon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenu_Carbon.h; path = ../../../src/platform/macos/ZMenu_Carbon.h; sourceTree = SOURCE_ROOT; };
+		27366D3F0A2D8DDC00D4E02A /* ZMenu_Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMenu_Mac.cpp; path = ../../../src/platform/macos/ZMenu_Mac.cpp; sourceTree = SOURCE_ROOT; };
+		27366D400A2D8DDC00D4E02A /* ZMenu_Mac.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenu_Mac.h; path = ../../../src/platform/macos/ZMenu_Mac.h; sourceTree = SOURCE_ROOT; };
+		27366D420A2D8DDC00D4E02A /* ZNet_AppleTalk_MacClassic.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_AppleTalk_MacClassic.h; path = ../../../src/platform/macos/ZNet_AppleTalk_MacClassic.h; sourceTree = SOURCE_ROOT; };
+		27366D440A2D8DDC00D4E02A /* ZNet_Internet_MacClassic.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet_MacClassic.h; path = ../../../src/platform/macos/ZNet_Internet_MacClassic.h; sourceTree = SOURCE_ROOT; };
+		27366D460A2D8DDC00D4E02A /* ZNet_Internet_MacOT_Classic.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet_MacOT_Classic.h; path = ../../../src/platform/macos/ZNet_Internet_MacOT_Classic.h; sourceTree = SOURCE_ROOT; };
+		27366D480A2D8DDC00D4E02A /* ZNet_Internet_MacOT_OSX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet_MacOT_OSX.h; path = ../../../src/platform/macos/ZNet_Internet_MacOT_OSX.h; sourceTree = SOURCE_ROOT; };
+		27366D490A2D8DDC00D4E02A /* ZOSWindow_Carbon.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZOSWindow_Carbon.cpp; path = ../../../src/platform/macos/ZOSWindow_Carbon.cpp; sourceTree = SOURCE_ROOT; };
+		27366D4A0A2D8DDC00D4E02A /* ZOSWindow_Carbon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow_Carbon.h; path = ../../../src/platform/macos/ZOSWindow_Carbon.h; sourceTree = SOURCE_ROOT; };
+		27366D4B0A2D8DDC00D4E02A /* ZOSWindow_Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZOSWindow_Mac.cpp; path = ../../../src/platform/macos/ZOSWindow_Mac.cpp; sourceTree = SOURCE_ROOT; };
+		27366D4C0A2D8DDC00D4E02A /* ZOSWindow_Mac.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow_Mac.h; path = ../../../src/platform/macos/ZOSWindow_Mac.h; sourceTree = SOURCE_ROOT; };
+		27366D4D0A2D8DDC00D4E02A /* ZPrint_Carbon.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZPrint_Carbon.cpp; path = ../../../src/platform/macos/ZPrint_Carbon.cpp; sourceTree = SOURCE_ROOT; };
+		27366D4E0A2D8DDC00D4E02A /* ZPrint_Carbon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZPrint_Carbon.h; path = ../../../src/platform/macos/ZPrint_Carbon.h; sourceTree = SOURCE_ROOT; };
+		27366D4F0A2D8DDC00D4E02A /* ZPrint_MacClassic.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZPrint_MacClassic.cpp; path = ../../../src/platform/macos/ZPrint_MacClassic.cpp; sourceTree = SOURCE_ROOT; };
+		27366D500A2D8DDC00D4E02A /* ZPrint_MacClassic.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZPrint_MacClassic.h; path = ../../../src/platform/macos/ZPrint_MacClassic.h; sourceTree = SOURCE_ROOT; };
+		27366D510A2D8DDC00D4E02A /* ZStream_Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Mac.cpp; path = ../../../src/platform/macos/ZStream_Mac.cpp; sourceTree = SOURCE_ROOT; };
+		27366D520A2D8DDC00D4E02A /* ZStream_Mac.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Mac.h; path = ../../../src/platform/macos/ZStream_Mac.h; sourceTree = SOURCE_ROOT; };
+		27366D530A2D8DDC00D4E02A /* ZStream_MacOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_MacOSX.cpp; path = ../../../src/platform/macos/ZStream_MacOSX.cpp; sourceTree = SOURCE_ROOT; };
+		27366D540A2D8DDC00D4E02A /* ZStream_MacOSX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_MacOSX.h; path = ../../../src/platform/macos/ZStream_MacOSX.h; sourceTree = SOURCE_ROOT; };
+		27366D550A2D8DDC00D4E02A /* ZTextCoder_Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCoder_Mac.cpp; path = ../../../src/platform/macos/ZTextCoder_Mac.cpp; sourceTree = SOURCE_ROOT; };
+		27366D560A2D8DDC00D4E02A /* ZTextCoder_Mac.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder_Mac.h; path = ../../../src/platform/macos/ZTextCoder_Mac.h; sourceTree = SOURCE_ROOT; };
+		27366D570A2D8DDC00D4E02A /* ZThreadTM.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZThreadTM.cpp; path = ../../../src/platform/macos/ZThreadTM.cpp; sourceTree = SOURCE_ROOT; };
+		27366D580A2D8DDC00D4E02A /* ZThreadTM.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZThreadTM.h; path = ../../../src/platform/macos/ZThreadTM.h; sourceTree = SOURCE_ROOT; };
+		27366D5A0A2D8DDC00D4E02A /* ZUtil_Mac_HL.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Mac_HL.h; path = ../../../src/platform/macos/ZUtil_Mac_HL.h; sourceTree = SOURCE_ROOT; };
+		27366D5B0A2D8DDC00D4E02A /* ZUtil_Mac_LL.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Mac_LL.cpp; path = ../../../src/platform/macos/ZUtil_Mac_LL.cpp; sourceTree = SOURCE_ROOT; };
+		27366D5C0A2D8DDC00D4E02A /* ZUtil_Mac_LL.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Mac_LL.h; path = ../../../src/platform/macos/ZUtil_Mac_LL.h; sourceTree = SOURCE_ROOT; };
+		27366D5D0A2D8DDC00D4E02A /* ZWDEF_IconTitle.r */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.rez; name = ZWDEF_IconTitle.r; path = ../../../src/platform/macos/ZWDEF_IconTitle.r; sourceTree = SOURCE_ROOT; };
+		27366D600A2D8DDC00D4E02A /* ZAsset_POSIX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAsset_POSIX.h; path = ../../../src/platform/posix/ZAsset_POSIX.h; sourceTree = SOURCE_ROOT; };
+		27366D620A2D8DDC00D4E02A /* ZDC_X.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDC_X.h; path = ../../../src/platform/posix/ZDC_X.h; sourceTree = SOURCE_ROOT; };
+		27366D640A2D8DDC00D4E02A /* ZFile_POSIX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZFile_POSIX.h; path = ../../../src/platform/posix/ZFile_POSIX.h; sourceTree = SOURCE_ROOT; };
+		27366D660A2D8DDC00D4E02A /* ZMenu_X.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenu_X.h; path = ../../../src/platform/posix/ZMenu_X.h; sourceTree = SOURCE_ROOT; };
+		27366D680A2D8DDC00D4E02A /* ZNet_Internet_Socket.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet_Socket.h; path = ../../../src/platform/posix/ZNet_Internet_Socket.h; sourceTree = SOURCE_ROOT; };
+		27366D6A0A2D8DDC00D4E02A /* ZOSWindow_X.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow_X.h; path = ../../../src/platform/posix/ZOSWindow_X.h; sourceTree = SOURCE_ROOT; };
+		27366D6C0A2D8DDC00D4E02A /* ZStream_POSIX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_POSIX.h; path = ../../../src/platform/posix/ZStream_POSIX.h; sourceTree = SOURCE_ROOT; };
+		27366D6E0A2D8DDC00D4E02A /* ZTextCoder_iconv.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder_iconv.h; path = ../../../src/platform/posix/ZTextCoder_iconv.h; sourceTree = SOURCE_ROOT; };
+		27366D700A2D8DDC00D4E02A /* ZXLib.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZXLib.h; path = ../../../src/platform/posix/ZXLib.h; sourceTree = SOURCE_ROOT; };
+		27366D720A2D8DDC00D4E02A /* ZXServer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZXServer.h; path = ../../../src/platform/posix/ZXServer.h; sourceTree = SOURCE_ROOT; };
+		27366D750A2D8DDC00D4E02A /* ZAsset_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAsset_Win.h; path = ../../../src/platform/win32/ZAsset_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D770A2D8DDC00D4E02A /* ZDC_GDI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDC_GDI.h; path = ../../../src/platform/win32/ZDC_GDI.h; sourceTree = SOURCE_ROOT; };
+		27366D790A2D8DDC00D4E02A /* ZDebug_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDebug_Win.h; path = ../../../src/platform/win32/ZDebug_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D7B0A2D8DDC00D4E02A /* ZDragClip_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDragClip_Win.h; path = ../../../src/platform/win32/ZDragClip_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D7D0A2D8DDC00D4E02A /* ZFile_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZFile_Win.h; path = ../../../src/platform/win32/ZFile_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D7F0A2D8DDC00D4E02A /* ZMenu_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenu_Win.h; path = ../../../src/platform/win32/ZMenu_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D810A2D8DDC00D4E02A /* ZNet_Internet_WinSock.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZNet_Internet_WinSock.h; path = ../../../src/platform/win32/ZNet_Internet_WinSock.h; sourceTree = SOURCE_ROOT; };
+		27366D830A2D8DDC00D4E02A /* ZOSWindow_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow_Win.h; path = ../../../src/platform/win32/ZOSWindow_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D850A2D8DDC00D4E02A /* ZPrint_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZPrint_Win.h; path = ../../../src/platform/win32/ZPrint_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D870A2D8DDC00D4E02A /* ZStream_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Win.h; path = ../../../src/platform/win32/ZStream_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D890A2D8DDC00D4E02A /* ZTextCoder_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder_Win.h; path = ../../../src/platform/win32/ZTextCoder_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D8B0A2D8DDC00D4E02A /* ZUtil_Win.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Win.h; path = ../../../src/platform/win32/ZUtil_Win.h; sourceTree = SOURCE_ROOT; };
+		27366D8C0A2D8DDC00D4E02A /* ZWinHeader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZWinHeader.h; path = ../../../src/platform/win32/ZWinHeader.h; sourceTree = SOURCE_ROOT; };
+		27366D8E0A2D8DDC00D4E02A /* ZWinService.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZWinService.h; path = ../../../src/platform/win32/ZWinService.h; sourceTree = SOURCE_ROOT; };
+		27366D900A2D8DDC00D4E02A /* ZPrint.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZPrint.cpp; path = ../../../src/printing/ZPrint.cpp; sourceTree = SOURCE_ROOT; };
+		27366D910A2D8DDC00D4E02A /* ZPrint.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZPrint.h; path = ../../../src/printing/ZPrint.h; sourceTree = SOURCE_ROOT; };
+		27366D920A2D8DDC00D4E02A /* ZPrintDroid.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZPrintDroid.cpp; path = ../../../src/printing/ZPrintDroid.cpp; sourceTree = SOURCE_ROOT; };
+		27366D930A2D8DDC00D4E02A /* ZPrintDroid.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZPrintDroid.h; path = ../../../src/printing/ZPrintDroid.h; sourceTree = SOURCE_ROOT; };
+		27366D950A2D8DDC00D4E02A /* ZStream.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream.cpp; path = ../../../src/stream/ZStream.cpp; sourceTree = SOURCE_ROOT; };
+		27366D960A2D8DDC00D4E02A /* ZStream.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream.h; path = ../../../src/stream/ZStream.h; sourceTree = SOURCE_ROOT; };
+		27366D970A2D8DDC00D4E02A /* ZStream_ASCIIStrim.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_ASCIIStrim.cpp; path = ../../../src/stream/ZStream_ASCIIStrim.cpp; sourceTree = SOURCE_ROOT; };
+		27366D980A2D8DDC00D4E02A /* ZStream_ASCIIStrim.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_ASCIIStrim.h; path = ../../../src/stream/ZStream_ASCIIStrim.h; sourceTree = SOURCE_ROOT; };
+		27366D990A2D8DDC00D4E02A /* ZStream_Base64.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Base64.cpp; path = ../../../src/stream/ZStream_Base64.cpp; sourceTree = SOURCE_ROOT; };
+		27366D9A0A2D8DDC00D4E02A /* ZStream_Base64.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Base64.h; path = ../../../src/stream/ZStream_Base64.h; sourceTree = SOURCE_ROOT; };
+		27366D9B0A2D8DDC00D4E02A /* ZStream_Buffered.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Buffered.cpp; path = ../../../src/stream/ZStream_Buffered.cpp; sourceTree = SOURCE_ROOT; };
+		27366D9C0A2D8DDC00D4E02A /* ZStream_Buffered.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Buffered.h; path = ../../../src/stream/ZStream_Buffered.h; sourceTree = SOURCE_ROOT; };
+		27366D9D0A2D8DDC00D4E02A /* ZStream_Count.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Count.cpp; path = ../../../src/stream/ZStream_Count.cpp; sourceTree = SOURCE_ROOT; };
+		27366D9E0A2D8DDC00D4E02A /* ZStream_Count.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Count.h; path = ../../../src/stream/ZStream_Count.h; sourceTree = SOURCE_ROOT; };
+		27366D9F0A2D8DDC00D4E02A /* ZStream_CRLF.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_CRLF.cpp; path = ../../../src/stream/ZStream_CRLF.cpp; sourceTree = SOURCE_ROOT; };
+		27366DA00A2D8DDC00D4E02A /* ZStream_CRLF.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_CRLF.h; path = ../../../src/stream/ZStream_CRLF.h; sourceTree = SOURCE_ROOT; };
+		27366DA10A2D8DDC00D4E02A /* ZStream_HexStrim.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_HexStrim.cpp; path = ../../../src/stream/ZStream_HexStrim.cpp; sourceTree = SOURCE_ROOT; };
+		27366DA20A2D8DDC00D4E02A /* ZStream_HexStrim.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_HexStrim.h; path = ../../../src/stream/ZStream_HexStrim.h; sourceTree = SOURCE_ROOT; };
+		27366DA50A2D8DDC00D4E02A /* ZStream_Limited.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Limited.cpp; path = ../../../src/stream/ZStream_Limited.cpp; sourceTree = SOURCE_ROOT; };
+		27366DA60A2D8DDC00D4E02A /* ZStream_Limited.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Limited.h; path = ../../../src/stream/ZStream_Limited.h; sourceTree = SOURCE_ROOT; };
+		27366DA70A2D8DDC00D4E02A /* ZStream_LZW.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_LZW.cpp; path = ../../../src/stream/ZStream_LZW.cpp; sourceTree = SOURCE_ROOT; };
+		27366DA80A2D8DDC00D4E02A /* ZStream_LZW.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_LZW.h; path = ../../../src/stream/ZStream_LZW.h; sourceTree = SOURCE_ROOT; };
+		27366DA90A2D8DDC00D4E02A /* ZStream_MD5.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_MD5.cpp; path = ../../../src/stream/ZStream_MD5.cpp; sourceTree = SOURCE_ROOT; };
+		27366DAA0A2D8DDC00D4E02A /* ZStream_MD5.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_MD5.h; path = ../../../src/stream/ZStream_MD5.h; sourceTree = SOURCE_ROOT; };
+		27366DAB0A2D8DDC00D4E02A /* ZStream_Memory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Memory.cpp; path = ../../../src/stream/ZStream_Memory.cpp; sourceTree = SOURCE_ROOT; };
+		27366DAC0A2D8DDC00D4E02A /* ZStream_Memory.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Memory.h; path = ../../../src/stream/ZStream_Memory.h; sourceTree = SOURCE_ROOT; };
+		27366DAD0A2D8DDC00D4E02A /* ZStream_PageBuffered.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_PageBuffered.cpp; path = ../../../src/stream/ZStream_PageBuffered.cpp; sourceTree = SOURCE_ROOT; };
+		27366DAE0A2D8DDC00D4E02A /* ZStream_PageBuffered.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_PageBuffered.h; path = ../../../src/stream/ZStream_PageBuffered.h; sourceTree = SOURCE_ROOT; };
+		27366DAF0A2D8DDC00D4E02A /* ZStream_SHA1.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_SHA1.cpp; path = ../../../src/stream/ZStream_SHA1.cpp; sourceTree = SOURCE_ROOT; };
+		27366DB00A2D8DDC00D4E02A /* ZStream_SHA1.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_SHA1.h; path = ../../../src/stream/ZStream_SHA1.h; sourceTree = SOURCE_ROOT; };
+		27366DB10A2D8DDC00D4E02A /* ZStream_String.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_String.cpp; path = ../../../src/stream/ZStream_String.cpp; sourceTree = SOURCE_ROOT; };
+		27366DB20A2D8DDC00D4E02A /* ZStream_String.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_String.h; path = ../../../src/stream/ZStream_String.h; sourceTree = SOURCE_ROOT; };
+		27366DB30A2D8DDC00D4E02A /* ZStream_Tee.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_Tee.cpp; path = ../../../src/stream/ZStream_Tee.cpp; sourceTree = SOURCE_ROOT; };
+		27366DB40A2D8DDC00D4E02A /* ZStream_Tee.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_Tee.h; path = ../../../src/stream/ZStream_Tee.h; sourceTree = SOURCE_ROOT; };
+		27366DB50A2D8DDC00D4E02A /* ZStream_ZLib.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStream_ZLib.cpp; path = ../../../src/stream/ZStream_ZLib.cpp; sourceTree = SOURCE_ROOT; };
+		27366DB60A2D8DDC00D4E02A /* ZStream_ZLib.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStream_ZLib.h; path = ../../../src/stream/ZStream_ZLib.h; sourceTree = SOURCE_ROOT; };
+		27366DB70A2D8DDC00D4E02A /* ZStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamer.cpp; path = ../../../src/stream/ZStreamer.cpp; sourceTree = SOURCE_ROOT; };
+		27366DB80A2D8DDC00D4E02A /* ZStreamer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamer.h; path = ../../../src/stream/ZStreamer.h; sourceTree = SOURCE_ROOT; };
+		27366DB90A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamerRPos_StreamR.cpp; path = ../../../src/stream/ZStreamerRPos_StreamR.cpp; sourceTree = SOURCE_ROOT; };
+		27366DBA0A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamerRPos_StreamR.h; path = ../../../src/stream/ZStreamerRPos_StreamR.h; sourceTree = SOURCE_ROOT; };
+		27366DBC0A2D8DDC00D4E02A /* ZStreamMUX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamMUX.h; path = ../../../src/stream/ZStreamMUX.h; sourceTree = SOURCE_ROOT; };
+		27366DBD0A2D8DDC00D4E02A /* ZStreamR_Boundary.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamR_Boundary.cpp; path = ../../../src/stream/ZStreamR_Boundary.cpp; sourceTree = SOURCE_ROOT; };
+		27366DBE0A2D8DDC00D4E02A /* ZStreamR_Boundary.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamR_Boundary.h; path = ../../../src/stream/ZStreamR_Boundary.h; sourceTree = SOURCE_ROOT; };
+		27366DBF0A2D8DDC00D4E02A /* ZStreamR_Cat.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamR_Cat.cpp; path = ../../../src/stream/ZStreamR_Cat.cpp; sourceTree = SOURCE_ROOT; };
+		27366DC00A2D8DDC00D4E02A /* ZStreamR_Cat.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamR_Cat.h; path = ../../../src/stream/ZStreamR_Cat.h; sourceTree = SOURCE_ROOT; };
+		27366DC10A2D8DDC00D4E02A /* ZStreamR_Random.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamR_Random.cpp; path = ../../../src/stream/ZStreamR_Random.cpp; sourceTree = SOURCE_ROOT; };
+		27366DC20A2D8DDC00D4E02A /* ZStreamR_Random.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamR_Random.h; path = ../../../src/stream/ZStreamR_Random.h; sourceTree = SOURCE_ROOT; };
+		27366DC30A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamR_SkipAllOnDestroy.cpp; path = ../../../src/stream/ZStreamR_SkipAllOnDestroy.cpp; sourceTree = SOURCE_ROOT; };
+		27366DC40A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamR_SkipAllOnDestroy.h; path = ../../../src/stream/ZStreamR_SkipAllOnDestroy.h; sourceTree = SOURCE_ROOT; };
+		27366DC50A2D8DDC00D4E02A /* ZStreamR_Source.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamR_Source.cpp; path = ../../../src/stream/ZStreamR_Source.cpp; sourceTree = SOURCE_ROOT; };
+		27366DC60A2D8DDC00D4E02A /* ZStreamR_Source.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamR_Source.h; path = ../../../src/stream/ZStreamR_Source.h; sourceTree = SOURCE_ROOT; };
+		27366DC70A2D8DDC00D4E02A /* ZStreamRPos_StreamR.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamRPos_StreamR.cpp; path = ../../../src/stream/ZStreamRPos_StreamR.cpp; sourceTree = SOURCE_ROOT; };
+		27366DC80A2D8DDC00D4E02A /* ZStreamRPos_StreamR.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamRPos_StreamR.h; path = ../../../src/stream/ZStreamRPos_StreamR.h; sourceTree = SOURCE_ROOT; };
+		27366DC90A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamRW_FlushOnRead.cpp; path = ../../../src/stream/ZStreamRW_FlushOnRead.cpp; sourceTree = SOURCE_ROOT; };
+		27366DCA0A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamRW_FlushOnRead.h; path = ../../../src/stream/ZStreamRW_FlushOnRead.h; sourceTree = SOURCE_ROOT; };
+		27366DCB0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamRW_MemoryPipe.cpp; path = ../../../src/stream/ZStreamRW_MemoryPipe.cpp; sourceTree = SOURCE_ROOT; };
+		27366DCC0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamRW_MemoryPipe.h; path = ../../../src/stream/ZStreamRW_MemoryPipe.h; sourceTree = SOURCE_ROOT; };
+		27366DCD0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStreamRWPos_RAM.cpp; path = ../../../src/stream/ZStreamRWPos_RAM.cpp; sourceTree = SOURCE_ROOT; };
+		27366DCE0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStreamRWPos_RAM.h; path = ../../../src/stream/ZStreamRWPos_RAM.h; sourceTree = SOURCE_ROOT; };
+		27366DCF0A2D8DDC00D4E02A /* ZStrim.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrim.cpp; path = ../../../src/stream/ZStrim.cpp; sourceTree = SOURCE_ROOT; };
+		27366DD00A2D8DDC00D4E02A /* ZStrim.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrim.h; path = ../../../src/stream/ZStrim.h; sourceTree = SOURCE_ROOT; };
+		27366DD10A2D8DDC00D4E02A /* ZStrim_CRLF.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrim_CRLF.cpp; path = ../../../src/stream/ZStrim_CRLF.cpp; sourceTree = SOURCE_ROOT; };
+		27366DD20A2D8DDC00D4E02A /* ZStrim_CRLF.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrim_CRLF.h; path = ../../../src/stream/ZStrim_CRLF.h; sourceTree = SOURCE_ROOT; };
+		27366DD30A2D8DDC00D4E02A /* ZStrim_Limited.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrim_Limited.cpp; path = ../../../src/stream/ZStrim_Limited.cpp; sourceTree = SOURCE_ROOT; };
+		27366DD40A2D8DDC00D4E02A /* ZStrim_Limited.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrim_Limited.h; path = ../../../src/stream/ZStrim_Limited.h; sourceTree = SOURCE_ROOT; };
+		27366DD50A2D8DDC00D4E02A /* ZStrim_Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrim_Stream.cpp; path = ../../../src/stream/ZStrim_Stream.cpp; sourceTree = SOURCE_ROOT; };
+		27366DD60A2D8DDC00D4E02A /* ZStrim_Stream.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrim_Stream.h; path = ../../../src/stream/ZStrim_Stream.h; sourceTree = SOURCE_ROOT; };
+		27366DD70A2D8DDC00D4E02A /* ZStrim_Tee.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrim_Tee.cpp; path = ../../../src/stream/ZStrim_Tee.cpp; sourceTree = SOURCE_ROOT; };
+		27366DD80A2D8DDC00D4E02A /* ZStrim_Tee.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrim_Tee.h; path = ../../../src/stream/ZStrim_Tee.h; sourceTree = SOURCE_ROOT; };
+		27366DD90A2D8DDC00D4E02A /* ZStrimmer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrimmer.cpp; path = ../../../src/stream/ZStrimmer.cpp; sourceTree = SOURCE_ROOT; };
+		27366DDA0A2D8DDC00D4E02A /* ZStrimmer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimmer.h; path = ../../../src/stream/ZStrimmer.h; sourceTree = SOURCE_ROOT; };
+		27366DDB0A2D8DDC00D4E02A /* ZStrimmer_Stream.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimmer_Stream.h; path = ../../../src/stream/ZStrimmer_Stream.h; sourceTree = SOURCE_ROOT; };
+		27366DDC0A2D8DDC00D4E02A /* ZStrimmer_Streamer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimmer_Streamer.h; path = ../../../src/stream/ZStrimmer_Streamer.h; sourceTree = SOURCE_ROOT; };
+		27366DDD0A2D8DDC00D4E02A /* ZStrimR_Boundary.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrimR_Boundary.cpp; path = ../../../src/stream/ZStrimR_Boundary.cpp; sourceTree = SOURCE_ROOT; };
+		27366DDE0A2D8DDC00D4E02A /* ZStrimR_Boundary.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimR_Boundary.h; path = ../../../src/stream/ZStrimR_Boundary.h; sourceTree = SOURCE_ROOT; };
+		27366DDF0A2D8DDC00D4E02A /* ZStrimR_Rewind.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrimR_Rewind.cpp; path = ../../../src/stream/ZStrimR_Rewind.cpp; sourceTree = SOURCE_ROOT; };
+		27366DE00A2D8DDC00D4E02A /* ZStrimR_Rewind.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimR_Rewind.h; path = ../../../src/stream/ZStrimR_Rewind.h; sourceTree = SOURCE_ROOT; };
+		27366DE10A2D8DDC00D4E02A /* ZStrimW_Escapify.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrimW_Escapify.cpp; path = ../../../src/stream/ZStrimW_Escapify.cpp; sourceTree = SOURCE_ROOT; };
+		27366DE20A2D8DDC00D4E02A /* ZStrimW_Escapify.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimW_Escapify.h; path = ../../../src/stream/ZStrimW_Escapify.h; sourceTree = SOURCE_ROOT; };
+		27366DE30A2D8DDC00D4E02A /* ZStrimW_ML.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZStrimW_ML.cpp; path = ../../../src/stream/ZStrimW_ML.cpp; sourceTree = SOURCE_ROOT; };
+		27366DE40A2D8DDC00D4E02A /* ZStrimW_ML.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZStrimW_ML.h; path = ../../../src/stream/ZStrimW_ML.h; sourceTree = SOURCE_ROOT; };
+		27366DE50A2D8DDC00D4E02A /* ZUtil_Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Stream.cpp; path = ../../../src/stream/ZUtil_Stream.cpp; sourceTree = SOURCE_ROOT; };
+		27366DE60A2D8DDC00D4E02A /* ZUtil_Stream.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Stream.h; path = ../../../src/stream/ZUtil_Stream.h; sourceTree = SOURCE_ROOT; };
+		27366DE70A2D8DDC00D4E02A /* ZUtil_Strim.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Strim.cpp; path = ../../../src/stream/ZUtil_Strim.cpp; sourceTree = SOURCE_ROOT; };
+		27366DE80A2D8DDC00D4E02A /* ZUtil_Strim.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_Strim.h; path = ../../../src/stream/ZUtil_Strim.h; sourceTree = SOURCE_ROOT; };
+		27366DEA0A2D8DDC00D4E02A /* ZRegex.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZRegex.cpp; path = ../../../src/text/ZRegex.cpp; sourceTree = SOURCE_ROOT; };
+		27366DEB0A2D8DDC00D4E02A /* ZRegex.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZRegex.h; path = ../../../src/text/ZRegex.h; sourceTree = SOURCE_ROOT; };
+		27366DEC0A2D8DDC00D4E02A /* ZTextCoder.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCoder.cpp; path = ../../../src/text/ZTextCoder.cpp; sourceTree = SOURCE_ROOT; };
+		27366DED0A2D8DDC00D4E02A /* ZTextCoder.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder.h; path = ../../../src/text/ZTextCoder.h; sourceTree = SOURCE_ROOT; };
+		27366DEE0A2D8DDC00D4E02A /* ZTextCoder_ICU.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCoder_ICU.cpp; path = ../../../src/text/ZTextCoder_ICU.cpp; sourceTree = SOURCE_ROOT; };
+		27366DEF0A2D8DDC00D4E02A /* ZTextCoder_ICU.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder_ICU.h; path = ../../../src/text/ZTextCoder_ICU.h; sourceTree = SOURCE_ROOT; };
+		27366DF00A2D8DDC00D4E02A /* ZTextCoder_Std.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCoder_Std.cpp; path = ../../../src/text/ZTextCoder_Std.cpp; sourceTree = SOURCE_ROOT; };
+		27366DF10A2D8DDC00D4E02A /* ZTextCoder_Std.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder_Std.h; path = ../../../src/text/ZTextCoder_Std.h; sourceTree = SOURCE_ROOT; };
+		27366DF20A2D8DDC00D4E02A /* ZTextCoder_Unicode.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCoder_Unicode.cpp; path = ../../../src/text/ZTextCoder_Unicode.cpp; sourceTree = SOURCE_ROOT; };
+		27366DF30A2D8DDC00D4E02A /* ZTextCoder_Unicode.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCoder_Unicode.h; path = ../../../src/text/ZTextCoder_Unicode.h; sourceTree = SOURCE_ROOT; };
+		27366DF40A2D8DDC00D4E02A /* ZTextCollator.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCollator.cpp; path = ../../../src/text/ZTextCollator.cpp; sourceTree = SOURCE_ROOT; };
+		27366DF50A2D8DDC00D4E02A /* ZTextCollator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCollator.h; path = ../../../src/text/ZTextCollator.h; sourceTree = SOURCE_ROOT; };
+		27366DF60A2D8DDC00D4E02A /* ZTextCollator_ASCII.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCollator_ASCII.cpp; path = ../../../src/text/ZTextCollator_ASCII.cpp; sourceTree = SOURCE_ROOT; };
+		27366DF70A2D8DDC00D4E02A /* ZTextCollator_ASCII.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCollator_ASCII.h; path = ../../../src/text/ZTextCollator_ASCII.h; sourceTree = SOURCE_ROOT; };
+		27366DF80A2D8DDC00D4E02A /* ZTextCollator_ICU.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCollator_ICU.cpp; path = ../../../src/text/ZTextCollator_ICU.cpp; sourceTree = SOURCE_ROOT; };
+		27366DF90A2D8DDC00D4E02A /* ZTextCollator_ICU.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZTextCollator_ICU.h; path = ../../../src/text/ZTextCollator_ICU.h; sourceTree = SOURCE_ROOT; };
+		27366DFA0A2D8DDC00D4E02A /* ZUITextEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUITextEngine.cpp; path = ../../../src/text/ZUITextEngine.cpp; sourceTree = SOURCE_ROOT; };
+		27366DFB0A2D8DDC00D4E02A /* ZUITextEngine.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUITextEngine.h; path = ../../../src/text/ZUITextEngine.h; sourceTree = SOURCE_ROOT; };
+		27366DFC0A2D8DDC00D4E02A /* ZUITextEngine_Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUITextEngine_Mac.cpp; path = ../../../src/text/ZUITextEngine_Mac.cpp; sourceTree = SOURCE_ROOT; };
+		27366DFD0A2D8DDC00D4E02A /* ZUITextEngine_Mac.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUITextEngine_Mac.h; path = ../../../src/text/ZUITextEngine_Mac.h; sourceTree = SOURCE_ROOT; };
+		27366DFE0A2D8DDC00D4E02A /* ZUITextEngine_Z.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUITextEngine_Z.cpp; path = ../../../src/text/ZUITextEngine_Z.cpp; sourceTree = SOURCE_ROOT; };
+		27366DFF0A2D8DDC00D4E02A /* ZUITextEngine_Z.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUITextEngine_Z.h; path = ../../../src/text/ZUITextEngine_Z.h; sourceTree = SOURCE_ROOT; };
+		27366E000A2D8DDC00D4E02A /* ZUtil_TextCoder.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_TextCoder.cpp; path = ../../../src/text/ZUtil_TextCoder.cpp; sourceTree = SOURCE_ROOT; };
+		27366E010A2D8DDC00D4E02A /* ZUtil_TextCoder.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_TextCoder.h; path = ../../../src/text/ZUtil_TextCoder.h; sourceTree = SOURCE_ROOT; };
+		27366E030A2D8DDC00D4E02A /* ZThread.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZThread.cpp; path = ../../../src/thread/ZThread.cpp; sourceTree = SOURCE_ROOT; };
+		27366E040A2D8DDC00D4E02A /* ZThread.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZThread.h; path = ../../../src/thread/ZThread.h; sourceTree = SOURCE_ROOT; };
+		27366E050A2D8DDC00D4E02A /* ZThreadSimple.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZThreadSimple.cpp; path = ../../../src/thread/ZThreadSimple.cpp; sourceTree = SOURCE_ROOT; };
+		27366E060A2D8DDC00D4E02A /* ZThreadSimple.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZThreadSimple.h; path = ../../../src/thread/ZThreadSimple.h; sourceTree = SOURCE_ROOT; };
+		27366E080A2D8DDC00D4E02A /* ZApp.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZApp.cpp; path = ../../../src/uicore/ZApp.cpp; sourceTree = SOURCE_ROOT; };
+		27366E090A2D8DDC00D4E02A /* ZApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZApp.h; path = ../../../src/uicore/ZApp.h; sourceTree = SOURCE_ROOT; };
+		27366E0A0A2D8DDC00D4E02A /* ZCursor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZCursor.cpp; path = ../../../src/uicore/ZCursor.cpp; sourceTree = SOURCE_ROOT; };
+		27366E0B0A2D8DDC00D4E02A /* ZCursor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZCursor.h; path = ../../../src/uicore/ZCursor.h; sourceTree = SOURCE_ROOT; };
+		27366E0C0A2D8DDC00D4E02A /* ZDragClip.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDragClip.cpp; path = ../../../src/uicore/ZDragClip.cpp; sourceTree = SOURCE_ROOT; };
+		27366E0D0A2D8DDC00D4E02A /* ZDragClip.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZDragClip.h; path = ../../../src/uicore/ZDragClip.h; sourceTree = SOURCE_ROOT; };
+		27366E0E0A2D8DDC00D4E02A /* ZEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZEvent.cpp; path = ../../../src/uicore/ZEvent.cpp; sourceTree = SOURCE_ROOT; };
+		27366E0F0A2D8DDC00D4E02A /* ZEvent.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZEvent.h; path = ../../../src/uicore/ZEvent.h; sourceTree = SOURCE_ROOT; };
+		27366E100A2D8DDC00D4E02A /* ZEventHr.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZEventHr.cpp; path = ../../../src/uicore/ZEventHr.cpp; sourceTree = SOURCE_ROOT; };
+		27366E110A2D8DDC00D4E02A /* ZEventHr.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZEventHr.h; path = ../../../src/uicore/ZEventHr.h; sourceTree = SOURCE_ROOT; };
+		27366E120A2D8DDC00D4E02A /* ZFakeWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZFakeWindow.cpp; path = ../../../src/uicore/ZFakeWindow.cpp; sourceTree = SOURCE_ROOT; };
+		27366E130A2D8DDC00D4E02A /* ZFakeWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZFakeWindow.h; path = ../../../src/uicore/ZFakeWindow.h; sourceTree = SOURCE_ROOT; };
+		27366E140A2D8DDC00D4E02A /* ZMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMenu.cpp; path = ../../../src/uicore/ZMenu.cpp; sourceTree = SOURCE_ROOT; };
+		27366E150A2D8DDC00D4E02A /* ZMenu.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMenu.h; path = ../../../src/uicore/ZMenu.h; sourceTree = SOURCE_ROOT; };
+		27366E160A2D8DDC00D4E02A /* ZMouseTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZMouseTracker.cpp; path = ../../../src/uicore/ZMouseTracker.cpp; sourceTree = SOURCE_ROOT; };
+		27366E170A2D8DDC00D4E02A /* ZMouseTracker.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZMouseTracker.h; path = ../../../src/uicore/ZMouseTracker.h; sourceTree = SOURCE_ROOT; };
+		27366E180A2D8DDC00D4E02A /* ZOSWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZOSWindow.cpp; path = ../../../src/uicore/ZOSWindow.cpp; sourceTree = SOURCE_ROOT; };
+		27366E190A2D8DDC00D4E02A /* ZOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow.h; path = ../../../src/uicore/ZOSWindow.h; sourceTree = SOURCE_ROOT; };
+		27366E1A0A2D8DDC00D4E02A /* ZOSWindow_Std.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZOSWindow_Std.cpp; path = ../../../src/uicore/ZOSWindow_Std.cpp; sourceTree = SOURCE_ROOT; };
+		27366E1B0A2D8DDC00D4E02A /* ZOSWindow_Std.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZOSWindow_Std.h; path = ../../../src/uicore/ZOSWindow_Std.h; sourceTree = SOURCE_ROOT; };
+		27366E1C0A2D8DDC00D4E02A /* ZPane.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZPane.cpp; path = ../../../src/uicore/ZPane.cpp; sourceTree = SOURCE_ROOT; };
+		27366E1D0A2D8DDC00D4E02A /* ZPane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZPane.h; path = ../../../src/uicore/ZPane.h; sourceTree = SOURCE_ROOT; };
+		27366E1E0A2D8DDC00D4E02A /* ZUI.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUI.cpp; path = ../../../src/uicore/ZUI.cpp; sourceTree = SOURCE_ROOT; };
+		27366E1F0A2D8DDC00D4E02A /* ZUI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUI.h; path = ../../../src/uicore/ZUI.h; sourceTree = SOURCE_ROOT; };
+		27366E200A2D8DDC00D4E02A /* ZUIBase.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIBase.cpp; path = ../../../src/uicore/ZUIBase.cpp; sourceTree = SOURCE_ROOT; };
+		27366E210A2D8DDC00D4E02A /* ZUIBase.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIBase.h; path = ../../../src/uicore/ZUIBase.h; sourceTree = SOURCE_ROOT; };
+		27366E220A2D8DDC00D4E02A /* ZUIColor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIColor.cpp; path = ../../../src/uicore/ZUIColor.cpp; sourceTree = SOURCE_ROOT; };
+		27366E230A2D8DDC00D4E02A /* ZUIColor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIColor.h; path = ../../../src/uicore/ZUIColor.h; sourceTree = SOURCE_ROOT; };
+		27366E240A2D8DDC00D4E02A /* ZUIDisplayState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIDisplayState.cpp; path = ../../../src/uicore/ZUIDisplayState.cpp; sourceTree = SOURCE_ROOT; };
+		27366E250A2D8DDC00D4E02A /* ZUIDisplayState.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIDisplayState.h; path = ../../../src/uicore/ZUIDisplayState.h; sourceTree = SOURCE_ROOT; };
+		27366E260A2D8DDC00D4E02A /* ZUIFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIFactory.cpp; path = ../../../src/uicore/ZUIFactory.cpp; sourceTree = SOURCE_ROOT; };
+		27366E270A2D8DDC00D4E02A /* ZUIFactory.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIFactory.h; path = ../../../src/uicore/ZUIFactory.h; sourceTree = SOURCE_ROOT; };
+		27366E280A2D8DDC00D4E02A /* ZUIFont.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIFont.cpp; path = ../../../src/uicore/ZUIFont.cpp; sourceTree = SOURCE_ROOT; };
+		27366E290A2D8DDC00D4E02A /* ZUIFont.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIFont.h; path = ../../../src/uicore/ZUIFont.h; sourceTree = SOURCE_ROOT; };
+		27366E2A0A2D8DDC00D4E02A /* ZUIInk.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIInk.cpp; path = ../../../src/uicore/ZUIInk.cpp; sourceTree = SOURCE_ROOT; };
+		27366E2B0A2D8DDC00D4E02A /* ZUIInk.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIInk.h; path = ../../../src/uicore/ZUIInk.h; sourceTree = SOURCE_ROOT; };
+		27366E2C0A2D8DDC00D4E02A /* ZUIMetric.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIMetric.cpp; path = ../../../src/uicore/ZUIMetric.cpp; sourceTree = SOURCE_ROOT; };
+		27366E2D0A2D8DDC00D4E02A /* ZUIMetric.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIMetric.h; path = ../../../src/uicore/ZUIMetric.h; sourceTree = SOURCE_ROOT; };
+		27366E2E0A2D8DDC00D4E02A /* ZUIRendered.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIRendered.cpp; path = ../../../src/uicore/ZUIRendered.cpp; sourceTree = SOURCE_ROOT; };
+		27366E2F0A2D8DDC00D4E02A /* ZUIRendered.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIRendered.h; path = ../../../src/uicore/ZUIRendered.h; sourceTree = SOURCE_ROOT; };
+		27366E300A2D8DDC00D4E02A /* ZUtil_UI.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_UI.cpp; path = ../../../src/uicore/ZUtil_UI.cpp; sourceTree = SOURCE_ROOT; };
+		27366E310A2D8DDC00D4E02A /* ZUtil_UI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_UI.h; path = ../../../src/uicore/ZUtil_UI.h; sourceTree = SOURCE_ROOT; };
+		27366E320A2D8DDC00D4E02A /* ZWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZWindow.cpp; path = ../../../src/uicore/ZWindow.cpp; sourceTree = SOURCE_ROOT; };
+		27366E330A2D8DDC00D4E02A /* ZWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZWindow.h; path = ../../../src/uicore/ZWindow.h; sourceTree = SOURCE_ROOT; };
+		27366E350A2D8DDC00D4E02A /* ZAlert.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZAlert.cpp; path = ../../../src/uiextra/ZAlert.cpp; sourceTree = SOURCE_ROOT; };
+		27366E360A2D8DDC00D4E02A /* ZAlert.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZAlert.h; path = ../../../src/uiextra/ZAlert.h; sourceTree = SOURCE_ROOT; };
+		27366E370A2D8DDC00D4E02A /* ZFontMenus.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZFontMenus.cpp; path = ../../../src/uiextra/ZFontMenus.cpp; sourceTree = SOURCE_ROOT; };
+		27366E380A2D8DDC00D4E02A /* ZFontMenus.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZFontMenus.h; path = ../../../src/uiextra/ZFontMenus.h; sourceTree = SOURCE_ROOT; };
+		27366E390A2D8DDC00D4E02A /* ZRegionAdorner.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZRegionAdorner.cpp; path = ../../../src/uiextra/ZRegionAdorner.cpp; sourceTree = SOURCE_ROOT; };
+		27366E3A0A2D8DDC00D4E02A /* ZRegionAdorner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZRegionAdorner.h; path = ../../../src/uiextra/ZRegionAdorner.h; sourceTree = SOURCE_ROOT; };
+		27366E3B0A2D8DDC00D4E02A /* ZUICartesianPlane.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUICartesianPlane.cpp; path = ../../../src/uiextra/ZUICartesianPlane.cpp; sourceTree = SOURCE_ROOT; };
+		27366E3C0A2D8DDC00D4E02A /* ZUICartesianPlane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUICartesianPlane.h; path = ../../../src/uiextra/ZUICartesianPlane.h; sourceTree = SOURCE_ROOT; };
+		27366E3D0A2D8DDC00D4E02A /* ZUIGridPane.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIGridPane.cpp; path = ../../../src/uiextra/ZUIGridPane.cpp; sourceTree = SOURCE_ROOT; };
+		27366E3E0A2D8DDC00D4E02A /* ZUIGridPane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIGridPane.h; path = ../../../src/uiextra/ZUIGridPane.h; sourceTree = SOURCE_ROOT; };
+		27366E3F0A2D8DDC00D4E02A /* ZUIRenderer_Appearance.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIRenderer_Appearance.cpp; path = ../../../src/uiextra/ZUIRenderer_Appearance.cpp; sourceTree = SOURCE_ROOT; };
+		27366E400A2D8DDC00D4E02A /* ZUIRenderer_Appearance.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIRenderer_Appearance.h; path = ../../../src/uiextra/ZUIRenderer_Appearance.h; sourceTree = SOURCE_ROOT; };
+		27366E410A2D8DDC00D4E02A /* ZUIRenderer_Platinum.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIRenderer_Platinum.cpp; path = ../../../src/uiextra/ZUIRenderer_Platinum.cpp; sourceTree = SOURCE_ROOT; };
+		27366E420A2D8DDC00D4E02A /* ZUIRenderer_Platinum.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIRenderer_Platinum.h; path = ../../../src/uiextra/ZUIRenderer_Platinum.h; sourceTree = SOURCE_ROOT; };
+		27366E430A2D8DDC00D4E02A /* ZUIRenderer_Win32.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUIRenderer_Win32.cpp; path = ../../../src/uiextra/ZUIRenderer_Win32.cpp; sourceTree = SOURCE_ROOT; };
+		27366E440A2D8DDC00D4E02A /* ZUIRenderer_Win32.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUIRenderer_Win32.h; path = ../../../src/uiextra/ZUIRenderer_Win32.h; sourceTree = SOURCE_ROOT; };
+		27366E450A2D8DDC00D4E02A /* ZUISwitchable.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUISwitchable.cpp; path = ../../../src/uiextra/ZUISwitchable.cpp; sourceTree = SOURCE_ROOT; };
+		27366E460A2D8DDC00D4E02A /* ZUISwitchable.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUISwitchable.h; path = ../../../src/uiextra/ZUISwitchable.h; sourceTree = SOURCE_ROOT; };
+		273671280A2DACC400D4E02A /* ZASParser.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZASParser.cpp; path = ../../../src/asset/ZASParser.cpp; sourceTree = SOURCE_ROOT; };
+		273671290A2DACC400D4E02A /* ZAsset_FS.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZAsset_FS.cpp; path = ../../../src/asset/ZAsset_FS.cpp; sourceTree = SOURCE_ROOT; };
+		2736712A0A2DACC400D4E02A /* ZAsset_Std.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZAsset_Std.cpp; path = ../../../src/asset/ZAsset_Std.cpp; sourceTree = SOURCE_ROOT; };
+		2736712B0A2DACC400D4E02A /* ZAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZAsset.cpp; path = ../../../src/asset/ZAsset.cpp; sourceTree = SOURCE_ROOT; };
+		2736712C0A2DACC400D4E02A /* ZUtil_Asset.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Asset.cpp; path = ../../../src/asset/ZUtil_Asset.cpp; sourceTree = SOURCE_ROOT; };
+		2736713F0A2DAE1900D4E02A /* ZUtil_Mac_HL.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Mac_HL.cpp; path = ../../../src/platform/macos/ZUtil_Mac_HL.cpp; sourceTree = SOURCE_ROOT; };
+		2736715D0A2DB0C000D4E02A /* ZDateTime.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZDateTime.cpp; path = ../../../src/_deprecated/ZDateTime.cpp; sourceTree = SOURCE_ROOT; };
+		2736715E0A2DB0C000D4E02A /* ZTextUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextUtil.cpp; path = ../../../src/_deprecated/ZTextUtil.cpp; sourceTree = SOURCE_ROOT; };
+		276C5A540CA5ED9500C79710 /* ZFile_POSIX.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ZFile_POSIX.cpp; sourceTree = "<group>"; };
+		276C5A560CA5EDF300C79710 /* ZBitStream.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ZBitStream.cpp; sourceTree = "<group>"; };
+		276C5A570CA5EDF300C79710 /* ZBitStream.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ZBitStream.h; sourceTree = "<group>"; };
+		276C5A5B0CA5EE2600C79710 /* ZUtil_CFType.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ZUtil_CFType.cpp; sourceTree = "<group>"; };
+		276C5A5C0CA5EE2600C79710 /* ZUtil_CFType.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ZUtil_CFType.h; sourceTree = "<group>"; };
+		27944AB20A69915C003C9C7A /* ButtonMessage_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ButtonMessage_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		27E0D9DA0A44853F00B4AAA0 /* BMApp.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = BMApp.cpp; path = ../buttonmessage_src/BMApp.cpp; sourceTree = SOURCE_ROOT; };
+		27E0D9DB0A44853F00B4AAA0 /* BMApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BMApp.h; path = ../buttonmessage_src/BMApp.h; sourceTree = SOURCE_ROOT; };
+		27E0D9DC0A44853F00B4AAA0 /* BMButtonWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = BMButtonWindow.cpp; path = ../buttonmessage_src/BMButtonWindow.cpp; sourceTree = SOURCE_ROOT; };
+		27E0D9DD0A44853F00B4AAA0 /* BMButtonWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BMButtonWindow.h; path = ../buttonmessage_src/BMButtonWindow.h; sourceTree = SOURCE_ROOT; };
+		27E0D9DE0A44853F00B4AAA0 /* BMDisplayWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = BMDisplayWindow.cpp; path = ../buttonmessage_src/BMDisplayWindow.cpp; sourceTree = SOURCE_ROOT; };
+		27E0D9DF0A44853F00B4AAA0 /* BMDisplayWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BMDisplayWindow.h; path = ../buttonmessage_src/BMDisplayWindow.h; sourceTree = SOURCE_ROOT; };
+		27E0D9E00A44853F00B4AAA0 /* BMMain.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = BMMain.cpp; path = ../buttonmessage_src/BMMain.cpp; sourceTree = SOURCE_ROOT; };
+		27E0D9E10A44853F00B4AAA0 /* MessageButtonPane.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MessageButtonPane.cpp; path = ../buttonmessage_src/MessageButtonPane.cpp; sourceTree = SOURCE_ROOT; };
+		27E0D9E20A44853F00B4AAA0 /* MessageButtonPane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MessageButtonPane.h; path = ../buttonmessage_src/MessageButtonPane.h; sourceTree = SOURCE_ROOT; };
+		27F8071C0A6668AA00DD7D4F /* ZUtil_MacOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_MacOSX.cpp; path = ../../../src/platform/macos/ZUtil_MacOSX.cpp; sourceTree = SOURCE_ROOT; };
+		27F8071D0A6668AA00DD7D4F /* ZUtil_MacOSX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZUtil_MacOSX.h; path = ../../../src/platform/macos/ZUtil_MacOSX.h; sourceTree = SOURCE_ROOT; };
+		27F807350A666ACC00DD7D4F /* ZLog.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ZLog.cpp; path = ../../../src_other/misc/ZLog.cpp; sourceTree = SOURCE_ROOT; };
+		27F807360A666ACC00DD7D4F /* ZLog.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZLog.h; path = ../../../src_other/misc/ZLog.h; sourceTree = SOURCE_ROOT; };
+		4A9504C8FFE6A3BC11CA0CBA /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D0C4E970486CD37000505A6 /* ButtonMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ButtonMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D0C4E910486CD37000505A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
+				8D0C4E930486CD37000505A6 /* libstdc++.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D0C4E970486CD37000505A6 /* ButtonMessage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* ButtonMessage */ = {
+			isa = PBXGroup;
+			children = (
+				20286C2AFDCF999611CA2CEA /* Sources */,
+				27366C7B0A2D8DA200D4E02A /* ZooLib */,
+				27F807330A666A8600DD7D4F /* ZooLib-Other */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = ButtonMessage;
+			sourceTree = "<group>";
+		};
+		20286C2AFDCF999611CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27944AB20A69915C003C9C7A /* ButtonMessage_Prefix.pch */,
+				27E0D9DA0A44853F00B4AAA0 /* BMApp.cpp */,
+				27E0D9DB0A44853F00B4AAA0 /* BMApp.h */,
+				27E0D9DC0A44853F00B4AAA0 /* BMButtonWindow.cpp */,
+				27E0D9DD0A44853F00B4AAA0 /* BMButtonWindow.h */,
+				27E0D9DE0A44853F00B4AAA0 /* BMDisplayWindow.cpp */,
+				27E0D9DF0A44853F00B4AAA0 /* BMDisplayWindow.h */,
+				27E0D9E00A44853F00B4AAA0 /* BMMain.cpp */,
+				27E0D9E10A44853F00B4AAA0 /* MessageButtonPane.cpp */,
+				27E0D9E20A44853F00B4AAA0 /* MessageButtonPane.h */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D0C4E960486CD37000505A6 /* Info.plist */,
+				0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				20286C33FDCF999611CA2CEA /* Carbon.framework */,
+				4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */,
+				4A9504C8FFE6A3BC11CA0CBA /* ApplicationServices.framework */,
+				0249A66BFF388E3F11CA2CEA /* libstdc++.a */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		27366C7B0A2D8DA200D4E02A /* ZooLib */ = {
+			isa = PBXGroup;
+			children = (
+				27366C7C0A2D8DDB00D4E02A /* _deprecated */,
+				27366C870A2D8DDB00D4E02A /* asset */,
+				27366C960A2D8DDB00D4E02A /* compat */,
+				27366C9B0A2D8DDB00D4E02A /* config */,
+				27366CA40A2D8DDB00D4E02A /* config_choices */,
+				27366CAC0A2D8DDB00D4E02A /* file */,
+				27366CB10A2D8DDB00D4E02A /* foundation */,
+				27366CE70A2D8DDC00D4E02A /* graphics */,
+				27366D130A2D8DDC00D4E02A /* net */,
+				27366D1C0A2D8DDC00D4E02A /* platform */,
+				27366D8F0A2D8DDC00D4E02A /* printing */,
+				27366D940A2D8DDC00D4E02A /* stream */,
+				27366DE90A2D8DDC00D4E02A /* text */,
+				27366E020A2D8DDC00D4E02A /* thread */,
+				27366E070A2D8DDC00D4E02A /* uicore */,
+				27366E340A2D8DDC00D4E02A /* uiextra */,
+			);
+			name = ZooLib;
+			sourceTree = "<group>";
+		};
+		27366C7C0A2D8DDB00D4E02A /* _deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				27366C7E0A2D8DDB00D4E02A /* ZCmdLine.h */,
+				2736715D0A2DB0C000D4E02A /* ZDateTime.cpp */,
+				27366C800A2D8DDB00D4E02A /* ZDateTime.h */,
+				27366C810A2D8DDB00D4E02A /* ZInterest.cpp */,
+				27366C820A2D8DDB00D4E02A /* ZInterest.h */,
+				27366C830A2D8DDB00D4E02A /* ZKeyboard.h */,
+				27366C840A2D8DDB00D4E02A /* ZMenuDef.h */,
+				2736715E0A2DB0C000D4E02A /* ZTextUtil.cpp */,
+				27366C860A2D8DDB00D4E02A /* ZTextUtil.h */,
+			);
+			name = _deprecated;
+			path = ../../../src/_deprecated;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366C870A2D8DDB00D4E02A /* asset */ = {
+			isa = PBXGroup;
+			children = (
+				273671280A2DACC400D4E02A /* ZASParser.cpp */,
+				273671290A2DACC400D4E02A /* ZAsset_FS.cpp */,
+				2736712A0A2DACC400D4E02A /* ZAsset_Std.cpp */,
+				2736712B0A2DACC400D4E02A /* ZAsset.cpp */,
+				2736712C0A2DACC400D4E02A /* ZUtil_Asset.cpp */,
+				27366C8D0A2D8DDB00D4E02A /* ZASParser.h */,
+				27366C8F0A2D8DDB00D4E02A /* ZAsset.h */,
+				27366C910A2D8DDB00D4E02A /* ZAsset_FS.h */,
+				27366C930A2D8DDB00D4E02A /* ZAsset_Std.h */,
+				27366C950A2D8DDB00D4E02A /* ZUtil_Asset.h */,
+			);
+			name = asset;
+			path = ../../../src/asset;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366C960A2D8DDB00D4E02A /* compat */ = {
+			isa = PBXGroup;
+			children = (
+				27366C970A2D8DDB00D4E02A /* ZCompat_algorithm.h */,
+				27366C980A2D8DDB00D4E02A /* ZCompat_cmath.h */,
+				27366C990A2D8DDB00D4E02A /* ZCompat_NonCopyable.h */,
+				27366C9A0A2D8DDB00D4E02A /* ZCompat_operator_bool.h */,
+			);
+			name = compat;
+			path = ../../../src/compat;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366C9B0A2D8DDB00D4E02A /* config */ = {
+			isa = PBXGroup;
+			children = (
+				27366C9C0A2D8DDB00D4E02A /* zconfig.h */,
+				27366C9D0A2D8DDB00D4E02A /* ZCONFIG_API.h */,
+				27366C9E0A2D8DDB00D4E02A /* ZCONFIG_API_Definitions.h */,
+				27366C9F0A2D8DDB00D4E02A /* ZCONFIG_SPI.h */,
+				27366CA00A2D8DDB00D4E02A /* ZCONFIG_SPI_Definitions.h */,
+				27366CA10A2D8DDB00D4E02A /* zconfigd.h */,
+				27366CA20A2D8DDB00D4E02A /* zconfigl.h */,
+			);
+			name = config;
+			path = ../../../src/config;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366CA40A2D8DDB00D4E02A /* config_choices */ = {
+			isa = PBXGroup;
+			children = (
+				27366CA50A2D8DDB00D4E02A /* ZCONFIG_API_Choices.h */,
+				27366CA60A2D8DDB00D4E02A /* ZCONFIG_SPI_Choices.h */,
+			);
+			name = config_choices;
+			path = ../../../src/config_choices;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366CAC0A2D8DDB00D4E02A /* file */ = {
+			isa = PBXGroup;
+			children = (
+				27366CAD0A2D8DDB00D4E02A /* ZFile.cpp */,
+				27366CAE0A2D8DDB00D4E02A /* ZFile.h */,
+				27366CAF0A2D8DDB00D4E02A /* ZUtil_File.cpp */,
+				27366CB00A2D8DDB00D4E02A /* ZUtil_File.h */,
+			);
+			name = file;
+			path = ../../../src/file;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366CB10A2D8DDB00D4E02A /* foundation */ = {
+			isa = PBXGroup;
+			children = (
+				27366CB20A2D8DDB00D4E02A /* ZAtomic.cpp */,
+				27366CB30A2D8DDB00D4E02A /* ZAtomic.h */,
+				27366CB40A2D8DDB00D4E02A /* ZByteSwap.cpp */,
+				27366CB50A2D8DDB00D4E02A /* ZByteSwap.h */,
+				27366CB60A2D8DDB00D4E02A /* ZCompare.cpp */,
+				27366CB70A2D8DDB00D4E02A /* ZCompare.h */,
+				27366CB80A2D8DDB00D4E02A /* ZDebug.cpp */,
+				27366CB90A2D8DDB00D4E02A /* ZDebug.h */,
+				27366CBA0A2D8DDB00D4E02A /* ZHandle.cpp */,
+				27366CBB0A2D8DDB00D4E02A /* ZHandle.h */,
+				27366CBC0A2D8DDB00D4E02A /* ZMain.cpp */,
+				27366CBD0A2D8DDB00D4E02A /* ZMain.h */,
+				27366CBE0A2D8DDB00D4E02A /* ZMemory.cpp */,
+				27366CBF0A2D8DDB00D4E02A /* ZMemory.h */,
+				27366CC00A2D8DDB00D4E02A /* ZMemoryBlock.cpp */,
+				27366CC10A2D8DDB00D4E02A /* ZMemoryBlock.h */,
+				27366CC20A2D8DDB00D4E02A /* ZMessage.cpp */,
+				27366CC30A2D8DDB00D4E02A /* ZMessage.h */,
+				27366CC40A2D8DDB00D4E02A /* ZMessageLooperImpStd.cpp */,
+				27366CC50A2D8DDB00D4E02A /* ZMessageLooperImpStd.h */,
+				27366CC60A2D8DDB00D4E02A /* ZNode.cpp */,
+				27366CC70A2D8DDB00D4E02A /* ZNode.h */,
+				27366CC80A2D8DDB00D4E02A /* ZNodeRep_Overlay.cpp */,
+				27366CC90A2D8DDB00D4E02A /* ZNodeRep_Overlay.h */,
+				27366CCA0A2D8DDB00D4E02A /* ZNodeRep_Wrapper.cpp */,
+				27366CCB0A2D8DDB00D4E02A /* ZNodeRep_Wrapper.h */,
+				27366CCC0A2D8DDB00D4E02A /* ZRefCount.cpp */,
+				27366CCD0A2D8DDB00D4E02A /* ZRefCount.h */,
+				27366CCE0A2D8DDB00D4E02A /* ZStackCrawl.cpp */,
+				27366CCF0A2D8DDB00D4E02A /* ZStackCrawl.h */,
+				27366CD00A2D8DDB00D4E02A /* ZString.cpp */,
+				27366CD10A2D8DDB00D4E02A /* ZString.h */,
+				27366CD20A2D8DDB00D4E02A /* ZTicks.cpp */,
+				27366CD30A2D8DDB00D4E02A /* ZTicks.h */,
+				27366CD40A2D8DDB00D4E02A /* ZTime.cpp */,
+				27366CD50A2D8DDB00D4E02A /* ZTime.h */,
+				270AFBE20F387BAA008AA85E /* ZTName.cpp */,
+				270AFBE30F387BAA008AA85E /* ZTName.h */,
+				27366CD60A2D8DDB00D4E02A /* ZTrail.cpp */,
+				27366CD70A2D8DDB00D4E02A /* ZTrail.h */,
+				27366CD80A2D8DDB00D4E02A /* ZTuple.cpp */,
+				27366CD90A2D8DDB00D4E02A /* ZTuple.h */,
+				27366CDC0A2D8DDB00D4E02A /* ZTypes.cpp */,
+				27366CDD0A2D8DDC00D4E02A /* ZTypes.h */,
+				27366CDE0A2D8DDC00D4E02A /* ZUnicode.cpp */,
+				27366CDF0A2D8DDC00D4E02A /* ZUnicode.h */,
+				27366CE00A2D8DDC00D4E02A /* ZUnicodePriv.h */,
+				27366CE10A2D8DDC00D4E02A /* ZUnicodePrivB.h */,
+				27366CE20A2D8DDC00D4E02A /* ZUtil_STL.h */,
+				270AFBF70F387CF4008AA85E /* ZUtil_Strim_Tuple.cpp */,
+				270AFBF80F387CF4008AA85E /* ZUtil_Strim_Tuple.h */,
+				27366CE30A2D8DDC00D4E02A /* ZUtil_Time.cpp */,
+				27366CE40A2D8DDC00D4E02A /* ZUtil_Time.h */,
+				27366CE50A2D8DDC00D4E02A /* ZUtil_Tuple.cpp */,
+				27366CE60A2D8DDC00D4E02A /* ZUtil_Tuple.h */,
+			);
+			name = foundation;
+			path = ../../../src/foundation;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366CE70A2D8DDC00D4E02A /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				27366CE80A2D8DDC00D4E02A /* ZBigRegion.cpp */,
+				27366CE90A2D8DDC00D4E02A /* ZBigRegion.h */,
+				27366CEA0A2D8DDC00D4E02A /* ZDC.cpp */,
+				27366CEB0A2D8DDC00D4E02A /* ZDC.h */,
+				27366CEC0A2D8DDC00D4E02A /* ZDC_ZooLib.cpp */,
+				27366CED0A2D8DDC00D4E02A /* ZDC_ZooLib.h */,
+				27366CEE0A2D8DDC00D4E02A /* ZDCFont.cpp */,
+				27366CEF0A2D8DDC00D4E02A /* ZDCFont.h */,
+				27366CF00A2D8DDC00D4E02A /* ZDCGlyphServer.cpp */,
+				27366CF10A2D8DDC00D4E02A /* ZDCGlyphServer.h */,
+				27366CF20A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.cpp */,
+				27366CF30A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.h */,
+				27366CF40A2D8DDC00D4E02A /* ZDCInk.cpp */,
+				27366CF50A2D8DDC00D4E02A /* ZDCInk.h */,
+				27366CF60A2D8DDC00D4E02A /* ZDCPixmap.cpp */,
+				27366CF70A2D8DDC00D4E02A /* ZDCPixmap.h */,
+				27366CF80A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.cpp */,
+				27366CF90A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.h */,
+				27366CFA0A2D8DDC00D4E02A /* ZDCPixmapBlit.cpp */,
+				27366CFB0A2D8DDC00D4E02A /* ZDCPixmapBlit.h */,
+				27366CFC0A2D8DDC00D4E02A /* ZDCPixmapBlitPriv.h */,
+				27366CFD0A2D8DDC00D4E02A /* ZDCPixmapCoder.cpp */,
+				27366CFE0A2D8DDC00D4E02A /* ZDCPixmapCoder.h */,
+				27366CFF0A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.cpp */,
+				27366D000A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.h */,
+				27366D010A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.cpp */,
+				27366D020A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.h */,
+				27366D030A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.cpp */,
+				27366D040A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.h */,
+				27366D050A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.cpp */,
+				27366D060A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.h */,
+				27366D070A2D8DDC00D4E02A /* ZDCPixmapNS.cpp */,
+				27366D080A2D8DDC00D4E02A /* ZDCPixmapNS.h */,
+				27366D090A2D8DDC00D4E02A /* ZDCPoly.cpp */,
+				27366D0A0A2D8DDC00D4E02A /* ZDCPoly.h */,
+				27366D0B0A2D8DDC00D4E02A /* ZDCRgn.cpp */,
+				27366D0C0A2D8DDC00D4E02A /* ZDCRgn.h */,
+				27366D0D0A2D8DDC00D4E02A /* ZGeom.cpp */,
+				27366D0E0A2D8DDC00D4E02A /* ZGeom.h */,
+				27366D0F0A2D8DDC00D4E02A /* ZRGBColor.cpp */,
+				27366D100A2D8DDC00D4E02A /* ZRGBColor.h */,
+				27366D110A2D8DDC00D4E02A /* ZUtil_Graphics.cpp */,
+				27366D120A2D8DDC00D4E02A /* ZUtil_Graphics.h */,
+			);
+			name = graphics;
+			path = ../../../src/graphics;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D130A2D8DDC00D4E02A /* net */ = {
+			isa = PBXGroup;
+			children = (
+				27366D150A2D8DDC00D4E02A /* ZNet.h */,
+				27366D170A2D8DDC00D4E02A /* ZNet_AppleTalk.h */,
+				27366D190A2D8DDC00D4E02A /* ZNet_Internet.h */,
+				27366D1B0A2D8DDC00D4E02A /* ZServer.h */,
+			);
+			name = net;
+			path = ../../../src/net;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D1C0A2D8DDC00D4E02A /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				27366D1D0A2D8DDC00D4E02A /* beos */,
+				27366D2C0A2D8DDC00D4E02A /* macos */,
+				27366D5E0A2D8DDC00D4E02A /* posix */,
+				27366D730A2D8DDC00D4E02A /* win32 */,
+			);
+			name = platform;
+			path = ../../../src/platform;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D1D0A2D8DDC00D4E02A /* beos */ = {
+			isa = PBXGroup;
+			children = (
+				27366D1E0A2D8DDC00D4E02A /* TLS.h */,
+				27366D210A2D8DDC00D4E02A /* TLSpriv.h */,
+				27366D230A2D8DDC00D4E02A /* ZBRegionAlternate.h */,
+				27366D250A2D8DDC00D4E02A /* ZDC_Be.h */,
+				27366D270A2D8DDC00D4E02A /* ZMenu_Be.h */,
+				27366D290A2D8DDC00D4E02A /* ZNet_Internet_Be.h */,
+				27366D2B0A2D8DDC00D4E02A /* ZOSWindow_Be.h */,
+			);
+			name = beos;
+			path = ../../../src/platform/beos;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D2C0A2D8DDC00D4E02A /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				276C5A5B0CA5EE2600C79710 /* ZUtil_CFType.cpp */,
+				276C5A5C0CA5EE2600C79710 /* ZUtil_CFType.h */,
+				27F8071C0A6668AA00DD7D4F /* ZUtil_MacOSX.cpp */,
+				27F8071D0A6668AA00DD7D4F /* ZUtil_MacOSX.h */,
+				2736713F0A2DAE1900D4E02A /* ZUtil_Mac_HL.cpp */,
+				27366D2D0A2D8DDC00D4E02A /* CarbonResource.r */,
+				27366D310A2D8DDC00D4E02A /* ZAsset_MacOS.cpp */,
+				27366D320A2D8DDC00D4E02A /* ZAsset_MacOS.h */,
+				27366D330A2D8DDC00D4E02A /* ZDC_QD.cpp */,
+				27366D340A2D8DDC00D4E02A /* ZDC_QD.h */,
+				27366D350A2D8DDC00D4E02A /* ZDebug_Mac.cpp */,
+				27366D360A2D8DDC00D4E02A /* ZDebug_Mac.h */,
+				27366D370A2D8DDC00D4E02A /* ZFile_MacClassic.cpp */,
+				27366D380A2D8DDC00D4E02A /* ZFile_MacClassic.h */,
+				27366D3B0A2D8DDC00D4E02A /* ZMacOSX.cpp */,
+				27366D3C0A2D8DDC00D4E02A /* ZMacOSX.h */,
+				27366D3D0A2D8DDC00D4E02A /* ZMenu_Carbon.cpp */,
+				27366D3E0A2D8DDC00D4E02A /* ZMenu_Carbon.h */,
+				27366D3F0A2D8DDC00D4E02A /* ZMenu_Mac.cpp */,
+				27366D400A2D8DDC00D4E02A /* ZMenu_Mac.h */,
+				27366D420A2D8DDC00D4E02A /* ZNet_AppleTalk_MacClassic.h */,
+				27366D440A2D8DDC00D4E02A /* ZNet_Internet_MacClassic.h */,
+				27366D460A2D8DDC00D4E02A /* ZNet_Internet_MacOT_Classic.h */,
+				27366D480A2D8DDC00D4E02A /* ZNet_Internet_MacOT_OSX.h */,
+				27366D490A2D8DDC00D4E02A /* ZOSWindow_Carbon.cpp */,
+				27366D4A0A2D8DDC00D4E02A /* ZOSWindow_Carbon.h */,
+				27366D4B0A2D8DDC00D4E02A /* ZOSWindow_Mac.cpp */,
+				27366D4C0A2D8DDC00D4E02A /* ZOSWindow_Mac.h */,
+				27366D4D0A2D8DDC00D4E02A /* ZPrint_Carbon.cpp */,
+				27366D4E0A2D8DDC00D4E02A /* ZPrint_Carbon.h */,
+				27366D4F0A2D8DDC00D4E02A /* ZPrint_MacClassic.cpp */,
+				27366D500A2D8DDC00D4E02A /* ZPrint_MacClassic.h */,
+				27366D510A2D8DDC00D4E02A /* ZStream_Mac.cpp */,
+				27366D520A2D8DDC00D4E02A /* ZStream_Mac.h */,
+				27366D530A2D8DDC00D4E02A /* ZStream_MacOSX.cpp */,
+				27366D540A2D8DDC00D4E02A /* ZStream_MacOSX.h */,
+				27366D550A2D8DDC00D4E02A /* ZTextCoder_Mac.cpp */,
+				27366D560A2D8DDC00D4E02A /* ZTextCoder_Mac.h */,
+				27366D570A2D8DDC00D4E02A /* ZThreadTM.cpp */,
+				27366D580A2D8DDC00D4E02A /* ZThreadTM.h */,
+				27366D5A0A2D8DDC00D4E02A /* ZUtil_Mac_HL.h */,
+				27366D5B0A2D8DDC00D4E02A /* ZUtil_Mac_LL.cpp */,
+				27366D5C0A2D8DDC00D4E02A /* ZUtil_Mac_LL.h */,
+				27366D5D0A2D8DDC00D4E02A /* ZWDEF_IconTitle.r */,
+			);
+			name = macos;
+			path = ../../../src/platform/macos;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D5E0A2D8DDC00D4E02A /* posix */ = {
+			isa = PBXGroup;
+			children = (
+				276C5A540CA5ED9500C79710 /* ZFile_POSIX.cpp */,
+				27366D600A2D8DDC00D4E02A /* ZAsset_POSIX.h */,
+				27366D620A2D8DDC00D4E02A /* ZDC_X.h */,
+				27366D640A2D8DDC00D4E02A /* ZFile_POSIX.h */,
+				27366D660A2D8DDC00D4E02A /* ZMenu_X.h */,
+				27366D680A2D8DDC00D4E02A /* ZNet_Internet_Socket.h */,
+				27366D6A0A2D8DDC00D4E02A /* ZOSWindow_X.h */,
+				27366D6C0A2D8DDC00D4E02A /* ZStream_POSIX.h */,
+				27366D6E0A2D8DDC00D4E02A /* ZTextCoder_iconv.h */,
+				27366D700A2D8DDC00D4E02A /* ZXLib.h */,
+				27366D720A2D8DDC00D4E02A /* ZXServer.h */,
+			);
+			name = posix;
+			path = ../../../src/platform/posix;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D730A2D8DDC00D4E02A /* win32 */ = {
+			isa = PBXGroup;
+			children = (
+				27366D750A2D8DDC00D4E02A /* ZAsset_Win.h */,
+				27366D770A2D8DDC00D4E02A /* ZDC_GDI.h */,
+				27366D790A2D8DDC00D4E02A /* ZDebug_Win.h */,
+				27366D7B0A2D8DDC00D4E02A /* ZDragClip_Win.h */,
+				27366D7D0A2D8DDC00D4E02A /* ZFile_Win.h */,
+				27366D7F0A2D8DDC00D4E02A /* ZMenu_Win.h */,
+				27366D810A2D8DDC00D4E02A /* ZNet_Internet_WinSock.h */,
+				27366D830A2D8DDC00D4E02A /* ZOSWindow_Win.h */,
+				27366D850A2D8DDC00D4E02A /* ZPrint_Win.h */,
+				27366D870A2D8DDC00D4E02A /* ZStream_Win.h */,
+				27366D890A2D8DDC00D4E02A /* ZTextCoder_Win.h */,
+				27366D8B0A2D8DDC00D4E02A /* ZUtil_Win.h */,
+				271F4DDD0F7900E200B68161 /* ZUtil_Win_UI.h */,
+				27366D8C0A2D8DDC00D4E02A /* ZWinHeader.h */,
+				27366D8E0A2D8DDC00D4E02A /* ZWinService.h */,
+			);
+			name = win32;
+			path = ../../../src/platform/win32;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D8F0A2D8DDC00D4E02A /* printing */ = {
+			isa = PBXGroup;
+			children = (
+				27366D900A2D8DDC00D4E02A /* ZPrint.cpp */,
+				27366D910A2D8DDC00D4E02A /* ZPrint.h */,
+				27366D920A2D8DDC00D4E02A /* ZPrintDroid.cpp */,
+				27366D930A2D8DDC00D4E02A /* ZPrintDroid.h */,
+			);
+			name = printing;
+			path = ../../../src/printing;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366D940A2D8DDC00D4E02A /* stream */ = {
+			isa = PBXGroup;
+			children = (
+				27366D950A2D8DDC00D4E02A /* ZStream.cpp */,
+				27366D960A2D8DDC00D4E02A /* ZStream.h */,
+				27366D970A2D8DDC00D4E02A /* ZStream_ASCIIStrim.cpp */,
+				27366D980A2D8DDC00D4E02A /* ZStream_ASCIIStrim.h */,
+				27366D990A2D8DDC00D4E02A /* ZStream_Base64.cpp */,
+				27366D9A0A2D8DDC00D4E02A /* ZStream_Base64.h */,
+				270AFBED0F387C55008AA85E /* ZStream_Chunked.cpp */,
+				270AFBEE0F387C55008AA85E /* ZStream_Chunked.h */,
+				276C5A560CA5EDF300C79710 /* ZBitStream.cpp */,
+				276C5A570CA5EDF300C79710 /* ZBitStream.h */,
+				27366D9B0A2D8DDC00D4E02A /* ZStream_Buffered.cpp */,
+				27366D9C0A2D8DDC00D4E02A /* ZStream_Buffered.h */,
+				27366D9D0A2D8DDC00D4E02A /* ZStream_Count.cpp */,
+				27366D9E0A2D8DDC00D4E02A /* ZStream_Count.h */,
+				27366D9F0A2D8DDC00D4E02A /* ZStream_CRLF.cpp */,
+				27366DA00A2D8DDC00D4E02A /* ZStream_CRLF.h */,
+				27366DA10A2D8DDC00D4E02A /* ZStream_HexStrim.cpp */,
+				27366DA20A2D8DDC00D4E02A /* ZStream_HexStrim.h */,
+				27366DA50A2D8DDC00D4E02A /* ZStream_Limited.cpp */,
+				27366DA60A2D8DDC00D4E02A /* ZStream_Limited.h */,
+				27366DA70A2D8DDC00D4E02A /* ZStream_LZW.cpp */,
+				27366DA80A2D8DDC00D4E02A /* ZStream_LZW.h */,
+				27366DA90A2D8DDC00D4E02A /* ZStream_MD5.cpp */,
+				27366DAA0A2D8DDC00D4E02A /* ZStream_MD5.h */,
+				27366DAB0A2D8DDC00D4E02A /* ZStream_Memory.cpp */,
+				27366DAC0A2D8DDC00D4E02A /* ZStream_Memory.h */,
+				27366DAD0A2D8DDC00D4E02A /* ZStream_PageBuffered.cpp */,
+				27366DAE0A2D8DDC00D4E02A /* ZStream_PageBuffered.h */,
+				27366DAF0A2D8DDC00D4E02A /* ZStream_SHA1.cpp */,
+				27366DB00A2D8DDC00D4E02A /* ZStream_SHA1.h */,
+				27366DB10A2D8DDC00D4E02A /* ZStream_String.cpp */,
+				27366DB20A2D8DDC00D4E02A /* ZStream_String.h */,
+				27366DB30A2D8DDC00D4E02A /* ZStream_Tee.cpp */,
+				27366DB40A2D8DDC00D4E02A /* ZStream_Tee.h */,
+				27366DB50A2D8DDC00D4E02A /* ZStream_ZLib.cpp */,
+				27366DB60A2D8DDC00D4E02A /* ZStream_ZLib.h */,
+				27366DB70A2D8DDC00D4E02A /* ZStreamer.cpp */,
+				27366DB80A2D8DDC00D4E02A /* ZStreamer.h */,
+				27366DB90A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.cpp */,
+				27366DBA0A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.h */,
+				27366DBC0A2D8DDC00D4E02A /* ZStreamMUX.h */,
+				27366DBD0A2D8DDC00D4E02A /* ZStreamR_Boundary.cpp */,
+				27366DBE0A2D8DDC00D4E02A /* ZStreamR_Boundary.h */,
+				27366DBF0A2D8DDC00D4E02A /* ZStreamR_Cat.cpp */,
+				27366DC00A2D8DDC00D4E02A /* ZStreamR_Cat.h */,
+				27366DC10A2D8DDC00D4E02A /* ZStreamR_Random.cpp */,
+				27366DC20A2D8DDC00D4E02A /* ZStreamR_Random.h */,
+				27366DC30A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.cpp */,
+				27366DC40A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.h */,
+				27366DC50A2D8DDC00D4E02A /* ZStreamR_Source.cpp */,
+				27366DC60A2D8DDC00D4E02A /* ZStreamR_Source.h */,
+				27366DC70A2D8DDC00D4E02A /* ZStreamRPos_StreamR.cpp */,
+				27366DC80A2D8DDC00D4E02A /* ZStreamRPos_StreamR.h */,
+				27366DC90A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.cpp */,
+				27366DCA0A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.h */,
+				27366DCB0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.cpp */,
+				27366DCC0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.h */,
+				27366DCD0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.cpp */,
+				27366DCE0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.h */,
+				27366DCF0A2D8DDC00D4E02A /* ZStrim.cpp */,
+				27366DD00A2D8DDC00D4E02A /* ZStrim.h */,
+				27366DD10A2D8DDC00D4E02A /* ZStrim_CRLF.cpp */,
+				27366DD20A2D8DDC00D4E02A /* ZStrim_CRLF.h */,
+				27366DD30A2D8DDC00D4E02A /* ZStrim_Limited.cpp */,
+				27366DD40A2D8DDC00D4E02A /* ZStrim_Limited.h */,
+				27366DD50A2D8DDC00D4E02A /* ZStrim_Stream.cpp */,
+				27366DD60A2D8DDC00D4E02A /* ZStrim_Stream.h */,
+				27366DD70A2D8DDC00D4E02A /* ZStrim_Tee.cpp */,
+				27366DD80A2D8DDC00D4E02A /* ZStrim_Tee.h */,
+				27366DD90A2D8DDC00D4E02A /* ZStrimmer.cpp */,
+				27366DDA0A2D8DDC00D4E02A /* ZStrimmer.h */,
+				27366DDB0A2D8DDC00D4E02A /* ZStrimmer_Stream.h */,
+				27366DDC0A2D8DDC00D4E02A /* ZStrimmer_Streamer.h */,
+				27366DDD0A2D8DDC00D4E02A /* ZStrimR_Boundary.cpp */,
+				27366DDE0A2D8DDC00D4E02A /* ZStrimR_Boundary.h */,
+				27366DDF0A2D8DDC00D4E02A /* ZStrimR_Rewind.cpp */,
+				27366DE00A2D8DDC00D4E02A /* ZStrimR_Rewind.h */,
+				27366DE10A2D8DDC00D4E02A /* ZStrimW_Escapify.cpp */,
+				27366DE20A2D8DDC00D4E02A /* ZStrimW_Escapify.h */,
+				27366DE30A2D8DDC00D4E02A /* ZStrimW_ML.cpp */,
+				27366DE40A2D8DDC00D4E02A /* ZStrimW_ML.h */,
+				27366DE50A2D8DDC00D4E02A /* ZUtil_Stream.cpp */,
+				27366DE60A2D8DDC00D4E02A /* ZUtil_Stream.h */,
+				27366DE70A2D8DDC00D4E02A /* ZUtil_Strim.cpp */,
+				27366DE80A2D8DDC00D4E02A /* ZUtil_Strim.h */,
+			);
+			name = stream;
+			path = ../../../src/stream;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366DE90A2D8DDC00D4E02A /* text */ = {
+			isa = PBXGroup;
+			children = (
+				27366DEA0A2D8DDC00D4E02A /* ZRegex.cpp */,
+				27366DEB0A2D8DDC00D4E02A /* ZRegex.h */,
+				27366DEC0A2D8DDC00D4E02A /* ZTextCoder.cpp */,
+				27366DED0A2D8DDC00D4E02A /* ZTextCoder.h */,
+				27366DEE0A2D8DDC00D4E02A /* ZTextCoder_ICU.cpp */,
+				27366DEF0A2D8DDC00D4E02A /* ZTextCoder_ICU.h */,
+				27366DF00A2D8DDC00D4E02A /* ZTextCoder_Std.cpp */,
+				27366DF10A2D8DDC00D4E02A /* ZTextCoder_Std.h */,
+				27366DF20A2D8DDC00D4E02A /* ZTextCoder_Unicode.cpp */,
+				27366DF30A2D8DDC00D4E02A /* ZTextCoder_Unicode.h */,
+				27366DF40A2D8DDC00D4E02A /* ZTextCollator.cpp */,
+				27366DF50A2D8DDC00D4E02A /* ZTextCollator.h */,
+				27366DF60A2D8DDC00D4E02A /* ZTextCollator_ASCII.cpp */,
+				27366DF70A2D8DDC00D4E02A /* ZTextCollator_ASCII.h */,
+				27366DF80A2D8DDC00D4E02A /* ZTextCollator_ICU.cpp */,
+				27366DF90A2D8DDC00D4E02A /* ZTextCollator_ICU.h */,
+				27366DFA0A2D8DDC00D4E02A /* ZUITextEngine.cpp */,
+				27366DFB0A2D8DDC00D4E02A /* ZUITextEngine.h */,
+				27366DFC0A2D8DDC00D4E02A /* ZUITextEngine_Mac.cpp */,
+				27366DFD0A2D8DDC00D4E02A /* ZUITextEngine_Mac.h */,
+				27366DFE0A2D8DDC00D4E02A /* ZUITextEngine_Z.cpp */,
+				27366DFF0A2D8DDC00D4E02A /* ZUITextEngine_Z.h */,
+				27366E000A2D8DDC00D4E02A /* ZUtil_TextCoder.cpp */,
+				27366E010A2D8DDC00D4E02A /* ZUtil_TextCoder.h */,
+			);
+			name = text;
+			path = ../../../src/text;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366E020A2D8DDC00D4E02A /* thread */ = {
+			isa = PBXGroup;
+			children = (
+				27366E030A2D8DDC00D4E02A /* ZThread.cpp */,
+				27366E040A2D8DDC00D4E02A /* ZThread.h */,
+				27366E050A2D8DDC00D4E02A /* ZThreadSimple.cpp */,
+				27366E060A2D8DDC00D4E02A /* ZThreadSimple.h */,
+			);
+			name = thread;
+			path = ../../../src/thread;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366E070A2D8DDC00D4E02A /* uicore */ = {
+			isa = PBXGroup;
+			children = (
+				27366E080A2D8DDC00D4E02A /* ZApp.cpp */,
+				27366E090A2D8DDC00D4E02A /* ZApp.h */,
+				27366E0A0A2D8DDC00D4E02A /* ZCursor.cpp */,
+				27366E0B0A2D8DDC00D4E02A /* ZCursor.h */,
+				27366E0C0A2D8DDC00D4E02A /* ZDragClip.cpp */,
+				27366E0D0A2D8DDC00D4E02A /* ZDragClip.h */,
+				27366E0E0A2D8DDC00D4E02A /* ZEvent.cpp */,
+				27366E0F0A2D8DDC00D4E02A /* ZEvent.h */,
+				27366E100A2D8DDC00D4E02A /* ZEventHr.cpp */,
+				27366E110A2D8DDC00D4E02A /* ZEventHr.h */,
+				27366E120A2D8DDC00D4E02A /* ZFakeWindow.cpp */,
+				27366E130A2D8DDC00D4E02A /* ZFakeWindow.h */,
+				27366E140A2D8DDC00D4E02A /* ZMenu.cpp */,
+				27366E150A2D8DDC00D4E02A /* ZMenu.h */,
+				27366E160A2D8DDC00D4E02A /* ZMouseTracker.cpp */,
+				27366E170A2D8DDC00D4E02A /* ZMouseTracker.h */,
+				27366E180A2D8DDC00D4E02A /* ZOSWindow.cpp */,
+				27366E190A2D8DDC00D4E02A /* ZOSWindow.h */,
+				27366E1A0A2D8DDC00D4E02A /* ZOSWindow_Std.cpp */,
+				27366E1B0A2D8DDC00D4E02A /* ZOSWindow_Std.h */,
+				27366E1C0A2D8DDC00D4E02A /* ZPane.cpp */,
+				27366E1D0A2D8DDC00D4E02A /* ZPane.h */,
+				27366E1E0A2D8DDC00D4E02A /* ZUI.cpp */,
+				27366E1F0A2D8DDC00D4E02A /* ZUI.h */,
+				27366E200A2D8DDC00D4E02A /* ZUIBase.cpp */,
+				27366E210A2D8DDC00D4E02A /* ZUIBase.h */,
+				27366E220A2D8DDC00D4E02A /* ZUIColor.cpp */,
+				27366E230A2D8DDC00D4E02A /* ZUIColor.h */,
+				27366E240A2D8DDC00D4E02A /* ZUIDisplayState.cpp */,
+				27366E250A2D8DDC00D4E02A /* ZUIDisplayState.h */,
+				27366E260A2D8DDC00D4E02A /* ZUIFactory.cpp */,
+				27366E270A2D8DDC00D4E02A /* ZUIFactory.h */,
+				27366E280A2D8DDC00D4E02A /* ZUIFont.cpp */,
+				27366E290A2D8DDC00D4E02A /* ZUIFont.h */,
+				27366E2A0A2D8DDC00D4E02A /* ZUIInk.cpp */,
+				27366E2B0A2D8DDC00D4E02A /* ZUIInk.h */,
+				27366E2C0A2D8DDC00D4E02A /* ZUIMetric.cpp */,
+				27366E2D0A2D8DDC00D4E02A /* ZUIMetric.h */,
+				27366E2E0A2D8DDC00D4E02A /* ZUIRendered.cpp */,
+				27366E2F0A2D8DDC00D4E02A /* ZUIRendered.h */,
+				27366E300A2D8DDC00D4E02A /* ZUtil_UI.cpp */,
+				27366E310A2D8DDC00D4E02A /* ZUtil_UI.h */,
+				27366E320A2D8DDC00D4E02A /* ZWindow.cpp */,
+				27366E330A2D8DDC00D4E02A /* ZWindow.h */,
+			);
+			name = uicore;
+			path = ../../../src/uicore;
+			sourceTree = SOURCE_ROOT;
+		};
+		27366E340A2D8DDC00D4E02A /* uiextra */ = {
+			isa = PBXGroup;
+			children = (
+				27366E350A2D8DDC00D4E02A /* ZAlert.cpp */,
+				27366E360A2D8DDC00D4E02A /* ZAlert.h */,
+				27366E370A2D8DDC00D4E02A /* ZFontMenus.cpp */,
+				27366E380A2D8DDC00D4E02A /* ZFontMenus.h */,
+				27366E390A2D8DDC00D4E02A /* ZRegionAdorner.cpp */,
+				27366E3A0A2D8DDC00D4E02A /* ZRegionAdorner.h */,
+				27366E3B0A2D8DDC00D4E02A /* ZUICartesianPlane.cpp */,
+				27366E3C0A2D8DDC00D4E02A /* ZUICartesianPlane.h */,
+				27366E3D0A2D8DDC00D4E02A /* ZUIGridPane.cpp */,
+				27366E3E0A2D8DDC00D4E02A /* ZUIGridPane.h */,
+				27366E3F0A2D8DDC00D4E02A /* ZUIRenderer_Appearance.cpp */,
+				27366E400A2D8DDC00D4E02A /* ZUIRenderer_Appearance.h */,
+				27366E410A2D8DDC00D4E02A /* ZUIRenderer_Platinum.cpp */,
+				27366E420A2D8DDC00D4E02A /* ZUIRenderer_Platinum.h */,
+				27366E430A2D8DDC00D4E02A /* ZUIRenderer_Win32.cpp */,
+				27366E440A2D8DDC00D4E02A /* ZUIRenderer_Win32.h */,
+				27366E450A2D8DDC00D4E02A /* ZUISwitchable.cpp */,
+				27366E460A2D8DDC00D4E02A /* ZUISwitchable.h */,
+			);
+			name = uiextra;
+			path = ../../../src/uiextra;
+			sourceTree = SOURCE_ROOT;
+		};
+		27F807330A666A8600DD7D4F /* ZooLib-Other */ = {
+			isa = PBXGroup;
+			children = (
+				27F807340A666A9E00DD7D4F /* misc */,
+			);
+			name = "ZooLib-Other";
+			sourceTree = "<group>";
+		};
+		27F807340A666A9E00DD7D4F /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				27F807350A666ACC00DD7D4F /* ZLog.cpp */,
+				27F807360A666ACC00DD7D4F /* ZLog.h */,
+			);
+			name = misc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D0C4E890486CD37000505A6 /* ButtonMessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2736698D0A2D7F3900D4E02A /* Build configuration list for PBXNativeTarget "ButtonMessage" */;
+			buildPhases = (
+				8D0C4E8C0486CD37000505A6 /* Resources */,
+				8D0C4E8F0486CD37000505A6 /* Sources */,
+				8D0C4E910486CD37000505A6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ButtonMessage;
+			productInstallPath = "$(HOME)/Applications";
+			productName = ButtonMessage;
+			productReference = 8D0C4E970486CD37000505A6 /* ButtonMessage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 273669910A2D7F3900D4E02A /* Build configuration list for PBXProject "ButtonMessage" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 20286C29FDCF999611CA2CEA /* ButtonMessage */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D0C4E890486CD37000505A6 /* ButtonMessage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D0C4E8C0486CD37000505A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D0C4E8F0486CD37000505A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27366E490A2D8DDC00D4E02A /* ZInterest.cpp in Sources */,
+				27366E570A2D8DDC00D4E02A /* ZFile.cpp in Sources */,
+				27366E580A2D8DDC00D4E02A /* ZUtil_File.cpp in Sources */,
+				27366E590A2D8DDC00D4E02A /* ZAtomic.cpp in Sources */,
+				27366E5A0A2D8DDC00D4E02A /* ZByteSwap.cpp in Sources */,
+				27366E5B0A2D8DDC00D4E02A /* ZCompare.cpp in Sources */,
+				27366E5C0A2D8DDC00D4E02A /* ZDebug.cpp in Sources */,
+				27366E5D0A2D8DDC00D4E02A /* ZHandle.cpp in Sources */,
+				27366E5E0A2D8DDC00D4E02A /* ZMain.cpp in Sources */,
+				27366E5F0A2D8DDC00D4E02A /* ZMemory.cpp in Sources */,
+				27366E600A2D8DDC00D4E02A /* ZMemoryBlock.cpp in Sources */,
+				27366E610A2D8DDC00D4E02A /* ZMessage.cpp in Sources */,
+				27366E620A2D8DDC00D4E02A /* ZMessageLooperImpStd.cpp in Sources */,
+				27366E630A2D8DDC00D4E02A /* ZNode.cpp in Sources */,
+				27366E640A2D8DDC00D4E02A /* ZNodeRep_Overlay.cpp in Sources */,
+				27366E650A2D8DDC00D4E02A /* ZNodeRep_Wrapper.cpp in Sources */,
+				27366E660A2D8DDC00D4E02A /* ZRefCount.cpp in Sources */,
+				27366E670A2D8DDC00D4E02A /* ZStackCrawl.cpp in Sources */,
+				27366E680A2D8DDC00D4E02A /* ZString.cpp in Sources */,
+				27366E690A2D8DDC00D4E02A /* ZTicks.cpp in Sources */,
+				27366E6A0A2D8DDC00D4E02A /* ZTime.cpp in Sources */,
+				27366E6B0A2D8DDC00D4E02A /* ZTrail.cpp in Sources */,
+				27366E6C0A2D8DDC00D4E02A /* ZTuple.cpp in Sources */,
+				27366E6E0A2D8DDC00D4E02A /* ZTypes.cpp in Sources */,
+				27366E6F0A2D8DDC00D4E02A /* ZUnicode.cpp in Sources */,
+				27366E700A2D8DDC00D4E02A /* ZUtil_Time.cpp in Sources */,
+				27366E710A2D8DDC00D4E02A /* ZUtil_Tuple.cpp in Sources */,
+				27366E720A2D8DDC00D4E02A /* ZBigRegion.cpp in Sources */,
+				27366E730A2D8DDC00D4E02A /* ZDC.cpp in Sources */,
+				27366E740A2D8DDC00D4E02A /* ZDC_ZooLib.cpp in Sources */,
+				27366E750A2D8DDC00D4E02A /* ZDCFont.cpp in Sources */,
+				27366E760A2D8DDC00D4E02A /* ZDCGlyphServer.cpp in Sources */,
+				27366E770A2D8DDC00D4E02A /* ZDCGlyphServer_Asset.cpp in Sources */,
+				27366E780A2D8DDC00D4E02A /* ZDCInk.cpp in Sources */,
+				27366E790A2D8DDC00D4E02A /* ZDCPixmap.cpp in Sources */,
+				27366E7A0A2D8DDC00D4E02A /* ZDCPixmap_Asset_BMP.cpp in Sources */,
+				27366E7B0A2D8DDC00D4E02A /* ZDCPixmapBlit.cpp in Sources */,
+				27366E7C0A2D8DDC00D4E02A /* ZDCPixmapCoder.cpp in Sources */,
+				27366E7D0A2D8DDC00D4E02A /* ZDCPixmapCoder_BMP.cpp in Sources */,
+				27366E7E0A2D8DDC00D4E02A /* ZDCPixmapCoder_GIF.cpp in Sources */,
+				27366E7F0A2D8DDC00D4E02A /* ZDCPixmapCoder_JPEGLib.cpp in Sources */,
+				27366E800A2D8DDC00D4E02A /* ZDCPixmapCoder_PNG.cpp in Sources */,
+				27366E810A2D8DDC00D4E02A /* ZDCPixmapNS.cpp in Sources */,
+				27366E820A2D8DDC00D4E02A /* ZDCPoly.cpp in Sources */,
+				27366E830A2D8DDC00D4E02A /* ZDCRgn.cpp in Sources */,
+				27366E840A2D8DDC00D4E02A /* ZGeom.cpp in Sources */,
+				27366E850A2D8DDC00D4E02A /* ZRGBColor.cpp in Sources */,
+				27366E860A2D8DDC00D4E02A /* ZUtil_Graphics.cpp in Sources */,
+				27366E930A2D8DDC00D4E02A /* ZAsset_MacOS.cpp in Sources */,
+				27366E940A2D8DDC00D4E02A /* ZDC_QD.cpp in Sources */,
+				27366E950A2D8DDC00D4E02A /* ZDebug_Mac.cpp in Sources */,
+				27366E960A2D8DDC00D4E02A /* ZFile_MacClassic.cpp in Sources */,
+				27366E980A2D8DDC00D4E02A /* ZMacOSX.cpp in Sources */,
+				27366E990A2D8DDC00D4E02A /* ZMenu_Carbon.cpp in Sources */,
+				27366E9A0A2D8DDC00D4E02A /* ZMenu_Mac.cpp in Sources */,
+				27366E9F0A2D8DDC00D4E02A /* ZOSWindow_Carbon.cpp in Sources */,
+				27366EA00A2D8DDC00D4E02A /* ZOSWindow_Mac.cpp in Sources */,
+				27366EA10A2D8DDC00D4E02A /* ZPrint_Carbon.cpp in Sources */,
+				27366EA20A2D8DDC00D4E02A /* ZPrint_MacClassic.cpp in Sources */,
+				27366EA30A2D8DDC00D4E02A /* ZStream_Mac.cpp in Sources */,
+				27366EA40A2D8DDC00D4E02A /* ZStream_MacOSX.cpp in Sources */,
+				27366EA50A2D8DDC00D4E02A /* ZTextCoder_Mac.cpp in Sources */,
+				27366EA60A2D8DDC00D4E02A /* ZThreadTM.cpp in Sources */,
+				27366EA80A2D8DDC00D4E02A /* ZUtil_Mac_LL.cpp in Sources */,
+				27366EC00A2D8DDC00D4E02A /* ZPrint.cpp in Sources */,
+				27366EC10A2D8DDC00D4E02A /* ZPrintDroid.cpp in Sources */,
+				27366EC20A2D8DDC00D4E02A /* ZStream.cpp in Sources */,
+				27366EC30A2D8DDC00D4E02A /* ZStream_ASCIIStrim.cpp in Sources */,
+				27366EC40A2D8DDC00D4E02A /* ZStream_Base64.cpp in Sources */,
+				27366EC50A2D8DDC00D4E02A /* ZStream_Buffered.cpp in Sources */,
+				27366EC60A2D8DDC00D4E02A /* ZStream_Count.cpp in Sources */,
+				27366EC70A2D8DDC00D4E02A /* ZStream_CRLF.cpp in Sources */,
+				27366EC80A2D8DDC00D4E02A /* ZStream_HexStrim.cpp in Sources */,
+				27366ECA0A2D8DDC00D4E02A /* ZStream_Limited.cpp in Sources */,
+				27366ECB0A2D8DDC00D4E02A /* ZStream_LZW.cpp in Sources */,
+				27366ECC0A2D8DDC00D4E02A /* ZStream_MD5.cpp in Sources */,
+				27366ECD0A2D8DDC00D4E02A /* ZStream_Memory.cpp in Sources */,
+				27366ECE0A2D8DDC00D4E02A /* ZStream_PageBuffered.cpp in Sources */,
+				27366ECF0A2D8DDC00D4E02A /* ZStream_SHA1.cpp in Sources */,
+				27366ED00A2D8DDC00D4E02A /* ZStream_String.cpp in Sources */,
+				27366ED10A2D8DDC00D4E02A /* ZStream_Tee.cpp in Sources */,
+				27366ED20A2D8DDC00D4E02A /* ZStream_ZLib.cpp in Sources */,
+				27366ED30A2D8DDC00D4E02A /* ZStreamer.cpp in Sources */,
+				27366ED40A2D8DDC00D4E02A /* ZStreamerRPos_StreamR.cpp in Sources */,
+				27366ED60A2D8DDC00D4E02A /* ZStreamR_Boundary.cpp in Sources */,
+				27366ED70A2D8DDC00D4E02A /* ZStreamR_Cat.cpp in Sources */,
+				27366ED80A2D8DDC00D4E02A /* ZStreamR_Random.cpp in Sources */,
+				27366ED90A2D8DDC00D4E02A /* ZStreamR_SkipAllOnDestroy.cpp in Sources */,
+				27366EDA0A2D8DDC00D4E02A /* ZStreamR_Source.cpp in Sources */,
+				27366EDB0A2D8DDC00D4E02A /* ZStreamRPos_StreamR.cpp in Sources */,
+				27366EDC0A2D8DDC00D4E02A /* ZStreamRW_FlushOnRead.cpp in Sources */,
+				27366EDD0A2D8DDC00D4E02A /* ZStreamRW_MemoryPipe.cpp in Sources */,
+				27366EDE0A2D8DDC00D4E02A /* ZStreamRWPos_RAM.cpp in Sources */,
+				27366EDF0A2D8DDC00D4E02A /* ZStrim.cpp in Sources */,
+				27366EE00A2D8DDC00D4E02A /* ZStrim_CRLF.cpp in Sources */,
+				27366EE10A2D8DDC00D4E02A /* ZStrim_Limited.cpp in Sources */,
+				27366EE20A2D8DDC00D4E02A /* ZStrim_Stream.cpp in Sources */,
+				27366EE30A2D8DDC00D4E02A /* ZStrim_Tee.cpp in Sources */,
+				27366EE40A2D8DDC00D4E02A /* ZStrimmer.cpp in Sources */,
+				27366EE50A2D8DDC00D4E02A /* ZStrimR_Boundary.cpp in Sources */,
+				27366EE60A2D8DDC00D4E02A /* ZStrimR_Rewind.cpp in Sources */,
+				27366EE70A2D8DDC00D4E02A /* ZStrimW_Escapify.cpp in Sources */,
+				27366EE80A2D8DDC00D4E02A /* ZStrimW_ML.cpp in Sources */,
+				27366EE90A2D8DDC00D4E02A /* ZUtil_Stream.cpp in Sources */,
+				27366EEA0A2D8DDC00D4E02A /* ZUtil_Strim.cpp in Sources */,
+				27366EEB0A2D8DDC00D4E02A /* ZRegex.cpp in Sources */,
+				27366EEC0A2D8DDC00D4E02A /* ZTextCoder.cpp in Sources */,
+				27366EED0A2D8DDC00D4E02A /* ZTextCoder_ICU.cpp in Sources */,
+				27366EEE0A2D8DDC00D4E02A /* ZTextCoder_Std.cpp in Sources */,
+				27366EEF0A2D8DDC00D4E02A /* ZTextCoder_Unicode.cpp in Sources */,
+				27366EF00A2D8DDC00D4E02A /* ZTextCollator.cpp in Sources */,
+				27366EF10A2D8DDC00D4E02A /* ZTextCollator_ASCII.cpp in Sources */,
+				27366EF20A2D8DDC00D4E02A /* ZTextCollator_ICU.cpp in Sources */,
+				27366EF30A2D8DDC00D4E02A /* ZUITextEngine.cpp in Sources */,
+				27366EF40A2D8DDC00D4E02A /* ZUITextEngine_Mac.cpp in Sources */,
+				27366EF50A2D8DDC00D4E02A /* ZUITextEngine_Z.cpp in Sources */,
+				27366EF60A2D8DDC00D4E02A /* ZUtil_TextCoder.cpp in Sources */,
+				27366EF70A2D8DDC00D4E02A /* ZThread.cpp in Sources */,
+				27366EF80A2D8DDC00D4E02A /* ZThreadSimple.cpp in Sources */,
+				27366EF90A2D8DDC00D4E02A /* ZApp.cpp in Sources */,
+				27366EFA0A2D8DDC00D4E02A /* ZCursor.cpp in Sources */,
+				27366EFB0A2D8DDC00D4E02A /* ZDragClip.cpp in Sources */,
+				27366EFC0A2D8DDC00D4E02A /* ZEvent.cpp in Sources */,
+				27366EFD0A2D8DDC00D4E02A /* ZEventHr.cpp in Sources */,
+				27366EFE0A2D8DDC00D4E02A /* ZFakeWindow.cpp in Sources */,
+				27366EFF0A2D8DDC00D4E02A /* ZMenu.cpp in Sources */,
+				27366F000A2D8DDC00D4E02A /* ZMouseTracker.cpp in Sources */,
+				27366F010A2D8DDC00D4E02A /* ZOSWindow.cpp in Sources */,
+				27366F020A2D8DDC00D4E02A /* ZOSWindow_Std.cpp in Sources */,
+				27366F030A2D8DDC00D4E02A /* ZPane.cpp in Sources */,
+				27366F040A2D8DDC00D4E02A /* ZUI.cpp in Sources */,
+				27366F050A2D8DDC00D4E02A /* ZUIBase.cpp in Sources */,
+				27366F060A2D8DDC00D4E02A /* ZUIColor.cpp in Sources */,
+				27366F070A2D8DDC00D4E02A /* ZUIDisplayState.cpp in Sources */,
+				27366F080A2D8DDC00D4E02A /* ZUIFactory.cpp in Sources */,
+				27366F090A2D8DDC00D4E02A /* ZUIFont.cpp in Sources */,
+				27366F0A0A2D8DDC00D4E02A /* ZUIInk.cpp in Sources */,
+				27366F0B0A2D8DDC00D4E02A /* ZUIMetric.cpp in Sources */,
+				27366F0C0A2D8DDC00D4E02A /* ZUIRendered.cpp in Sources */,
+				27366F0D0A2D8DDC00D4E02A /* ZUtil_UI.cpp in Sources */,
+				27366F0E0A2D8DDC00D4E02A /* ZWindow.cpp in Sources */,
+				27366F0F0A2D8DDC00D4E02A /* ZAlert.cpp in Sources */,
+				27366F100A2D8DDC00D4E02A /* ZFontMenus.cpp in Sources */,
+				27366F110A2D8DDC00D4E02A /* ZRegionAdorner.cpp in Sources */,
+				27366F120A2D8DDC00D4E02A /* ZUICartesianPlane.cpp in Sources */,
+				27366F130A2D8DDC00D4E02A /* ZUIGridPane.cpp in Sources */,
+				27366F140A2D8DDC00D4E02A /* ZUIRenderer_Appearance.cpp in Sources */,
+				27366F150A2D8DDC00D4E02A /* ZUIRenderer_Platinum.cpp in Sources */,
+				27366F160A2D8DDC00D4E02A /* ZUIRenderer_Win32.cpp in Sources */,
+				27366F170A2D8DDC00D4E02A /* ZUISwitchable.cpp in Sources */,
+				2736712D0A2DACC400D4E02A /* ZASParser.cpp in Sources */,
+				2736712E0A2DACC400D4E02A /* ZAsset_FS.cpp in Sources */,
+				2736712F0A2DACC400D4E02A /* ZAsset_Std.cpp in Sources */,
+				273671300A2DACC400D4E02A /* ZAsset.cpp in Sources */,
+				273671310A2DACC400D4E02A /* ZUtil_Asset.cpp in Sources */,
+				273671400A2DAE1900D4E02A /* ZUtil_Mac_HL.cpp in Sources */,
+				2736715F0A2DB0C000D4E02A /* ZDateTime.cpp in Sources */,
+				273671600A2DB0C000D4E02A /* ZTextUtil.cpp in Sources */,
+				27E0D9E30A44853F00B4AAA0 /* BMApp.cpp in Sources */,
+				27E0D9E40A44854000B4AAA0 /* BMButtonWindow.cpp in Sources */,
+				27E0D9E50A44854000B4AAA0 /* BMDisplayWindow.cpp in Sources */,
+				27E0D9E60A44854000B4AAA0 /* BMMain.cpp in Sources */,
+				27E0D9E70A44854000B4AAA0 /* MessageButtonPane.cpp in Sources */,
+				27F807200A6668AA00DD7D4F /* ZUtil_MacOSX.cpp in Sources */,
+				27F807370A666ACC00DD7D4F /* ZLog.cpp in Sources */,
+				276C5A550CA5ED9500C79710 /* ZFile_POSIX.cpp in Sources */,
+				276C5A580CA5EDF300C79710 /* ZBitStream.cpp in Sources */,
+				276C5A5D0CA5EE2600C79710 /* ZUtil_CFType.cpp in Sources */,
+				270AFBE40F387BAA008AA85E /* ZTName.cpp in Sources */,
+				270AFBEF0F387C55008AA85E /* ZStream_Chunked.cpp in Sources */,
+				270AFBF90F387CF4008AA85E /* ZUtil_Strim_Tuple.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0867D6ABFE840B52C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2736698E0A2D7F3900D4E02A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ButtonMessage_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = ButtonMessage;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		273669900A2D7F3900D4E02A /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ButtonMessage_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = ButtonMessage;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		273669920A2D7F3900D4E02A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					/System/Library/Frameworks/ApplicationServices.framework/Frameworks,
+					/System/Library/Frameworks/Carbon.framework/Frameworks,
+					/System/Library/Frameworks/CoreServices.framework/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "ZCONFIG_Debug=2";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		273669940A2D7F3900D4E02A /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				FRAMEWORK_SEARCH_PATHS = (
+					/System/Library/Frameworks/ApplicationServices.framework/Frameworks,
+					/System/Library/Frameworks/Carbon.framework/Frameworks,
+					/System/Library/Frameworks/CoreServices.framework/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Default;
+		};
+		27F8070B0A66673100DD7D4F /* QA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ButtonMessage_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = ButtonMessage;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = QA;
+		};
+		27F8070C0A66673100DD7D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ButtonMessage_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = ButtonMessage;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		27F8070D0A66673100DD7D4F /* QA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				FRAMEWORK_SEARCH_PATHS = (
+					/System/Library/Frameworks/ApplicationServices.framework/Frameworks,
+					/System/Library/Frameworks/Carbon.framework/Frameworks,
+					/System/Library/Frameworks/CoreServices.framework/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "ZCONFIG_Debug=1";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = QA;
+		};
+		27F8070E0A66673100DD7D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				FRAMEWORK_SEARCH_PATHS = (
+					/System/Library/Frameworks/ApplicationServices.framework/Frameworks,
+					/System/Library/Frameworks/Carbon.framework/Frameworks,
+					/System/Library/Frameworks/CoreServices.framework/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "ZCONFIG_Debug=0";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2736698D0A2D7F3900D4E02A /* Build configuration list for PBXNativeTarget "ButtonMessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2736698E0A2D7F3900D4E02A /* Debug */,
+				27F8070B0A66673100DD7D4F /* QA */,
+				27F8070C0A66673100DD7D4F /* Release */,
+				273669900A2D7F3900D4E02A /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		273669910A2D7F3900D4E02A /* Build configuration list for PBXProject "ButtonMessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				273669920A2D7F3900D4E02A /* Debug */,
+				27F8070D0A66673100DD7D4F /* QA */,
+				27F8070E0A66673100DD7D4F /* Release */,
+				273669940A2D7F3900D4E02A /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

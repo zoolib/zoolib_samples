@@ -1,0 +1,116 @@
+PROJECT_TARGET_NAME := ButtonMessage
+
+PROJECT_PATHS := \
+	$(PROJECT_DIR) \
+
+# Troublesome sources:
+#	ZUtil_Strim.cpp \
+#
+#   cannot adjust access to ... because of local method ... with same name
+#   	ZUtil_UI.cpp \
+#
+# GCC complains about explicit template instantiations
+#	ZUnicode.cpp \
+#
+# Haiku provides Thread-Local Storage
+#	TLSdata.c \
+#	TLSinside.c \
+
+PROJECT_SOURCES := \
+	BMApp.cpp \
+	BMButtonWindow.cpp \
+	BMDisplayWindow.cpp \
+	BMMain.cpp \
+	MessageButtonPane.cpp \
+\
+	ZUnicode.cpp \
+\
+	ZApp.cpp \
+	ZAtomic.cpp \
+	ZAsset.cpp \
+	ZBRegionAlternate.cpp \
+	ZBigRegion.cpp \
+	ZByteSwap.cpp \
+	ZCompare.cpp \
+	ZCursor.cpp \
+	ZDC.cpp \
+	ZDCFont.cpp \
+	ZDCInk.cpp \
+	ZDCPixmap.cpp \
+	ZDCPixmap_Asset_BMP.cpp \
+	ZDCPixmapNS.cpp \
+	ZDCPoly.cpp \
+	ZDCRgn.cpp \
+	ZDC_Be.cpp \
+	ZDC_X.cpp \
+	ZDebug.cpp \
+	ZDragClip.cpp \
+	ZEvent.cpp \
+	ZEventHr.cpp \
+	ZFakeWindow.cpp \
+	ZFontMenus.cpp \
+	ZGeom.cpp \
+	ZHandle.cpp \
+	ZMain.cpp \
+	ZMemory.cpp \
+	ZMemoryBlock.cpp \
+	ZMenu.cpp \
+	ZMenu_Be.cpp \
+	ZMenu_X.cpp \
+	ZMessage.cpp \
+	ZMessageLooperImpStd.cpp \
+	ZMouseTracker.cpp \
+	ZOSWindow.cpp \
+	ZOSWindow_Be.cpp \
+	ZOSWindow_Std.cpp \
+	ZOSWindow_X.cpp \
+	ZPane.cpp \
+	ZRGBColor.cpp \
+	ZRefCount.cpp \
+	ZRegionAdorner.cpp \
+	ZStream.cpp \
+	ZStream_Chunked.cpp \
+	ZStream_HexStrim.cpp \
+	ZStream_String.cpp \
+	ZStream_Memory.cpp \
+	ZStreamer.cpp \
+	ZStrim.cpp \
+	ZStrim_CRLF.cpp \
+	ZStrim_Stream.cpp \
+	ZStrimR_Boundary.cpp \
+	ZStrimW_Escapify.cpp \
+	ZString.cpp \
+	ZTextUtil.cpp \
+	ZThread.cpp \
+	ZTicks.cpp \
+	ZTime.cpp \
+	ZTName.cpp \
+	ZTuple.cpp \
+	ZTypes.cpp \
+	ZUI.cpp \
+	ZUIBase.cpp \
+	ZUIColor.cpp \
+	ZUIDisplayState.cpp \
+	ZUIFactory.cpp \
+	ZUIFont.cpp \
+	ZUIGridPane.cpp \
+	ZUIInk.cpp \
+	ZUIMetric.cpp \
+	ZUIRendered.cpp \
+	ZUIRenderer_Appearance.cpp \
+	ZUIRenderer_Platinum.cpp \
+	ZUIRenderer_Win32.cpp \
+	ZUITextEngine.cpp \
+	ZUITextEngine_Z.cpp \
+	ZUtil_Graphics.cpp \
+	ZUtil_Strim.cpp \
+	ZUtil_Time.cpp \
+	ZUtil_Tuple.cpp\
+	ZUtil_UI.cpp \
+	ZWindow.cpp \
+	ZXLib.cpp \
+	ZXServer.cpp \
+
+PROJECT_LIBS_LINUX := stdc++ pthread c /usr/X11R6/lib/X11 /usr/X11R6/lib/Xext z png
+
+PROJECT_LIBS_BE := be stdc++
