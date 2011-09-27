@@ -1,9 +1,9 @@
-ZOOLIB_DIR = ../../..
-PROJECT_DIR = ${ZOOLIB_DIR}/samples/buttonmessage/buttonmessage_src
+ZOOLIB_DIR ?= ../../../../zoolib
 
-ZOOLIB_PATHS := ${ZOOLIB_DIR}/src/_deprecated
+include $(ZOOLIB_DIR)/tools/zmake/zmake.prefix
+
+PROJECT_DIR = ../src
 
 include ${PROJECT_DIR}/realmake
 
-include ${ZOOLIB_DIR}/tools/zmake/zmake.engine
-
+include $(ZOOLIB_DIR)/tools/zmake/zmake.suffix
