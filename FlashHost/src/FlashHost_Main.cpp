@@ -6,7 +6,7 @@
 #include "zoolib/ZStdIO.h"
 #include "zoolib/ZStrim_Stream.h"
 #include "zoolib/ZStrimmer_Streamer.h"
-#include "zoolib/ZUtil_CFType.h"
+#include "zoolib/ZUtil_CF.h"
 #include "zoolib/ZUtil_Debug.h"
 #include "zoolib/ZUtil_STL_vector.h"
 #include "zoolib/ZWND.h"
@@ -105,7 +105,7 @@ static ZNetscape::Host_Std* sBuildUI_Carbon(
 	if (iCompositing)
 		title += "/Compositing";
 
-	::SetWindowTitleWithCFString(theWindowRef, ZUtil_CFType::sString(title));
+	::SetWindowTitleWithCFString(theWindowRef, ZUtil_CF::sString(title));
 
 	::ShowWindow(theWindowRef);
 	::BringToFront(theWindowRef);

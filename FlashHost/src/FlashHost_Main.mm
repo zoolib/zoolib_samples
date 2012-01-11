@@ -9,7 +9,7 @@
 #include "zoolib/ZStrimmer_Streamer.h"
 #include "zoolib/ZUtil_CF.h"
 #include "zoolib/ZUtil_Debug.h"
-#include "zoolib/ZUtil_STL.h"
+#include "zoolib/ZUtil_STL_vector.h"
 #include "zoolib/ZUtil_Strim_Operators.h"
 #include "zoolib/ZWND.h"
 
@@ -179,9 +179,7 @@ public:
 	,	fLogFile("--logfile", "Log: name of file to write log messages to", "-")
 	,	fURL("--url", "URL from which to load an swf",
 			"http://127.0.0.1/~ag/form1easy.swf")
-//			"http://surfer.em.net/~ag/form1easy.swf")
 //			"http://www.tizag.com/pics/flash/form1easy.swf")
-//			"http://www.adobe.com/devnet/flash/samples/game_2/2_amoebas.swf")
 //			"http://www.adobe.com/content/dotcom/en/devnet/actionscript/samples/game_2/_jcr_content/articlecontentAdobe/generic/file.res/2_amoebas%5b1%5d.swf")
 	,	fFlashLib("--flashlib", "File from which to load the flash plugin", "./NPSWF32.dll")
 		{}
@@ -247,6 +245,10 @@ int ZMain(int argc, char** argv)
 	if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
 		s.Writef("Starting");
 
+	#if ZCONFIG_SPI_Enabled(Cocoa)
+	ZAutoreleasePool thePool;
+	#endif // ZCONFIG_SPI_Enabled(Cocoa)
+
 	uint64 theVersion;
 	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(theVersion, &cmd.fFlashLib(), 1);
 	if (!theGF)
@@ -255,6 +257,12 @@ int ZMain(int argc, char** argv)
 		return 1;
 		}
 		
+
+	if (ZQ<int> theVersion = theGF->GetMajorVersion())
+		{
+		if (ZLOGF(s, eDebug))
+			s << *theVersion;
+		}
 
 	const string theMIME = "application/x-shockwave-flash";
 	const string theURL = cmd.fURL();
@@ -276,7 +284,7 @@ int ZMain(int argc, char** argv)
 		theParams.push_back(Param_t("wmode", "transparent"));
 		}
 
-	#if 0 && ZCONFIG_SPI_Enabled(Carbon)
+	#if 1 && ZCONFIG_SPI_Enabled(Carbon)
 		for (int useWindowRef = 0; useWindowRef < 2; ++useWindowRef)
 			{
 			for (int useAllowCG = 0; useAllowCG < 2; ++useAllowCG)
@@ -288,8 +296,9 @@ int ZMain(int argc, char** argv)
 					if (!useCompositing && !useWindowRef)
 						continue;
 
-//					if (useCompositing || !useWindowRef || useAllowCG)
-					if (!useCompositing || useWindowRef || !useAllowCG)
+					if (useCompositing || !useWindowRef || useAllowCG)
+//					if (!useCompositing || useWindowRef || !useAllowCG)
+//					if (!useAllowCG)
 						continue;
 
 					ZNetscape::Host_Std* theFlashHost
@@ -313,7 +322,7 @@ int ZMain(int argc, char** argv)
 
 // -----
 
-	#if 0 && ZCONFIG_SPI_Enabled(Carbon)
+	#if 1 && ZCONFIG_SPI_Enabled(Carbon)
 
 		::RunApplicationEventLoop();
 
@@ -330,7 +339,6 @@ int ZMain(int argc, char** argv)
 
 	#else
 
-		ZAutoreleasePool thePool;
 
 		extern ZRef<ZNetscape::GuestFactory> sharedGF;
 		sharedGF = theGF;

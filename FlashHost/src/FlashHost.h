@@ -13,7 +13,8 @@ using ZNetscape::NPObjectH;
 using ZNetscape::NPVariantH;
 using std::string;
 
-ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const std::string* iNativePaths, size_t iCount);
+ZRef<ZNetscape::GuestFactory> sLoadGF
+	(ZQ<int> iEarliest, ZQ<int> iLatest, const std::string* iNativePaths, size_t iCount);
 
 // =================================================================================================
 #pragma mark -

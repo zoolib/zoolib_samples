@@ -16,7 +16,6 @@
 
 namespace net_em {
 
-using std::multimap;
 using std::set;
 using std::string;
 using std::vector;
@@ -30,14 +29,12 @@ using ZNetscape::NPVariantH;
 #pragma mark -
 #pragma mark * spTryLoadGF
 
-static ZRef<ZNetscape::GuestFactory> spTryLoadGF(const string& iPath)
+static ZRef<ZNetscape::GuestFactory> spTryLoadGF(ZQ<int> iEarliest, ZQ<int> iLatest, const string& iPath)
 	{
-	try
-		{
-		return ZNetscape::sMakeGuestFactory(iPath);
-		}
+	try { return ZNetscape::sMakeGuestFactory(iEarliest, iLatest, iPath); }
 	catch (...)
 		{}
+
 	return null;
 	}
 
@@ -99,10 +96,10 @@ using ZWinRegistry::Val;
 
 static Val spTrail(const Val& iVal, const ZTrail& iTrail)
 	{
-	Val curVal = iVal;
+	ZQ<Val> curVal = iVal;
 	for (size_t x = 0; curVal && x < iTrail.Count(); ++x)
-		curVal = curVal.GetKeyRef().Get(iTrail.At(x));
-	return curVal;
+		curVal = curVal->GetKeyRef().QGet(iTrail.At(x));
+	return *curVal;
 	}
 
 static ZQ<ZTrail> spGetTrailAt(const Val& iRoot, const ZTrail& iTrail)
@@ -181,48 +178,15 @@ static set<ZTrail> spGenerateCandidates()
 	return result;
 	}
 
-static uint64 spGetVersionNumber(const string16& iPath)
+static ZRef<ZNetscape::GuestFactory> spLoadWindows(ZQ<int> iEarliest, ZQ<int> iLatest)
 	{
-	DWORD dummy;
-	if (DWORD theSize = ::GetFileVersionInfoSizeW(const_cast<WCHAR*>(iPath.c_str()), &dummy))
-		{
-		vector<char> buffer(theSize);
-		if (::GetFileVersionInfoW(const_cast<WCHAR*>(iPath.c_str()), 0, theSize, &buffer[0]))
-			{
-			VS_FIXEDFILEINFO* info;
-			UINT infoSize;
-			if (::VerQueryValueW(&buffer[0], const_cast<WCHAR*>(L"\\"), (void**)&info, &infoSize)
-				&& infoSize >= sizeof(VS_FIXEDFILEINFO))
-				{
-				return uint64(info->dwFileVersionLS) | uint64(info->dwFileVersionMS) << 32;
-				}
-			}
-		}
-	return 0;
-	}
-
-static uint64 spGetVersionNumber(const ZTrail& iTrail)
-	{ return spGetVersionNumber(ZUnicode::sAsUTF16(spTrailAsWin(iTrail))); }
-
-static ZRef<ZNetscape::GuestFactory> spLoadWindows(uint64& oVersion)
-	{
-	set<ZTrail> candidates = spGenerateCandidates();
-
-	multimap<uint64, ZTrail> theMap;
+	const set<ZTrail> candidates = spGenerateCandidates();
 	for (set<ZTrail>::const_iterator i = candidates.begin(); i != candidates.end(); ++i)
 		{
-		const ZTrail theTrail = *i;
-		if (const uint64 theVer = spGetVersionNumber(theTrail))
-			theMap.insert(std::make_pair(theVer, theTrail));
-		}
-
-	for (multimap<uint64, ZTrail>::reverse_iterator i = theMap.rbegin(); i != theMap.rend(); ++i)
-		{
-		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(spTrailAsWin(i->second)))
+		if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(iEarliest, iLatest, spTrailAsWin(*i)))
 			{
 			if (ZLOGF(s, ePriority_Info))
-				s << "Using file: " << i->second.AsString();
-			oVersion = i->first;
+				s << "Using file: " << i->AsString();
 			return theGF;
 			}
 		}
@@ -236,40 +200,41 @@ static ZRef<ZNetscape::GuestFactory> spLoadWindows(uint64& oVersion)
 #pragma mark -
 #pragma mark * sLoadGF
 
-ZRef<ZNetscape::GuestFactory> sLoadGF(uint64& oVersion, const string* iNativePaths, size_t iCount)
+ZRef<ZNetscape::GuestFactory> sLoadGF
+	(ZQ<int> iEarliest, ZQ<int> iLatest, const string* iNativePaths, size_t iCount)
 	{
-	oVersion = 0;
 	for (size_t x = 0; x < iCount; ++x)
 		{
 		const string& thePath = iNativePaths[x];
 		if (thePath.size())
 			{
-			if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))
-				{
-				#if ZCONFIG_SPI_Enabled(Win)
-					oVersion = spGetVersionNumber(ZUnicode::sAsUTF16(thePath));
-				#endif
+			if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(iEarliest, iLatest, thePath))
 				return theGF;
-				}
 			}
 		}
 	
+	ZRef<ZNetscape::GuestFactory> theGF;
+
 	#if ZCONFIG_SPI_Enabled(Win)
 
-	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadWindows(oVersion))
+	if (ZRef<ZNetscape::GuestFactory> theGF = spLoadWindows(iEarliest, iLatest))
 		return theGF;
 
 	#endif // ZCONFIG_SPI_Enabled(Win)
 
 	#if ZCONFIG_SPI_Enabled(Carbon64)
 
-	string thePath = spFindFolder(kUserDomain, kInternetPlugInFolderType) + "/Flash Player.plugin";
-	if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))
+	if (ZRef<ZNetscape::GuestFactory> theGF =
+		spTryLoadGF(iEarliest, iLatest, spFindFolder(kUserDomain, kInternetPlugInFolderType) + "/Flash Player.plugin"))
+		{
 		return theGF;
+		}
 
-	thePath = spFindFolder(kLocalDomain, kInternetPlugInFolderType) + "/Flash Player.plugin";
-	if (ZRef<ZNetscape::GuestFactory> theGF = spTryLoadGF(thePath))
+	if (ZRef<ZNetscape::GuestFactory> theGF =
+		spTryLoadGF(iEarliest, iLatest, spFindFolder(kLocalDomain, kInternetPlugInFolderType) + "/Flash Player.plugin"))
+		{
 		return theGF;
+		}
 
 	#endif // ZCONFIG_SPI_Enabled(Carbon64)
 
