@@ -21,7 +21,6 @@
 		C01178C30F24E37500E7E01D /* ZCommandLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176900F24E37400E7E01D /* ZCommandLine.cpp */; };
 		C01178C50F24E37500E7E01D /* ZCompare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176940F24E37400E7E01D /* ZCompare.cpp */; };
 		C01178DB0F24E37500E7E01D /* ZDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176CE0F24E37400E7E01D /* ZDebug.cpp */; };
-		C01178E60F24E37500E7E01D /* ZGeom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176E50F24E37400E7E01D /* ZGeom.cpp */; };
 		C01178E80F24E37500E7E01D /* ZGRgn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176E90F24E37400E7E01D /* ZGRgn.cpp */; };
 		C01178EA0F24E37500E7E01D /* ZGRgnRep_HRGN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176ED0F24E37400E7E01D /* ZGRgnRep_HRGN.cpp */; };
 		C01178EB0F24E37500E7E01D /* ZGRgnRep_RgnHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01176EF0F24E37400E7E01D /* ZGRgnRep_RgnHandle.cpp */; };
@@ -58,7 +57,6 @@
 		C01179650F24E37500E7E01D /* ZTextCoder_Win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01177E90F24E37500E7E01D /* ZTextCoder_Win.cpp */; };
 		C01179690F24E37500E7E01D /* ZThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01177F10F24E37500E7E01D /* ZThread.cpp */; };
 		C01179700F24E37500E7E01D /* ZTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178010F24E37500E7E01D /* ZTime.cpp */; };
-		C01179710F24E37500E7E01D /* ZTName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178030F24E37500E7E01D /* ZTName.cpp */; };
 		C011797B0F24E37500E7E01D /* ZTrail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178160F24E37500E7E01D /* ZTrail.cpp */; };
 		C01179920F24E37500E7E01D /* ZTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178460F24E37500E7E01D /* ZTypes.cpp */; };
 		C01179930F24E37500E7E01D /* ZUnicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C01178480F24E37500E7E01D /* ZUnicode.cpp */; };
@@ -74,12 +72,13 @@
 		C04ACF6A10953A4B00BCCD3A /* ZUtil_POSIXFD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04ACF6910953A4B00BCCD3A /* ZUtil_POSIXFD.cpp */; };
 		C04F3E910FF65737005B8753 /* ZThread_pthread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04F3E840FF65737005B8753 /* ZThread_pthread.cpp */; };
 		C04F3E920FF65737005B8753 /* ZThread_Win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04F3E870FF65737005B8753 /* ZThread_Win.cpp */; };
+		C05707981513A8AA001E5027 /* ZVal_CF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C05707971513A8AA001E5027 /* ZVal_CF.cpp */; };
+		C057079F1513A901001E5027 /* ZCompare_Rational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C057079E1513A901001E5027 /* ZCompare_Rational.cpp */; };
 		C058993A105D6BAF00C40669 /* ZNetscape_Host_Win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0589939105D6BAF00C40669 /* ZNetscape_Host_Win.cpp */; };
 		C074A6DB12678B930053DC3C /* FlashHost_Cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = C074A6DA12678B930053DC3C /* FlashHost_Cocoa.mm */; };
 		C0768B6713AB7688008968F6 /* ZRef_CF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0768B6513AB7688008968F6 /* ZRef_CF.cpp */; };
 		C0768B6813AB7688008968F6 /* ZUtil_CF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0768B6613AB7688008968F6 /* ZUtil_CF.cpp */; };
 		C0768B7513AB76E8008968F6 /* ZUtil_Strim_Operators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0768B7413AB76E8008968F6 /* ZUtil_Strim_Operators.cpp */; };
-		C0768B7913AB76FA008968F6 /* ZCompare_Real.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0768B7813AB76FA008968F6 /* ZCompare_Real.cpp */; };
 		C0795FCA117D1021004124C3 /* ZNetscape_Guest_Std.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0795FC8117D1021004124C3 /* ZNetscape_Guest_Std.cpp */; };
 		C0795FCB117D1021004124C3 /* ZNetscape_Guest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0795FC9117D1021004124C3 /* ZNetscape_Guest.cpp */; };
 		C07D2E4E1121E0EF003C0AED /* ZVal_Any.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C07D2E4D1121E0EF003C0AED /* ZVal_Any.cpp */; };
@@ -131,7 +130,6 @@
 		C01176CE0F24E37400E7E01D /* ZDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZDebug.cpp; path = zoolib/ZDebug.cpp; sourceTree = "<group>"; };
 		C01176D50F24E37400E7E01D /* ZFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZFile.cpp; path = zoolib/ZFile.cpp; sourceTree = "<group>"; };
 		C01176D70F24E37400E7E01D /* ZFile_POSIX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZFile_POSIX.cpp; path = zoolib/ZFile_POSIX.cpp; sourceTree = "<group>"; };
-		C01176E50F24E37400E7E01D /* ZGeom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZGeom.cpp; path = zoolib/ZGeom.cpp; sourceTree = "<group>"; };
 		C01176E90F24E37400E7E01D /* ZGRgn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZGRgn.cpp; path = zoolib/ZGRgn.cpp; sourceTree = "<group>"; };
 		C01176ED0F24E37400E7E01D /* ZGRgnRep_HRGN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZGRgnRep_HRGN.cpp; path = zoolib/ZGRgnRep_HRGN.cpp; sourceTree = "<group>"; };
 		C01176EF0F24E37400E7E01D /* ZGRgnRep_RgnHandle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZGRgnRep_RgnHandle.cpp; path = zoolib/ZGRgnRep_RgnHandle.cpp; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		C01177E90F24E37500E7E01D /* ZTextCoder_Win.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZTextCoder_Win.cpp; path = zoolib/ZTextCoder_Win.cpp; sourceTree = "<group>"; };
 		C01177F10F24E37500E7E01D /* ZThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThread.cpp; path = zoolib/ZThread.cpp; sourceTree = "<group>"; };
 		C01178010F24E37500E7E01D /* ZTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZTime.cpp; path = zoolib/ZTime.cpp; sourceTree = "<group>"; };
-		C01178030F24E37500E7E01D /* ZTName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZTName.cpp; path = zoolib/ZTName.cpp; sourceTree = "<group>"; };
 		C01178160F24E37500E7E01D /* ZTrail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZTrail.cpp; path = zoolib/ZTrail.cpp; sourceTree = "<group>"; };
 		C01178460F24E37500E7E01D /* ZTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZTypes.cpp; path = zoolib/ZTypes.cpp; sourceTree = "<group>"; };
 		C01178480F24E37500E7E01D /* ZUnicode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZUnicode.cpp; path = zoolib/ZUnicode.cpp; sourceTree = "<group>"; };
@@ -193,6 +190,8 @@
 		C04F3E840FF65737005B8753 /* ZThread_pthread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThread_pthread.cpp; path = zoolib/ZThread_pthread.cpp; sourceTree = "<group>"; };
 		C04F3E870FF65737005B8753 /* ZThread_Win.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZThread_Win.cpp; path = zoolib/ZThread_Win.cpp; sourceTree = "<group>"; };
 		C04F3ECA0FF65FBF005B8753 /* zconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zconfig.h; path = default_config/zconfig.h; sourceTree = "<group>"; };
+		C05707971513A8AA001E5027 /* ZVal_CF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZVal_CF.cpp; path = zoolib/ZVal_CF.cpp; sourceTree = "<group>"; };
+		C057079E1513A901001E5027 /* ZCompare_Rational.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare_Rational.cpp; path = zoolib/ZCompare_Rational.cpp; sourceTree = "<group>"; };
 		C0589939105D6BAF00C40669 /* ZNetscape_Host_Win.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZNetscape_Host_Win.cpp; path = more/zoolib/netscape/ZNetscape_Host_Win.cpp; sourceTree = "<group>"; };
 		C074A6D912678B930053DC3C /* FlashHost_Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashHost_Cocoa.h; path = ../src/FlashHost_Cocoa.h; sourceTree = SOURCE_ROOT; };
 		C074A6DA12678B930053DC3C /* FlashHost_Cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FlashHost_Cocoa.mm; path = ../src/FlashHost_Cocoa.mm; sourceTree = SOURCE_ROOT; };
@@ -200,7 +199,6 @@
 		C0768B6513AB7688008968F6 /* ZRef_CF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZRef_CF.cpp; path = zoolib/ZRef_CF.cpp; sourceTree = "<group>"; };
 		C0768B6613AB7688008968F6 /* ZUtil_CF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_CF.cpp; path = zoolib/ZUtil_CF.cpp; sourceTree = "<group>"; };
 		C0768B7413AB76E8008968F6 /* ZUtil_Strim_Operators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZUtil_Strim_Operators.cpp; path = zoolib/ZUtil_Strim_Operators.cpp; sourceTree = "<group>"; };
-		C0768B7813AB76FA008968F6 /* ZCompare_Real.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZCompare_Real.cpp; path = zoolib/ZCompare_Real.cpp; sourceTree = "<group>"; };
 		C0795FC8117D1021004124C3 /* ZNetscape_Guest_Std.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZNetscape_Guest_Std.cpp; path = more/zoolib/netscape/ZNetscape_Guest_Std.cpp; sourceTree = "<group>"; };
 		C0795FC9117D1021004124C3 /* ZNetscape_Guest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZNetscape_Guest.cpp; path = more/zoolib/netscape/ZNetscape_Guest.cpp; sourceTree = "<group>"; };
 		C07D2E4D1121E0EF003C0AED /* ZVal_Any.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZVal_Any.cpp; path = zoolib/ZVal_Any.cpp; sourceTree = "<group>"; };
@@ -258,7 +256,7 @@
 				C074A6DA12678B930053DC3C /* FlashHost_Cocoa.mm */,
 				C0DA8E441268A2E6001E643C /* NSApplicationDelegate_FlashHost.h */,
 				C0DA8E451268A2E6001E643C /* NSApplicationDelegate_FlashHost.mm */,
-				C01176620F24E37400E7E01D /* cxx */,
+				C01176620F24E37400E7E01D /* zoolib_cxx */,
 				5048396909E3304600765E4B /* Configuration Files */,
 				20286C2CFDCF999611CA2CEA /* Resources */,
 				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
@@ -296,7 +294,7 @@
 			name = "Configuration Files";
 			sourceTree = "<group>";
 		};
-		C01176620F24E37400E7E01D /* cxx */ = {
+		C01176620F24E37400E7E01D /* zoolib_cxx */ = {
 			isa = PBXGroup;
 			children = (
 				C0F3B561102B8DA9002231CB /* ZAny.cpp */,
@@ -308,7 +306,7 @@
 				C01176900F24E37400E7E01D /* ZCommandLine.cpp */,
 				C01176940F24E37400E7E01D /* ZCompare.cpp */,
 				C0406DC611E4D3880000291D /* ZCompare_Integer.cpp */,
-				C0768B7813AB76FA008968F6 /* ZCompare_Real.cpp */,
+				C057079E1513A901001E5027 /* ZCompare_Rational.cpp */,
 				C0406DCB11E4D3950000291D /* ZCompare_String.cpp */,
 				C04F3ECA0FF65FBF005B8753 /* zconfig.h */,
 				C0086072118C84000097CFB3 /* ZCounted.cpp */,
@@ -317,7 +315,6 @@
 				C01176CE0F24E37400E7E01D /* ZDebug.cpp */,
 				C01176D50F24E37400E7E01D /* ZFile.cpp */,
 				C01176D70F24E37400E7E01D /* ZFile_POSIX.cpp */,
-				C01176E50F24E37400E7E01D /* ZGeom.cpp */,
 				C01176E90F24E37400E7E01D /* ZGRgn.cpp */,
 				C01176ED0F24E37400E7E01D /* ZGRgnRep_HRGN.cpp */,
 				C01176EF0F24E37400E7E01D /* ZGRgnRep_RgnHandle.cpp */,
@@ -379,7 +376,6 @@
 				C04F3E840FF65737005B8753 /* ZThread_pthread.cpp */,
 				C04F3E870FF65737005B8753 /* ZThread_Win.cpp */,
 				C01178010F24E37500E7E01D /* ZTime.cpp */,
-				C01178030F24E37500E7E01D /* ZTName.cpp */,
 				C01178160F24E37500E7E01D /* ZTrail.cpp */,
 				C01178460F24E37500E7E01D /* ZTypes.cpp */,
 				C01178480F24E37500E7E01D /* ZUnicode.cpp */,
@@ -394,10 +390,11 @@
 				C01178800F24E37500E7E01D /* ZUtil_Time.cpp */,
 				C011788A0F24E37500E7E01D /* ZUtil_Win.cpp */,
 				C07D2E4D1121E0EF003C0AED /* ZVal_Any.cpp */,
+				C05707971513A8AA001E5027 /* ZVal_CF.cpp */,
 				C0F980AB1055F5590072462C /* ZWorker.cpp */,
 			);
-			name = cxx;
-			path = ../../../zoolib/source/cxx;
+			name = zoolib_cxx;
+			path = ../../../zoolib_cxx;
 			sourceTree = SOURCE_ROOT;
 		};
 		C0117D210F26399700E7E01D /* src */ = {
@@ -476,7 +473,6 @@
 				C01178C30F24E37500E7E01D /* ZCommandLine.cpp in Sources */,
 				C01178C50F24E37500E7E01D /* ZCompare.cpp in Sources */,
 				C01178DB0F24E37500E7E01D /* ZDebug.cpp in Sources */,
-				C01178E60F24E37500E7E01D /* ZGeom.cpp in Sources */,
 				C01178E80F24E37500E7E01D /* ZGRgn.cpp in Sources */,
 				C01178EA0F24E37500E7E01D /* ZGRgnRep_HRGN.cpp in Sources */,
 				C01178EB0F24E37500E7E01D /* ZGRgnRep_RgnHandle.cpp in Sources */,
@@ -513,7 +509,6 @@
 				C01179650F24E37500E7E01D /* ZTextCoder_Win.cpp in Sources */,
 				C01179690F24E37500E7E01D /* ZThread.cpp in Sources */,
 				C01179700F24E37500E7E01D /* ZTime.cpp in Sources */,
-				C01179710F24E37500E7E01D /* ZTName.cpp in Sources */,
 				C011797B0F24E37500E7E01D /* ZTrail.cpp in Sources */,
 				C01179920F24E37500E7E01D /* ZTypes.cpp in Sources */,
 				C01179930F24E37500E7E01D /* ZUnicode.cpp in Sources */,
@@ -563,11 +558,12 @@
 				C0768B6713AB7688008968F6 /* ZRef_CF.cpp in Sources */,
 				C0768B6813AB7688008968F6 /* ZUtil_CF.cpp in Sources */,
 				C0768B7513AB76E8008968F6 /* ZUtil_Strim_Operators.cpp in Sources */,
-				C0768B7913AB76FA008968F6 /* ZCompare_Real.cpp in Sources */,
 				C0E49CFA13C655BF00ED02FB /* ZCallScheduler.cpp in Sources */,
 				C0AF0B1613DF262F00C5661B /* ZCaller_CFRunLoop.cpp in Sources */,
 				C0AF0B1713DF262F00C5661B /* ZUtil_string.cpp in Sources */,
 				C0AF0B1B13DF264000C5661B /* ZCaller_EventLoop.cpp in Sources */,
+				C05707981513A8AA001E5027 /* ZVal_CF.cpp in Sources */,
+				C057079F1513A901001E5027 /* ZCompare_Rational.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +628,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.5;
-				ZOOLIB_CXX = ../../../zoolib/source/cxx;
+				ZOOLIB_CXX = ../../../zoolib_cxx;
 			};
 			name = Debug;
 		};

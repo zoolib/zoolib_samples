@@ -1,3 +1,4 @@
+#include "zoolib/ZCartesian_QD.h"
 #include "zoolib/ZCommandLine.h"
 #include "zoolib/ZFile.h"
 #include "zoolib/ZMain.h"
@@ -72,20 +73,19 @@ static ZNetscape::Host_Std* sBuildUI_Carbon(
 	theWA |= kWindowStandardHandlerAttribute;
 	theWA |= kWindowLiveResizeAttribute;
 	theWA |= kWindowResizableAttribute;
-	ZGRectf theBounds(400, 400);
+
+	Rect theBounds = sRect<Rect>(400, 400);
 	if (iAllowCG)
-		theBounds.origin.x += 400;
+		theBounds = sOffsettedX(400, theBounds);
 	if (iWindowRef)
-		theBounds.origin.x += 800;
+		theBounds = sOffsettedX(800, theBounds);
 	if (iCompositing)
-		theBounds.origin.y += 440;
+		theBounds = sOffsettedY(400, theBounds);
 
-	theBounds.origin.y += 44;
-
-	Rect theQDBounds = theBounds;
+	theBounds = sOffsettedY(44, theBounds);
 
 	WindowRef theWindowRef;
-	::CreateNewWindow(theWC, theWA, &theQDBounds, &theWindowRef);
+	::CreateNewWindow(theWC, theWA, &theBounds, &theWindowRef);
 
 	ZNetscape::Host_Std* theHost = nil;
 	if (iWindowRef)
@@ -249,8 +249,7 @@ int ZMain(int argc, char** argv)
 	ZAutoreleasePool thePool;
 	#endif // ZCONFIG_SPI_Enabled(Cocoa)
 
-	uint64 theVersion;
-	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(theVersion, &cmd.fFlashLib(), 1);
+	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(null, null, &cmd.fFlashLib(), 1);
 	if (!theGF)
 		{
 		serr << "Couldn't find a flash plugin";
@@ -258,7 +257,7 @@ int ZMain(int argc, char** argv)
 		}
 		
 
-	if (ZQ<int> theVersion = theGF->GetMajorVersion())
+	if (ZQ<int> theVersion = theGF->QGetMajorVersion())
 		{
 		if (ZLOGF(s, eDebug))
 			s << *theVersion;
@@ -296,9 +295,7 @@ int ZMain(int argc, char** argv)
 					if (!useCompositing && !useWindowRef)
 						continue;
 
-					if (useCompositing || !useWindowRef || useAllowCG)
-//					if (!useCompositing || useWindowRef || !useAllowCG)
-//					if (!useAllowCG)
+					if (!useCompositing || useWindowRef || !useAllowCG)
 						continue;
 
 					ZNetscape::Host_Std* theFlashHost

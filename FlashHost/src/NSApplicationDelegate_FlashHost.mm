@@ -8,7 +8,7 @@
 
 #include "zoolib/ZUtil_STL_vector.h"
 
-#include "zoolib/ZGeometry.h"
+#include "zoolib/ZCartesian_NS.h"
 #include "zoolib/netscape/ZNetscape_Host_Cocoa.h"
 #include "zoolib/netscape/ZNetscape_GuestFactory.h"
 
@@ -29,10 +29,10 @@ ZRef<ZNetscape::GuestFactory> sharedGF;
 
 - (void) awakeFromNib
 	{
-	ZGRectf iBounds(0, 44, 400, 300);
+	NSRect iBounds = sRect<NSRect>(0, 44, 400, 344);
 	
 	fWindow = [[NSWindow alloc]
-		initWithContentRect:iBounds.FlippedY([[[NSScreen screens] objectAtIndex:0] frame].size.height)
+		initWithContentRect:sFlippedY([[[NSScreen screens] objectAtIndex:0] frame].size.height, iBounds)
 		styleMask:NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask
 		backing:NSBackingStoreBuffered
 		defer:NO];
