@@ -325,17 +325,10 @@ int ZMain(int argc, char** argv)
 
 	#elif ZCONFIG_SPI_Enabled(Win)
 
-		while (true)
-			{
-			MSG theMSG;
-			if (::GetMessageW(&theMSG, nullptr, 0, 0) == 0)
-				break;
-
-			::DispatchMessageW(&theMSG);
-			}
+		while (ZWinWND::sDoOneMessage())
+			{}
 
 	#else
-
 
 		extern ZRef<ZNetscape::GuestFactory> sharedGF;
 		sharedGF = theGF;

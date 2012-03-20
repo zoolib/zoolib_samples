@@ -99,14 +99,13 @@ static Val spTrail(const Val& iVal, const ZTrail& iTrail)
 	ZQ<Val> curVal = iVal;
 	for (size_t x = 0; curVal && x < iTrail.Count(); ++x)
 		curVal = curVal->GetKeyRef().QGet(iTrail.At(x));
-	return *curVal;
+	return curVal.DGet(Val());
 	}
 
 static ZQ<ZTrail> spGetTrailAt(const Val& iRoot, const ZTrail& iTrail)
 	{
-	string16 aPath;
-	if (spTrail(iRoot, iTrail).QGetString16(aPath))
-		return spWinAsTrail(ZUnicode::sAsUTF8(aPath));
+	if (ZQ<string16> theQ = spTrail(iRoot, iTrail).QGetString16())
+		return spWinAsTrail(ZUnicode::sAsUTF8(*theQ));
 	return null;
 	}
 

@@ -9,7 +9,7 @@
 #include "zoolib/ZUtil_CF.h"
 #include "zoolib/ZUtil_Debug.h"
 #include "zoolib/ZUtil_STL_vector.h"
-#include "zoolib/ZWND.h"
+#include "zoolib/ZWinWND.h"
 
 #include "zoolib/netscape/ZNetscape_Host_Std.h"
 #include "zoolib/netscape/ZNetscape_GuestFactory.h"
@@ -123,15 +123,13 @@ static ZNetscape::Host_Std* sBuildUI_Carbon(
 
 static ZNetscape::Host_Std* sBuildUI_Win(ZRef<ZNetscape::GuestFactory> iGF)
 	{
-	ZWNDW* mainWND = new ZWNDW(DefWindowProcW);
-	DWORD theStyle = WS_SYSMENU | WS_POPUP | WS_BORDER
+	const DWORD theStyle = WS_SYSMENU | WS_POPUP | WS_BORDER
 		| WS_DLGFRAME | WS_THICKFRAME | WS_CLIPCHILDREN | WS_THICKFRAME;
+	HWND theHWND = ZWinWND::sCreateDefWindowProc(nullptr, theStyle, nullptr);
 
-	mainWND->Create(nullptr, theStyle);
+	ZNetscape::Host_Std* theHost = new net_em::FlashHost_Win(iGF, theHWND);
 
-	ZNetscape::Host_Std* theHost = new net_em::FlashHost_Win(iGF, mainWND->GetHWND());
-
-	bool result = ::SetWindowPos(mainWND->GetHWND(), HWND_TOP, 20, 30, 400, 400, SWP_SHOWWINDOW);
+	bool result = ::SetWindowPos(theHWND, HWND_TOP, 20, 30, 400, 400, SWP_SHOWWINDOW);
 
 	return theHost;	
 	}
@@ -223,8 +221,7 @@ int ZMain(int argc, char** argv)
 	if (const ZLog::S& s = ZLog::S(ZLog::ePriority_Info, "ZMain"))
 		s.Writef("Starting");
 
-	uint64 theVersion;
-	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(theVersion, &cmd.fFlashLib(), 1);
+	ZRef<ZNetscape::GuestFactory> theGF = net_em::sLoadGF(null, null, &cmd.fFlashLib(), 1);
 	if (!theGF)
 		{
 		serr << "Couldn't find a flash plugin";
@@ -290,15 +287,9 @@ int ZMain(int argc, char** argv)
 		::RunApplicationEventLoop();
 
 	#elif ZCONFIG_SPI_Enabled(Win)
-
-		while (true)
-			{
-			MSG theMSG;
-			if (::GetMessageW(&theMSG, nullptr, 0, 0) == 0)
-				break;
-
-			::DispatchMessageW(&theMSG);
-			}
+ 
+		while (ZWinWND::sDoOneMessage())
+			{}
 
 	#endif
 
